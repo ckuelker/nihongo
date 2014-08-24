@@ -1,6 +1,11 @@
 # VIM
 *.swp
 
+# Special files for the project
+*DATE.tex
+*revision.tex
+*VERSION.tex
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
