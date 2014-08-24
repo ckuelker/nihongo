@@ -44,5 +44,11 @@ by inkscape. Some other files in nihongo/share/i too.
      4 set group ID via object properties
      5 save katakana.svg (CTRL s)
      6 save copy PDF and choose name to save and object ID
+       - Restrict to PDF version 1.5
+       - Convert texts to path (include correct fonts!)
+       - Rasterzise filter effects
+       - Resolution for rasterrization 600dpi
+       - Export area is drawing
+       - Limit export to the object ID [<INSERT ID HERE>]
 
 
