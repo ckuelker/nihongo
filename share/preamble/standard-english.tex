@@ -1,0 +1,209 @@
+% ===========================================================================
+% PREAMBLE STANDARD (English)
+% ===========================================================================
+\usepackage{fontspec}%           provides font selecting commands
+\usepackage{xunicode}%           provides unicode character macros
+\usepackage{xltxtra} %           provides some fixes/extras
+%\usepackage[utf8x]{inputenc} %  problems with xetex?
+%\usepackage[utf8]{inputenc} %   problems with xetex?
+%\usepackage[T1]{fontenc} %      problems with xetex and UF8?
+\usepackage{tabularx}%           order matters
+\usepackage{tikz}%               order matters
+%\usepackage{pgf-pie} %          order matters
+\usepackage{wallpaper} %         order matters
+\usepackage{tabu} %              make thick lines
+\usepackage{colortbl} %          make color lines
+\usepackage[]{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}%           configured later!
+\usepackage{fullpage,longtable}% better tables
+\usepackage{hhline}%             better tables
+\setlength{\parindent}{0cm}
+\setlength{\arrayrulewidth}{2pt}
+
+% ===========================================================================
+% SET FONTS 
+%\usepackage{pifont}
+%\usepackage{helvet}
+\usepackage{latexsym}
+\usepackage{amssymb,amsmath}
+
+%\setmainfont{Ume Mincho S3}    % Serif      2 OK
+%\setmainfont{AR PL UMing HK}   % Typewriter 1 GOOD
+%\setmainfont{Sawarabi Gothic}   % SanSerif   1 GOOD
+%\setmainfont{WenQuanYi Zen Hei}% SanSerif   2 OK (wrong g?)
+%\setmainfont{Komatuna P}       % SanSerif   3 MAMA (but strong!)
+
+% Should be LMRoman12 though
+%\setmainfont[Mapping=tex-text]{LMRoman10}
+%\setsansfont{AR PL UMing HK}
+%\setmonofont{AR PL UMing HK}
+
+%\setmainfont{IPAPMincho}
+%\setmonofont{IPAPGothic}
+%\setsansfont{IPAPMincho}
+%\setmainfont{IPAPMincho}
+%\setmonofont{IPAMincho}
+%\setsansfont{IPAPMincho}
+
+%\fontspec[
+%ItalicFont={IPAGothic},
+%BoldFont={IPAGothic},
+%ItalicFeatures={FakeSlant},
+%BoldFeatures={FakeBold=1.5},
+%]{IPAPMincho}
+
+%BoldFont = URW Palladio L, 
+%ItalicFont = URW Palladio L,
+%BoldItalicFont = URW Palladio L,
+%SlantedFont = URW Palladio L,
+%BoldSlantedFont = URW Palladio L,
+%SmallCapsFont = URW Palladio L,
+%UprightFont = *-Roman
+%\setmainfont{YOzFontE}   % SanSerif   1 GOOD
+%\setmonofont{AR PL UMing HK}
+
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont[SlantedFont={LMRoman10},
+             SlantedFeatures={FakeSlant=0.2}]{LMRoman10}
+\setsansfont[SlantedFont={LMRoman10},
+             SlantedFeatures={FakeSlant=0.2}]{LMRoman10}
+
+\usepackage{array}% for vertical alignment in tabular with m{SIZE}
+\usepackage{xeCJK}
+\usepackage{ruby}
+\renewcommand{\rubysep}{0.25ex}
+\setCJKmainfont{IPAPMincho}
+\setCJKfamilyfont{JapaneseDejima}{Dejima}
+\setCJKfamilyfont{JapaneseYOzFont}{YOzFont90} %hand
+\setCJKfamilyfont{JapaneseYOzFontA}{YOzFontA}
+\setCJKfamilyfont{JapaneseYOzFontC}{YOzFontC90}
+\setCJKfamilyfont{JapaneseYOzFontE}{YOzFontE90}
+\setCJKfamilyfont{JapaneseYOzFontF}{YOzFontF90}
+\setCJKfamilyfont{JapaneseYOzFontM}{YOzFontN90}
+\setCJKfamilyfont{JapaneseYOzFontP}{YOzFontP90}
+\setCJKfamilyfont{JapaneseIPAPGothic}{IPAPGothic}
+\setCJKfamilyfont{JapaneseDefault}{IPAPMincho}
+\newcommand\JapaneseYOzFont{\CJKfamily{JapaneseYOzFont}\CJKnospace}
+\newcommand\JapaneseYOzFontA{\CJKfamily{JapaneseYOzFontA}\CJKnospace}
+\newcommand\JapaneseYOzFontC{\CJKfamily{JapaneseYOzFontC}\CJKnospace}
+\newcommand\JapaneseYOzFontE{\CJKfamily{JapaneseYOzFontE}\CJKnospace}
+\newcommand\JapaneseYOzFontF{\CJKfamily{JapaneseYOzFontF}\CJKnospace}
+\newcommand\JapaneseYOzFontM{\CJKfamily{JapaneseYOzFontM}\CJKnospace}
+\newcommand\JapaneseYOzFontP{\CJKfamily{JapaneseYOzFontP}\CJKnospace}
+\newcommand\JapaneseIPAPGothic{\CJKfamily{JapaneseIPAPGothic}\CJKnospace}
+\newcommand\JapaneseIPAPMincho{\CJKfamily{JapaneseIPAPMincho}\CJKnospace}
+\newcommand\JapaneseGothic{\CJKfamily{JapaneseIPAPGothic}\CJKnospace}
+\newcommand\JapaneseDejima{\CJKfamily{JapaneseDejima}\CJKnospace}
+\newcommand\JapaneseDefault{\CJKfamily{JapaneseDefault}\CJKnospace}
+
+%\setCJKsansfont[]{}
+%\setCJKmonofont[...]{...}
+
+% Should be LMRoman12 though
+%\newcommand{\Circ}[1]{\fontspec{Sawarabi Gothic}#1\setmainfont{LMRoman10}}
+
+% ===========================================================================
+% WRITE JAPANESE TEXT VERTICALLY
+% derived from jltxdoc.cls and plext.dtx
+%\usepackage{plext}
+\def\tsample#1{%
+%  \hbox to\linewidth\bgroup\vrule width.1pt\hss
+  \hbox to 150mm \bgroup\vrule width.1pt\hss
+    \vbox\bgroup\hrule height.1pt
+      \vskip.5\baselineskip
+%      \vbox to\linewidth\bgroup\tate\hsize=#1\relax\vss}
+      \vbox to 150mm \bgroup\tate\hsize=#1\relax\vss}
+\def\endtsample{%
+      \vss\egroup
+      \vskip.5\baselineskip
+    \hrule height.1pt\egroup
+  \hss\vrule width.1pt\egroup}
+
+% ---------------------------------------------------------------------------
+% ADD THIS PACKAGES INCASE latex AND NOT platex is used:
+% \documentclass[titlepage,12pt,a4paper,german]{book}
+% PAKETE
+% Deutsche Umlaute etc.
+% \usepackage{2up}
+% \usepackage{natbib}
+% \bibpunct[;]{(}{)}{;}{a}{,}{,}
+% Sprache (nach natbib)
+% \usepackage{babel}
+% pakete aus deutscher distribution
+% \usepackage{2up}
+
+
+% ===========================================================================
+% Better hypphenation - more space
+\sloppy
+\input{../share/hyphenation/hyphenation}
+
+% ===========================================================================
+% PAGELAYOUT
+\usepackage{geometry}
+\geometry{
+  top=1in,            % <-- you want to adjust this 0.5
+  inner=.8in,
+  outer=.6in,
+  bottom=1.5in,
+  footskip=5ex,   
+  headheight=5ex,       % <-- and this 3
+  headsep=5ex,          % <-- and this 2
+}
+% better head lines
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%\fancyhead{30pt}
+\setlength\headheight{25.5pt}
+
+
+% ===========================================================================
+% NEW DEFINITIONS FOR SYSTEM COMMANDS
+\renewcommand{\chaptermark}[1]{\markboth{\textsf{\scriptsize \thechapter.\ #1\normalsize}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\textsf{\scriptsize\thesection.\ #1\normalsize}}{}}
+ 
+%\renewcommand{\chaptermark}[1]{%
+%\markboth{\textsf{\scriptsize \thechapter.%
+%\ \chaptername:\ #1\normalsize}}{}}
+%\renewcommand{\sectionmark}[1]{%
+%\markright{\textsf{\scriptsize\thesection.\ #1\normalsize}}{}}
+
+% ===========================================================================
+% SETTING OWN VALUES
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3} 
+%\setlength{\baselineskip}{0pt}
+%\setlength{\parskip}{\smallskipamount}
+%\setlength{\parindent}{0pt}
+ 
+% ===========================================================================
+% BETTER PLACING of fig and tab ENVIRONMENTS
+\usepackage{flafter}
+
+% ===========================================================================
+% LINKS
+\providecolor{myblue}{rgb}{0,0.49995,1}
+\hypersetup{colorlinks, 
+          citecolor=myblue,
+          filecolor=myblue,
+          linkcolor=myblue,
+          urlcolor=myblue}
+% ===========================================================================
+% FOR BOXES
+\usepackage{microtype}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{tcolorbox}
+\usepackage[tikz]{bclogo}
+\usepackage{lipsum}
+
+% ===========================================================================
+% REVISION DATE VERSION
+\include{VERSION}
+\include{DATE}
+\include{revision}
+
+% ===========================================================================
+% INDEX
+\usepackage{makeidx}
+\makeindex
