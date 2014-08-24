@@ -1,4 +1,4 @@
-\newcommand{\Warn}[1]{
+\newcommand{\Warn}[2]{
 \begin{mdframed}[
 linecolor=black!40,
 outerlinewidth=1pt,
@@ -12,12 +12,12 @@ backgroundcolor=blue!10,
 shadow=true,
 shadowsize=6,
 shadowcolor=black!20,
-frametitle={Warning!},
+frametitle={#1},
 frametitlebackgroundcolor=red!40,
 frametitlerulewidth=10pt
 ]
 
-#1
+#2
 
 \end{mdframed}
 }
