@@ -22,9 +22,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="7.9999996"
-     inkscape:cx="385.52486"
-     inkscape:cy="38.393019"
+     inkscape:zoom="1.4142135"
+     inkscape:cx="511.32896"
+     inkscape:cy="451.80954"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -11493,8 +11493,8 @@
     </g>
     <g
        transform="translate(165,330)"
-       id="se-7"
-       inkscape:label="se">
+       id="ne"
+       inkscape:label="ne">
       <rect
          ry="0"
          y="57.362183"
