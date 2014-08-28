@@ -24,7 +24,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142135"
      inkscape:cx="511.32896"
-     inkscape:cy="451.80954"
+     inkscape:cy="272.07831"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -14060,7 +14060,8 @@
     </g>
     <g
        id="wos"
-       inkscape:label="wos">
+       inkscape:label="wos"
+       transform="translate(20,0)">
       <g
          inkscape:label="#g4225"
          id="a-5-8-3-6-0-7-0"
