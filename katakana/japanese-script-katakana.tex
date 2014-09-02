@@ -45,152 +45,20 @@
 
 \mainmatter
 
-% ===========================================================================
-\chapter{片仮名 - Katakana}
-
 \Warn{Warning!}{This work is a \textbf{draft}. It is not complete and contains
 errors. Please report.}
 
-\bigskip
+\input{../share/chap/JapaneseWritingSystem} % Japanese Writing Japanese
+\input{../share/chap/WritingKatakana}       % Writing Katakana
+\input{../share/chap/KatakanaTraining}      % Katakana Training
+\input{../share/chap/Terminology}           % Terminology
 
-The second Japanese Kana script, \hyperref[sec:Syllable]{syllable}, better
-\hyperref[sec:Mora]{morae} based writing system is called Katakana and written
-in Japanese as {片仮名} {【かたかな】} but sometimes also as {カタカナ}.  It
-consists of a littel less the 50 letters, as it is usual for morae baseed
-systems and it derived from Chinese characters, called Kanji
-{漢字}　{【かんじ】} in Japanese. Together they form a complete phonetic
-script. 
-
-Even though Katakana can be used by its own to express the complete content of
-the Japanese language it is almost never used as such.This is due to the fact
-that the other two scripts Hiragana and Kanji exists and that there was
-traditionally no space character to separate words. So a Katakana sentence with
-Katakana only and no spaces is hardly understandable due to many homophones.
-But even if there are spaced it is difficult. Therefore the letter type
-boundaries of Kanji, Hirangana and Katakana are the most significant indicator
-for word boundaries. 
-
-In the Japanese written language Katakana has a destricnt role. It serves for:
-
-\begin{tabular}{rl}
-1.& writing words of foreign origin\\
-2.& words that need to be emphasized\\
-3.& botanic names\\
-4.& faunic names\\
-5.& partly onomatopoeias in Manga\\	
-\end{tabular}
-
-\section{Pronunciation and Intonation}
-
-The pronunciation of Katakana is the same as for Hiragana. Therefore every
-syllable, more precise every mora corresponds to a Katakana character and is
-constructed as 'consonant' + 'vowel' with the exception of |n|. This system of
-letter for each mora makes pronunciation absolutely clear with no
-ambiguities. However the simplicity of Katakana does not mean that
-pronunciation in Japanese is simple for English speakers as it is for Germans. 
-The rigid structure of the fixed mora sound in Japanese creates the challenge 
-of learning the proper intonation and duration of Japanese pronunciation. 
-
-Almost each Japanese word can be chunked into morae of high and low pitch witch
-is a crucial aspect of the spoken language. Compared to Chinese, Japanese
-luckily have only two pitched: hi and low. Sometimes this difference can be
-even important for the lexic. Homophones can have for example a difference in
-pitch which make them distinguishable.  The intonation of high and low pitches
-is a crucial aspect of the spoken language. One of the biggest problems for
-obtaining a natural sounding pronunciation is the incorrect intonation. Many
-European or American learners speak without paying attention to the correct
-pitch. That makes the speech sound non-natural for Japanese. In some language
-course try to let the learner memorize the natural pitch of a word or even
-teach rules for memorization. While there is clearly a possibility for
-linguistic rules, they are hard to remember and master. Also because they can
-remember the rules it is still possible to learn the correct intonation by
-resorting to language learning techniques used by infants or small children:
-mimicking native Japanese speakers. Therefore it is highly adviced to expose
-oneself to as many Japanese spoken language as possible and to mimic it. Radio,
-podcasts, drama and television to name a few. However, it is not adviced to
-listen too much artificial sources like anime or commercials.  
-
-\begin{tabular}{rl}
--&every (yes \textbf{every}) mora is pronounced with the same length\\
--&there is no short and long mora or letters\\
--&every mora has a pich: high or low\\
--&every pitch matters\\
--&the pitch can change with its context\\
--&the pitch can change with a dialect - however well defined in standard Japanese\\
-\end{tabular}
-
-\section{Writing Katakana}
-
-Writing Katakana is not much different as writing Hiragana. Katakana is written
-mostly from left to right and up to down. In some texts from up to up to down
-and right to left. 
-
-\bigskip
-
-\begin{tabular}{p{4cm}p{4cm}p{4cm}m{4cm}}
-horizontally&
-\fbox{
-\begin{minipage}{3.2cm}
-コノテクトハゼンブデカタカナデカカレタモノデアル。カタカナダケデカクト、カナリヨミニクイテクトトナリマス。
-\end{minipage}
-}
-& vertically &
-%\setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=vertical]{Kozuka Gothic Pro M}
-\setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=vertical]{IPAPGothic}
-\raisebox{-.5\height}{
-\fbox{
-\rotatebox{-90}{
-\begin{minipage}{3.2cm} \CJKfamily{cjk-vert}
-コノテクトハゼンブデカタカナデカカレタモノデアル。
-カタカナダケデカクト、カナリヨミニクイテクトトナリマス。
-\end{minipage}
-}
-}
-}
-\\
-\end{tabular}
-\bigskip
-
-Even if it possible to change the orientation the letter as such is \textbf{not} rotated.
-
-% ===========================================================================
-\chapter{片仮名練習 - Katakana Training}
-
-todo
-\newpage
-
-\input{../share/sec/KatakanaARow}   % OK
-\input{../share/sec/KatakanaKaRow}  % OK
-\input{../share/sec/KatakanaSaRow}  % OK
-\input{../share/sec/KatakanaTaRow}  % OK
-\input{../share/sec/KatakanaNaRow}
-\input{../share/sec/KatakanaHaRow}  % OK
-\input{../share/sec/KatakanaMaRow}
-\input{../share/sec/KatakanaYaRow}
-\input{../share/sec/KatakanaRaRow}
-\input{../share/sec/KatakanaWaRow}
-\input{../share/sec/KatakanaNRow}
+% TODO chapter tables
 
 \begin{tabular}{|c|c|c|c|c|c|}\hline
  & a & i & u & e & o \\\hline
 -&\Kletter{a}&\Kletter{i}&\Kletter{u}&\Kletter{e}&\Kletter{o}\\\hline
 \end{tabular}
-
-% ===========================================================================
-\chapter{専門用語 - Terminology}
-
-\input{../share/sec/Manyogana}  % label sec:Manyogana
-\input{../share/sec/Hepburn}    % label sec:Hepburn
-\input{../share/sec/Kunrei}     % label sec:Kunrei
-\input{../share/sec/Diphthong}  % label sec:Diphthong
-\input{../share/sec/Mora}       % label sec:Mora
-\input{../share/sec/Syllable}   % label sec:Syllable
-\input{../share/sec/Dakuten}    % label sec:Dakuten
-\input{../share/sec/Handakuten} % label sec:Handakuten
-\input{../share/sec/Iteration}  % label sec:Iteration
-\input{../share/sec/Radical}    % label sec:Radical
-
-
 
 % ===========================================================================
 % END
