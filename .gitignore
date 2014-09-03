@@ -1,6 +1,12 @@
 # VIM
 *.swp
 
+# temporary files
+tmp.*
+tmp/.*
+tmp
+tmp/
+
 # Special files for the project
 *DATE.tex
 *revision.tex
