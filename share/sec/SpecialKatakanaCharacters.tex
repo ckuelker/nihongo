@@ -1,30 +1,45 @@
 \section{Special Katakana Characters}
 
 As mentioned before Katakana is almost like Hiragana. This is true for the
-\hyperref{sec:50SoundTable}{50 sound table  {五十音図} {【ごじゅうおんず】}}
+\hyperref[sec:50SoundTable]{50 sound table  {五十音図} {【ごじゅうおんず】}}
 This section will show the special characters, some are different from the
 Hiragana set.
 
-Special in some sense are characters used for interpunction, like {。}, {！}
-and {？}.  These are similar to the western counterparts but differ a little
-bit. While it is obvious for the small cirlce {。}, also {！} and {？} differ
-from the western equivalent in that sence that they are \textbf{centerd} and
-occupy more (white) space. This characters among other characters are used
-equally among Hiragana, Katakana and Kanji. Therefore this section will not
-further mention them.
+Special in some sense are characters used for punctuation, like {「。」},
+{「！」} and {「？」}.  These are similar to the western counterparts but
+differ a little bit. While it is obvious for the small circle {「。」}, also
+{「！」} and {「？」} differ from the western equivalent in that sense that
+they are \textbf{centerd} and occupy more (white) space. This characters among
+other characters are used equally among Hiragana, Katakana and Kanji. Therefore
+this section will not further mention them.
 
 %TODO check if point changes orientation and alignment in case of changing
 %writing direction. 
 
-\subsection{Doubling Vowls in Katakana}
+\subsection{Doubling Vowels in Katakana}
 
-Special Kataka characts do also exists. The most important charact is
-the plain iteration character {ー}, written as a stroke. It is one of the
+Special Katakana characters do also exists. The most important character is
+the plain iteration character {「ー」}, written as a stroke. It is one of the
 very few which changes orientation according the writing orientation. When
-writing Katakana from left to right the interation character is horizontal,
+writing Katakana from left to right the iteration character is horizontal,
 while writing Katakana from up to down it is vertical. The function of
-this character is to double the pervious mora. This is also different
+this character is to double the previous mora. This is also different
 from Hiragana.
+
+\bigskip
+
+\CharacterExplanation{k-iteration-s}{In standard gothic fonts the Katakana
+iteration character is just a straight line and it is not possible to
+understand in which direction it has to written. }
+
+\bigskip
+
+\CharacterExplanation{k-iteration-sm}{However if it is written with a different
+font or with a brush it is clearly visible that in horizontal writing it is
+written from left to right.} 
+
+\bigskip
+
 
 %\definecolor{orange}{rgb}{1,0.5,0}
 %\definecolor{mygreen}{rgb}{.2,1,.2}
@@ -33,16 +48,55 @@ from Hiragana.
 \textit{Example:}
 
 \bigskip
+
+\begin{center}
 \begin{tabular}{ll}
 Katakana:&Hiragana:\\
-Kaado カ\textbf{\color{magenta}ー}ド&Kaado か\textbf{\color{magenta}あ}ど\\
+\Huge カ\textbf{\color{magenta}ー}ド /kaado/ &\Huge か\textbf{\color{magenta}あ}ど /kaado/\\
 \end{tabular}
+\end{center}
 
 \bigskip
-This caracter is very often used and makes Katakana for this easier then
-Hiragana. The long vowl abiguity do not exist.
 
-\subsection{Seldomly Used Katakana}\label{subsec:SeldomlyUsedKatakana}
+This character is very often used and makes Katakana for this easier then
+Hiragana. The long vowel ambiguity do not exist.
+
+As mentioned above the orientation of the Katakana iteration character changes
+with the direction of writing. The above example with different writing
+orientation.
+
+\bigskip
+\textit{Example:}
+
+\bigskip
+
+\begin{tabular}{p{4cm}p{4cm}p{4cm}m{4cm}}
+horizontally&
+\setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=horizontal]{IPAPGothic}
+\mbox{
+\begin{minipage}{3.2cm}
+\Huge カ\textbf{\color{magenta}ー}ド
+\end{minipage}
+}
+& vertically &
+%\setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=vertical]{Kozuka Gothic Pro M}
+\setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=vertical]{IPAPGothic}
+\raisebox{-.5\height}{
+\mbox{
+\rotatebox{-90}{
+\begin{minipage}{3.2cm} \CJKfamily{cjk-vert}
+\Huge カ\textbf{\color{magenta}ー}ド
+\end{minipage}
+}
+}
+}
+\\
+\end{tabular}
+\bigskip
+
+
+
+\subsection{Seldom Used Katakana}\label{subsec:SeldomlyUsedKatakana}
 
 Even though |wo| {「ヲ」}  is part if the standard letters. But since all
 particle are written in Hiragana and in this case |wo| is written {「を」} the
