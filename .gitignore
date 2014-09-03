@@ -1,5 +1,8 @@
 # VIM
 *.swp
+*~
+*.pdf
+*.epub
 
 # temporary files
 tmp.*
