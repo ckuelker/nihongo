@@ -12,6 +12,7 @@
 \input{../share/cmd/Kletter}
 \input{../share/cmd/KLETTER}
 \input{../share/cmd/Link}
+\input{../share/table/Padding}  % add space between content and lines
 
 % PARAGRAPH COMMANDS
 \input{../share/box/Warn} % red   - additional dangerous info reg. lang
@@ -43,10 +44,14 @@
 \tableofcontents
 \pagestyle{fancy}
 
-\mainmatter
+\input{../share/para/Usage}
+
+\newpage
 
 \Warn{Warning!}{This work is a \textbf{draft}. It is not complete and contains
 errors. Please report.}
+
+\mainmatter
 
 \input{../share/chap/JapaneseWritingSystem} % Japanese Writing Japanese
 \input{../share/chap/WritingKatakana}       % Writing Katakana
