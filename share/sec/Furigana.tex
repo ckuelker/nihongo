@@ -1,4 +1,72 @@
 % ---------------------------------------------------------------------------
 \section{Furigana - 振り仮名} \label{sec:Furigana}
 
-TODO
+
+The Japanese \textit{Furigana} - written in Japanese {振り仮名} {【ふりがな】}
+- is an aid for reading \hyperref[sec:Kanji]{Kanji}. \textit{Furigana} are
+\hyperref[sec:Kana]{Kana}, so basically \hyperref[sec:Hiragana]{Hiragana} or
+\hyperref[sec:Katakana]{Katakana}. \textit{Furigana} are written next to the
+character (mostly \hyperref[sec:Kanji]{Kanji}) which reading can not be
+expected to be know mostly as annotative glosses. At first unknown or difficult \hyperref[sec:Kanji]{Kanji}
+are candidates for \textit{Furigana} but also in books for Children some if not
+all \hyperref[sec:Kanji]{Kanji} have \textit{Furigana}. But even in books for
+learning English for example \textit{Furigana} can be found next to words
+written in \hyperref[sec:Romaji]{Rōmaji}.
+
+Text written horizontally \textit{Furigana} are written mostly above the
+referenced character. In vertically written text \textit{Furigana} is written
+on the right site next to the character. Good \textit{Furigana} tries to place
+the reading distinguishable to each character separately. So the
+first example (Kanji+Hiragana) is not good. While the second (Kanji+Hiragana)
+is a good usage of \textit{Furigana}. 
+
+\begin{center}
+\begin{tabular}{rl}
+ \normalsize over:&\Huge \ruby{東京}{とうきょう}
+ \ruby{東}{とう}\ruby{京}{きょう}
+ \ruby{東}{トー}\ruby{京}{キョー}
+ \ruby{東}{tō}\ruby{京}{kyō} \\
+ \normalsize behind:& \Huge 東京（とうきょう） 東京【とうきょう】\\
+ \end{tabular}
+\end{center}
+
+
+Vertically written Tōkyō as it also can be seen on many signs.
+
+\begin{center}
+\setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=vertical]{IPAPMincho}
+\renewcommand{\rubysep}{-0.5ex}
+%\raisebox{-.5\height}{
+%\fbox{
+\rotatebox{-90}{
+\begin{minipage}{2.0cm} \CJKfamily{cjk-vert}
+\Huge \ruby{東}{とう}\ruby{京}{ きょう}
+\end{minipage}
+%}
+%}
+}
+\end{center}
+\bigskip
+
+Other names for Furigana are ruby/rubi or yomigana {読み仮名} {【よみがな】}.
+Ruby (Japanese {ルビ} /rubi/) is also a annotation system that can be used in
+\LaTeX or HTML. Rubi are  also common in China, Taiwan and Korea. 
+
+A common example for using Furigana for adults:
+
+\begin{center}
+\Huge \ruby{地球}{ふるさと}　
+\end{center}
+
+In science fictions some astronaut could use the Japanese word {ふるさと}
+/furusato/  with the meaning of "my hometown" to refer to the planet Earth ( =
+{地球}{【ちきゅう】}). Or to make it more fancy and international (may be also
+with connotation that Japan has no space in the future):
+
+\begin{center}
+\Huge \ruby{地球}{アース}　
+\end{center}
+
+Here {アース} refers to 'earth', but {地球} is better understandable by the
+Japanese audience.
+
