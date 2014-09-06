@@ -63,11 +63,13 @@
 %\setmainfont{YOzFontE}   % SanSerif   1 GOOD
 %\setmonofont{AR PL UMing HK}
 
-\defaultfontfeatures{Ligatures=TeX}
-\setmainfont[SlantedFont={LMRoman10},
-             SlantedFeatures={FakeSlant=0.2}]{LMRoman10}
-\setsansfont[SlantedFont={LMRoman10},
-             SlantedFeatures={FakeSlant=0.2}]{LMRoman10}
+% ------  2014-09-06 -----
+%\defaultfontfeatures{Ligatures=TeX}
+%\setmainfont[SlantedFont={LMRoman10},
+%             SlantedFeatures={FakeSlant=0.2}]{LMRoman10}
+%\setsansfont[SlantedFont={LMRoman10},
+%             SlantedFeatures={FakeSlant=0.2}]{LMRoman10}
+\addtokomafont{footnote}{\footnotesize\sffamily}
 
 \usepackage{array}% for vertical alignment in tabular with m{SIZE}
 \usepackage{xeCJK}
