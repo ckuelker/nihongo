@@ -1,4 +1,4 @@
-\documentclass[paper=a4,headings=small,titlepage,makeidx,fontsize=12pt]{scrbook} 
+\documentclass[draft=yes,version=last,paper=a4,headings=small,titlepage,makeidx,fontsize=12pt]{scrbook} 
 
 % ===========================================================================
 % PREAMBLE
@@ -36,6 +36,7 @@
 % DOCUMENT
 % ===========================================================================
 \begin{document}
+\fontspec{FreeSans}
 \pagestyle{plain}
 \frontmatter
 \maketitle
@@ -53,6 +54,7 @@ errors. Please report.}
 
 \mainmatter
 
+\input{../share/chap/Introduction}          % Introduction
 \input{../share/chap/JapaneseWritingSystem} % Japanese Writing Japanese
 \input{../share/chap/WritingKatakana}       % Writing Katakana
 \input{../share/chap/KatakanaTraining}      % Katakana Training
