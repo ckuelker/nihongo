@@ -23,52 +23,66 @@ is a good usage of \textbf{Furigana}.
 
 \begin{center}
 \begin{tabular}{rl}
- \normalsize over:&\Huge \ruby{東京}{とうきょう}
- \ruby{東}{とう}\ruby{京}{きょう}
- \ruby{東}{トー}\ruby{京}{キョー}
+ \normalsize over:&\Huge \ruby{東京}{とうきょう}　
+ \ruby{東}{とう}\ruby{京}{きょう}　
+ \ruby{東}{トー}\ruby{京}{キョー}　
  \ruby{東}{tō}\ruby{京}{kyō} \\
- \normalsize behind:& \Huge 東京（とうきょう） 東京【とうきょう】\\
+ \normalsize behind:& \Huge 東京（とうきょう）　 東京【とうきょう】\\
  \end{tabular}
 \end{center}
 
-
-Vertically written Tōkyō as it also can be seen on many signs.
-
-\begin{center}
+\begin{tabular}{ll}
+\raisebox{10\height}{
+ \framebox[20mm][r]{
+ \rotatebox{-90}{
+  \begin{minipage}{2.0cm} 
 \setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=vertical]{IPAPMincho}
 \renewcommand{\rubysep}{-0.5ex}
-%\raisebox{-.5\height}{
-%\fbox{
-\rotatebox{-90}{
-\begin{minipage}{2.0cm} \CJKfamily{cjk-vert}
-\Huge \ruby{東}{とう}\ruby{京}{ きょう}
-\end{minipage}
-%}
-%}
+  \CJKfamily{cjk-vert}
+   \Huge \ruby{東}{とう}\ruby{京}{ きょう}
+  \end{minipage}
+ }
 }
-\end{center}
-\bigskip
+}
+&\begin{minipage}{14cm}
+Vertically written Tōkyō as it also can be seen on many signs.\smallskip
 
-Other names for \textbf{Furigana} are ruby/rubi or yomigana {読み仮名}
+Other names for \textbf{Furigana} are Ruby/Rubi or Yomigana {読み仮名}
 {【よみがな】}.  Ruby (Japanese {ルビ} /rubi/) is also a annotation system that
 can be used in \LaTeX or HTML. Rubi are  also common in China, Taiwan and
-Korea. 
+Korea. \end{minipage}
+\\
+\end{tabular}
+\bigskip
 
-A common example for using \textbf{Furigana} for adults:
+\begin{tabular}{ll}
+\begin{minipage}{14cm}
 
-\begin{center}
-\Huge \ruby{地球}{ふるさと}　
-\end{center}
-
-In science fictions some astronaut could use the Japanese word {ふるさと}
-/furusato/  with the meaning of "my hometown" to refer to the planet Earth ( =
+A common example for using \textbf{Furigana} for adults would be to rename
+(better re-read) single words to give them a specific connotation.  In science
+fictions some astronaut could use the Japanese word {ふるさと} /furusato/  with
+the meaning of "my hometown" to refer to the planet Earth ( =
 {地球}{【ちきゅう】}). Or to make it more fancy and international (may be also
 with connotation that Japan has no space in the future):
 
-\begin{center}
-\Huge \ruby{地球}{アース}　
-\end{center}
+\end{minipage}&
+\begin{minipage}{2cm}
+\Huge \ruby{地球}{ふるさと}　
+\end{minipage}\\
+\end{tabular}
 
+\begin{tabular}{lp{2cm}}
+\begin{minipage}{14cm}
 Here {アース} refers to 'earth', but {地球} is better understandable by the
 Japanese audience.
+\end{minipage}
+&
+\mbox{\Huge\ruby{地球}{アース} }
+\\
+\end{tabular}
+
+
+
+
+
 
