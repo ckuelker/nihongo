@@ -20,7 +20,6 @@
 \usepackage{hhline}%             better tables
 \setlength{\parindent}{0cm}
 \setlength{\arrayrulewidth}{2pt}
-
 % ===========================================================================
 % SET FONTS 
 %\usepackage{pifont}
@@ -209,5 +208,8 @@
 
 % ===========================================================================
 % INDEX
-\usepackage{makeidx}
-\makeindex
+%\usepackage{makeidx}
+\usepackage{multind}%            more the one index (style makeindex)
+\makeindex{japanese}
+\makeindex{english}
+\makeindex{german}
