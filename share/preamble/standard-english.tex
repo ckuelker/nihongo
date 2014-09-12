@@ -1,6 +1,18 @@
 % ===========================================================================
 % PREAMBLE STANDARD (English)
 % ===========================================================================
+% INDEX - need to load before hyperref
+%\usepackage{makeidx}
+\usepackage{multind}%            more the one index (style makeindex)
+\makeindex{japanese}
+\makeindex{english}
+\makeindex{german}
+\newcommand{\ien}[1]{\index{english}{#1}}
+\newcommand{\ija}[1]{\index{japanese}{#1}}
+\newcommand{\ide}[1]{\index{german}{#1}}
+\newcommand{\ithree}[3]{\ien{#1}\ija{#2}\ide{#3}}
+\newcommand{\ifor}[4]{\ien{#1}\ija{#2}\ija{#3}\ide{#4}}
+% ===========================================================================
 \usepackage{fontspec}%           provides font selecting commands
 \usepackage{xunicode}%           provides unicode character macros
 \usepackage{xltxtra} %           provides some fixes/extras
@@ -163,9 +175,11 @@
 
 % ===========================================================================
 % NEW DEFINITIONS FOR SYSTEM COMMANDS
+\makeatletter
 \renewcommand{\chaptermark}[1]{\markboth{\textsf{\scriptsize \thechapter.\ #1\normalsize}}{}}
 \renewcommand{\sectionmark}[1]{\markright{\textsf{\scriptsize\thesection.\ #1\normalsize}}{}}
- 
+\makeatother
+
 %\renewcommand{\chaptermark}[1]{%
 %\markboth{\textsf{\scriptsize \thechapter.%
 %\ \chaptername:\ #1\normalsize}}{}}
@@ -207,9 +221,52 @@
 \include{revision}
 
 % ===========================================================================
-% INDEX
-%\usepackage{makeidx}
-\usepackage{multind}%            more the one index (style makeindex)
-\makeindex{japanese}
-\makeindex{english}
-\makeindex{german}
+% Japanese TOC jtoc
+% It will nt use the toclof counters. There is a bug that if one uses \part
+% as a reference there will always be a dot added the \thejchapter, like
+%   .1 　日本語の書き方
+% therefore the usual counters are used: \thechapter \thesection
+%
+% This section defined 2 commands:
+%
+%     \jchap{STRING} - adds a toc entry for the chapter
+%     \jsec{STRING}  - adds a toc entry for the chapter
+%
+\usepackage{tocloft}
+\newlistof[part]{answer}{ans}{Table of Contents}
+
+\newcommand{\listjtocname}{Japanese: Contents - 目次}
+\newlistof[part]{jchapter}{jtoc}{\listjtocname}
+%
+\newcommand{\jchap}[1]{%
+\addcontentsline{jtoc}{jchapter}{\protect\numberline{\thechapter} #1}%
+}
+\newcommand{\jindex}[1]{\addcontentsline{jtoc}{jchapter}{#1}}
+%
+\newlistentry[chapter]{jsection}{jtoc}{1}
+\newcommand{\jsec}[1]{%
+\addcontentsline{jtoc}{jsection}{\protect\numberline{\thesection}#1}
+}
+\newcommand{\jsubindex}[1]{\addcontentsline{jtoc}{jsection}{#1}}
+%
+\newlistentry[section]{jsubsection}{jtoc}{1}
+\newcommand{\jsubsec}[1]{%
+\addcontentsline{jtoc}{jsubsection}{\protect\numberline{\thesubsection}#1}
+}
+
+\makeatletter
+\renewcommand{\@pnumwidth}{2em}
+%\renewcommand*{\raggedchapterentry}{\setlength\@tempdima{2.3em}}
+%\renewcommand*\l@section{\bprot@dottedtocline{1}{1.5em}{3.2em}}
+\renewcommand*\cftchapnumwidth{2em}
+\renewcommand*\cftsecnumwidth{3em}
+\renewcommand*\cftjchapternumwidth{2em}
+\renewcommand*\cftjsectionnumwidth{3em}
+\renewcommand*\cftjsubsectionnumwidth{3em}
+\makeatother
+\setcounter{jtocdepth}{4}
+
+
+
+
+
