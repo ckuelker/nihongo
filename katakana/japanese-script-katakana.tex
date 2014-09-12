@@ -1,4 +1,4 @@
-\documentclass[draft=yes,version=last,paper=a4,headings=small,titlepage,makeidx,fontsize=12pt]{scrbook} 
+\documentclass[makeidx=yes,draft=yes,version=last,paper=a4,headings=small,titlepage,makeidx,fontsize=12pt]{scrbook} 
 
 % ===========================================================================
 % PREAMBLE
@@ -43,6 +43,11 @@
 
 % CONTENTS
 \tableofcontents
+
+\listofjchapter
+
+\bigskip
+
 \pagestyle{fancy}
 
 \input{../share/para/Usage}
@@ -64,6 +69,18 @@ errors. Please report.}
 
 \input{../share/chap/AppendixKatakana}
 \input{../share/chap/AppendixRomaji}
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Indices}\jindex{索引}
+%\chapter{Indices}
+\fontspec{FreeSans}
+\normalsize
+\phantomsection
+\printindex{english}{English: Terms}\jsubindex{英語専門用語}
+\phantomsection
+\printindex{japanese}{Japanese: Index}\jsubindex{日本語専門用語}
+\phantomsection
+\printindex{german}{Deutsch: Fachbegriffe}\jsubindex{独逸語専門用語}
 
 \backmatter
 
