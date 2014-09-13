@@ -23,6 +23,7 @@ tmp/
 *.fls
 *.out
 *.toc
+*.jtoc
 
 ## Intermediate documents:
 *.dvi
