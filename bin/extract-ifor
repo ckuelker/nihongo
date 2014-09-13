@@ -12,13 +12,19 @@ foreach my $e (@ifor) {
     $e =~ m/{(.+)}{(.+)}{(.+)}{(.+)}/gmx;
     my ( $en, $ja, $hi, $de ) = ( $1, $2, $3, $4 );
     my $ref = $en;
-    $ref =~ s{('|"|\s+)}{}gmx;
+    $ref =~ s{('|")}{}gmx;
     $ref =~ s{a}{a}gmx;
     $ref =~ s{i}{i}gmx;
     $ref =~ s{u}{u}gmx;
     $ref =~ s{e}{e}gmx;
     $ref =~ s{ō}{o}gmx;
-    $ref = ucfirst $ref;
+    my @ref = split /\s+/, $ref;    # split into words
+
+    foreach my $r (@ref) {
+        $r = ucfirst $r;            # word upper case first letter
+    }
+    $ref = join q{}, @ref;
+    $ref = ucfirst $ref;            # word upper case first letter
     $d{$hi} = { en => $en, ja => $ja, hi => $hi, de => $de, ref => $ref, };
     print "hi [$hi] en [$en] ja [$ja] de [$de]\n";
 }
@@ -31,7 +37,8 @@ my $fn = "ListOfJapaneseTechnicalTerms.tex";
 open my $f, q{>}, $fn or die "Can not write $fn!";
 my $n = 1;
 print $f '\chapter{List of Japanese Technical Terms}' . "\n";
-print $f '\label{chap:JapaneseTechnicalTerms}' . "\n";
+print $f '\label{chap:ListOfJapaneseTechnicalTerms}' . "\n";
+print $f '\label{sec:JapaneseTechnicalTerms}' . "\n";
 print $f '\jchap{日本専門用語リスト}' . "\n";
 print $f '\ifor{Japanese Technical Terms}{日本専門用語}';
 print $f '{にほんせんもんようご}{japanische Fachbegriffe}' . "\n";
