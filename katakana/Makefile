@@ -1,7 +1,7 @@
 # USAGE: make  -  to see usage
 FILE=japanese-script-katakana
-LATEX=xelatex
 LATEX=pdflatex
+MKIDX=makeindex -c
 
 usage:
 ifndef LATEX
@@ -56,11 +56,15 @@ ${FILE}.pdf: usage ${FILE}.tex  revision.tex VERSION.tex DATE.tex
 	bash -c 'echo "\newcommand{\jversion}{$$VERSION}">VERSION.tex'
 	bash -c 'echo "\newcommand{\jdate}{$$DATE}">DATE.tex'
 	${LATEX} ${FILE}.tex
+	${MKIDX} english.idx
+	#${MKIDX} -g german.idx TODO: fix wrong quote in index, should not be "
+	${MKIDX} german.idx
+	${MKIDX} japanese.idx
 	${LATEX} ${FILE}.tex
 	${LATEX} ${FILE}.tex
 	bash -c 'REV=`cat rev.dat`;let REV++;echo $$REV>rev.dat;echo "\newcommand{\revision}{$$REV}">revision.tex'
 clean:
-	rm -f *.idx *.toc *.vrb *.nav *.aux *.log *.svn *.snm *.out *~ VERSION.tex DATE.tex revision.tex
+	rm -f *.idx *.ilg *.ind *.toc *.vrb *.nav *.aux *.log *.svn *.snm *.out *~ VERSION.tex DATE.tex revision.tex
 
 realclean: clean
 	rm *.pdf
