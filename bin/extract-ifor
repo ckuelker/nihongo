@@ -1,0 +1,55 @@
+#!/usr/bin/perl -w
+use strict;
+use warnings;
+use Lingua::JA::Sort::JIS qw(jsort);
+my @ifor = qx(grep -rhI --include="*.tex" ifor{);
+my %d    = ();
+foreach my $e (@ifor) {
+
+# share/sec/Furigana.tex:\ifor{Furigana}{振り仮名}{ふりがな}{Furigana}
+    $e =~ s{.*\\ifor}{}gmx;
+    print $e;
+    $e =~ m/{(.+)}{(.+)}{(.+)}{(.+)}/gmx;
+    my ( $en, $ja, $hi, $de ) = ( $1, $2, $3, $4 );
+    my $ref = $en;
+    $ref =~ s{('|"|\s+)}{}gmx;
+    $ref =~ s{a}{a}gmx;
+    $ref =~ s{i}{i}gmx;
+    $ref =~ s{u}{u}gmx;
+    $ref =~ s{e}{e}gmx;
+    $ref =~ s{ō}{o}gmx;
+    $ref = ucfirst $ref;
+    $d{$hi} = { en => $en, ja => $ja, hi => $hi, de => $de, ref => $ref, };
+    print "hi [$hi] en [$en] ja [$ja] de [$de]\n";
+}
+
+my @not_sorted = sort keys %d;
+my @sorted     = jsort(@not_sorted);
+print "data\n";
+my $fn = "ListOfJapaneseTechnicalTerms.tex";
+
+open my $f, q{>}, $fn or die "Can not write $fn!";
+my $n = 1;
+print $f '\chapter{List of Japanese Technical Terms}' . "\n";
+print $f '\label{chap:JapaneseTechnicalTerms}' . "\n";
+print $f '\jchap{日本専門用語リスト}' . "\n";
+print $f '\ifor{Japanese Technical Terms}{日本専門用語}';
+print $f '{にほんせんもんようご}{japanische Fachbegriffe}' . "\n";
+print $f '\footnotesize\Padding' . "\n";
+print $f '\begin{longtable}[c]{p{.5cm}p{3.5cm}p{4cm}p{3.5cm}p{3.5cm}}' . "\n";
+print $f '\textbf{\#}&\textbf{Japanese}&\textbf{Hiragana}&\textbf{English}';
+print $f '&\textbf{German}\\\\ \hline' . "\n";
+
+foreach my $hi (@sorted) {
+    next if not defined $hi;
+    next if $hi eq q{};
+    my $ja  = $d{$hi}->{ja};
+    my $de  = $d{$hi}->{de};
+    my $en  = $d{$hi}->{en};
+    my $ref = $d{$hi}->{ref};
+    print $f "$n&$ja&$hi&\\hyperref[sec:$ref]{$en}&$de\\\\\n";
+    $n++;
+}
+print $f '\end{longtable}' . "\n";
+
+close $f;
