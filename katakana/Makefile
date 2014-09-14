@@ -65,8 +65,9 @@ ${FILE}.pdf: usage ${FILE}.tex  revision.tex VERSION.tex DATE.tex
 	${LATEX} ${FILE}.tex
 	${LATEX} ${FILE}.tex
 	bash -c 'REV=`cat rev.dat`;let REV++;echo $$REV>rev.dat;echo "\newcommand{\revision}{$$REV}">revision.tex'
+	cat ${FILE}.log|grep Warning
 clean:
-	rm -f *.idx *.ilg *.ind *.toc *.vrb *.nav *.aux *.log *.svn *.snm *.out *~ VERSION.tex DATE.tex revision.tex
+	rm -f *.jtoc *.idx *.ilg *.ind *.toc *.vrb *.nav *.aux *.log *.svn *.snm *.out *~ VERSION.tex DATE.tex revision.tex
 
 realclean: clean
 	rm *.pdf
