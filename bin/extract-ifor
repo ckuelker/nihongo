@@ -41,7 +41,7 @@ print $f '\chapter{List of Japanese Technical Terms}' . "\n";
 print $f '\label{chap:ListOfJapaneseTechnicalTerms}' . "\n";
 print $f '\label{sec:JapaneseTechnicalTerms}' . "\n";
 print $f '\jchap{日本専門用語リスト}' . "\n";
-print $f '\ifor{Japanese Technical Terms}{日本専門用語}';
+print $f '\ifor{Japanese technical terms}{日本専門用語}';
 print $f '{にほんせんもんようご}{japanische Fachbegriffe}' . "\n";
 print $f '\normalsize Ordered by Japanese pronunciation (Hiragana).' . "\n";
 print $f '\footnotesize\Padding' . "\n";
