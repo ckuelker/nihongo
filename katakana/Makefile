@@ -56,7 +56,8 @@ revision.tex: rev.dat
 ${FILE}.pdf: usage ${FILE}.tex  revision.tex VERSION.tex DATE.tex
 	bash -c 'echo "\newcommand{\jversion}{$$VERSION}">VERSION.tex'
 	bash -c 'echo "\newcommand{\jdate}{$$DATE}">DATE.tex'
-	. /srv/env/perl-5-14-2 && cd .. && bin/extract-ifor && pwd && cp $(TERMS) share/chap && rm -f $(TERMS)
+	#. /srv/env/perl-5-14-2 && cd .. && bin/extract-ifor && pwd && cp $(TERMS) share/chap && rm -f $(TERMS)
+	cd .. && bin/extract-ifor && pwd && cp $(TERMS) share/chap && rm -f $(TERMS)
 	${LATEX} ${FILE}.tex
 	${MKIDX} english.idx
 	#${MKIDX} -g german.idx TODO: fix wrong quote in index, should not be "
