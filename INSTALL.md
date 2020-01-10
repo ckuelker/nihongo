@@ -1,7 +1,7 @@
 ---
 title: INSTALL.md
 author: Christian Külker
-date:  2020-01-09
+date:  2020-01-10
 ---
 
 ![Github license](https://img.shields.io/github/license/ckuelker/nihongo.svg)
@@ -16,6 +16,49 @@ This document describes mainly the installation of the dependencies to create
 the PDF documents. The PDF documents by itself can be create via a `Makefile`
 in the source directory mentioned in the [README](README.md) after the
 dependencies are installed.
+
+## nihongo-0.1.1
+
+### Operating System
+
+Debian Buster was used for testing.
+
+### Dependencies
+
+#### multind.sty
+
+While `multind.sty` is available in `texlive-latex-extra` under Wheezy it has
+been removed in recent LaTeX releases. The source has to be changed:
+
+The old command `\bf` has to be changed to `\textbf`.
+
+~~~
+cd nihongo/katakana
+wget https://ctan.org/tex-archive/macros/latex209/contrib/misc/multind.sty
+sed -i -e 's%\\bf\s\+%\\textbf %g' multind.sty
+~~~
+
+#### ruby.sty
+
+    aptitude install latex-cjk-all
+
+#### bclogo.sty (texlive-pstricks)
+
+    aptitude install texlive-extra-utils
+
+#### Fonts
+
+The font YoZ changed a lot since 2014. Therfore
+`share/preamble/standard-english.tex` was changed too.
+
+    aptitude install fonts-dejima-mincho fonts-yozvox-yozfont fonts-vlgothic\
+    fonts-takao-mincho fonts-motoya-l-maruberi fonts-kouzan-mouhitsu \
+    fonts-kiloji fonts-ipafont fonts-aoyagi-kouzan-t
+
+Make sure 'non-free' is enabled in `/etc/apt/sources.list` for the
+[Mikachan](http://www001.upp.so-net.ne.jp/mikachan/) font.
+
+    aptitude install fonts-mikachan
 
 ## nihongo-0.1.0
 
