@@ -1,6 +1,6 @@
 # USAGE: make  -  to see usage
 FILE=japanese-script-katakana
-LATEX=pdflatex
+LATEX=xelatex
 MKIDX=makeindex -c
 TERMS=ListOfJapaneseTechnicalTerms.tex
 
