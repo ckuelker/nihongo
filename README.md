@@ -26,13 +26,24 @@ Tolmezzo, 2014-08-24 Christian Külker
 
 # Releases
 
+## nihongo-0.1.1
+
+| Source   | Version | Date       | Note                                      |
+ ---------- --------- ------------ -------------------------------------------
+| katakana | 1.0     | 2020-01-10 | Debian Buster                             |
+
+| File                                                 | Source    | Pages    |
+ ------------------------------------------------------ ----------- ----------
+| nihongo-2-the-japanese-script-katakana-1.0.pdf       | katakana  |      219 |
+| nihongo-2-the-japanese-script-katakana-0.9.pdf       | katakana  |      213 |
+
 ## nihongo-0.1.0
 
-Source   Version Date       Note
--------- ------- ---------- ---------------------------------------------
-katakana 0.9     2014-09-15 Debian Wheezy only
+| Source   | Version | Date       | Note                                      |
+ ---------- --------- ------------ -------------------------------------------
+| katakana | 0.9     | 2014-09-15 | Debian Wheezy only                        |
 
-File                                                   Source       Pages
------------------------------------------------------- ----------- ------
-nihongo-2-the-japanese-script-katakana-0.9.pdf         katakana       213
+| File                                                 | Source    | Pages    |
+ ------------------------------------------------------ ----------- ----------
+| nihongo-2-the-japanese-script-katakana-0.9.pdf       | katakana  |      213 |
 
