@@ -71,7 +71,7 @@ clean:
 	rm -f *.jtoc *.idx *.ilg *.ind *.toc *.vrb *.nav *.aux *.log *.svn *.snm *.out *~ VERSION.tex DATE.tex revision.tex
 
 realclean: clean
-	rm *.pdf
+	rm -f *.pdf
 test-release:
 	@if [ -d ${VERSION} ]; then echo "ERROR: release '${VERSION}' already there, remove before proceed!";exit 254; fi
 release: test-release usage-release all
