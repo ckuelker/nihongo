@@ -1,11 +1,12 @@
-# nihongo/share/katakana 
+# nihongo/share/katakana
 
 Japanese resources to share for building a Katakana book
 
 # Name Schema for PDF Graphic Files
 
-Most PDF graphic files in this directory are created via katakana.svg
-by inkscape. Some other files in nihongo/share/i too.
+Most PDF graphic files in this directory are created via katakana.svg by
+inkscape (version 0.48.5 r10040 - or similar (Debian Wheezy, Jessie). Some
+other files in nihongo/share/i too.
 
      ad.pdf     - [a]rrow [d]own
      ag.pdf     - katakana [a] [gray]
@@ -14,7 +15,7 @@ by inkscape. Some other files in nihongo/share/i too.
      as.pdf     - katakana [a] [s]stroke marks
      at.pdf     - katakana [a] [t]table position
 
-     eg.pdf     - katakana [e] [g]ray 
+     eg.pdf     - katakana [e] [g]ray
      e.pdf      - katakana [e]
      es.pdf     - katakana [e] [s]troke marks
      et.pdf     - katakana [e] [t]table position
