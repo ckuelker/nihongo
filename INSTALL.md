@@ -48,7 +48,7 @@ sed -i -e 's%\\bf\s\+%\\textbf %g' multind.sty
 
 #### Fonts
 
-The font YoZ changed a lot since 2014. Therfore
+The font YoZ changed a lot since 2014. Therefore
 `share/preamble/standard-english.tex` was changed too.
 
     aptitude install fonts-dejima-mincho fonts-yozvox-yozfont fonts-vlgothic\
