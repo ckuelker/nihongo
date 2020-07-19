@@ -6,9 +6,12 @@
 # | - support Hiragana                                                        |
 # | - support languages                                                       |
 # |                                                                           |
-# | Version: 0.1.1 (change inline MAKEFILE_VERSION)                           |
+# | Version: 0.1.2 (change inline MAKEFILE_VERSION)                           |
 # |                                                                           |
 # | Changes:                                                                  |
+# |                                                                           |
+# | 0.1.2 2020-07-19 Christian Külker <c@c8i.org>                             |
+# |     - remove $(TERMS) related targets from realclean (should be devel)    |
 # |                                                                           |
 # | 0.1.1 2020-07-19 Christian Külker <c@c8i.org>                             |
 # |     - create $(TERMS) topic and language specific                         |
@@ -18,7 +21,7 @@
 # |                                                                           |
 # +---------------------------------------------------------------------------+
 #
-MAKEFILE_VERSION=0.1.0
+MAKEFILE_VERSION=0.1.2
 # NO CHANGES BEYOND THIS POINT
 L:=============================================================================
 LATEX:=xelatex
@@ -134,6 +137,6 @@ termsclean:
 	rm -f $(TERMS)
 	rm -f ../share/chap/$(JTERMS)
 
-realclean: clean termsclean
+realclean: clean
 	rm -f $(SRC:.tex=.pdf)
 
