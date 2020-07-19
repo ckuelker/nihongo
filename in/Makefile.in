@@ -6,9 +6,12 @@
 # | - support Hiragana                                                        |
 # | - support languages                                                       |
 # |                                                                           |
-# | Version: 0.1.0 (change inline MAKEFILE_VERSION)                           |
+# | Version: 0.1.1 (change inline MAKEFILE_VERSION)                           |
 # |                                                                           |
 # | Changes:                                                                  |
+# |                                                                           |
+# | 0.1.1 2020-07-19 Christian Külker <c@c8i.org>                             |
+# |     - create $(TERMS) topic and language specific                         |
 # |                                                                           |
 # | 0.1.0 2020-07-19 Christian Külker <c@c8i.org>                             |
 # |     - initial release                                                     |
@@ -47,6 +50,7 @@ endif
 ifndef JTOPIC
 $(error JTOPIC is NOT defined)
 endif
+JTERMS:=$(TERMS:.tex=_$(JTOPIC)_$(JLANG).tex)
 
 .SUFFIXES: .tex .pdf
 .PHONY: usage clean realclean
@@ -58,6 +62,7 @@ usage: JVERSION.tex JLANG.tex JDATE.tex
 	@echo "JLANG=$(JLANG) ($(JLANG_CHOICE))"
 	@echo "JDATE=$(JDATE)"
 	@echo "JTOPIC=$(JTOPIC)"
+	@echo "TERMS=$(TERMS)"
 	@echo $(L)
 	@echo "make pdf       - create $(SRC:.tex=.pdf)"
 	@echo "make clean     - clean up LaTeX"
@@ -75,8 +80,10 @@ JREVISION.tex:
 JTOPIC.tex:
 	@echo "\\\newcommand{\\\jtopic}{${JTOPIC}}" > JTOPIC.tex
 
+../share/chap/$(JTERMS):
+	cd ..&&bin/extract-ifor&&pwd&&cp $(TERMS) share/chap/$(JTERMS)&&rm -f $(TERMS)
+
 .tex.pdf:
-	cd .. && bin/extract-ifor && pwd && cp $(TERMS) share/chap && rm -f $(TERMS)
 	$(LATEX) $<
 	$(MKIDX) english.idx
 	$(MKIDX) german.idx
@@ -84,10 +91,9 @@ JTOPIC.tex:
 	$(LATEX) $<
 	$(LATEX) $<
 	cat $(SRC:.tex=.log)|grep Warning
-	
 
 # PDF 1.5 file size approx 1.6MB
-pdf: JVERSION.tex JLANG.tex JDATE.tex JREVISION.tex JTOPIC.tex $(SRC:.tex=.pdf)
+pdf: JVERSION.tex JLANG.tex JDATE.tex JREVISION.tex JTOPIC.tex ../share/chap/$(JTERMS) $(SRC:.tex=.pdf)
 	make state-clean
 
 ../pub/$(JSERIES)-$(JVOLUME)-$(JTITLE_PFX)$(SRC:.tex=)-$(JVERSION)-$(JLANG).pdf:
@@ -122,6 +128,12 @@ clean: state-clean
 	rm -f *.snm
 	rm -f *.toc
 	rm -f *.vrb
+	rm -f ListOfJapaneseTechnicalTerms.tex
 
-realclean: clean
+termsclean:
+	rm -f $(TERMS)
+	rm -f ../share/chap/$(JTERMS)
+
+realclean: clean termsclean
 	rm -f $(SRC:.tex=.pdf)
+
