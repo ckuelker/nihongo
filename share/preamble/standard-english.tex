@@ -1,6 +1,16 @@
 % ===========================================================================
 % PREAMBLE STANDARD (English)
 % ===========================================================================
+% BABEL: L10n
+%   Debian Buster babel 3.27
+%   See: /usr/share/doc/texlive-doc/latex/babel/babel.pdf
+%   Latest: 3.46
+%   http://vesta.informatik.rwth-aachen.de/ftp/pub/mirror/ctan/macros/latex/required/babel/base/babel.pdf
+%   Remark: hyperref package has a different language setup
+%     \usepackage[pdflang=es-MX]{hyperref}
+\include{JLANG}% includes command \jlanguage (ngerman, english)
+\usepackage[main=\jlang,japanese]{babel}
+
 % INDEX - need to load before hyperref
 %\usepackage{makeidx}
 \usepackage{multind}%            more the one index (style makeindex)
@@ -27,7 +37,7 @@
 \usepackage{colortbl} %          make color lines
 \usepackage[]{graphicx}
 \usepackage{xcolor}
-\usepackage{hyperref}%           configured later!
+\usepackage{hyperref}%   configured later!
 \usepackage{fullpage,longtable}% better tables
 \usepackage{hhline}%             better tables
 \setlength{\parindent}{0cm}
@@ -111,6 +121,7 @@
 \setCJKfamilyfont{JapaneseFontK}{SetoFont}
 \setCJKfamilyfont{JapaneseFontL}{TakaoMincho}
 \setCJKfamilyfont{JapaneseFontM}{VL Gothic}
+\setCJKfamilyfont{JapaneseFontN}{HanaMinA} % For some Hentaiagana
 
 \setCJKfamilyfont{JapaneseDejima}{Dejima}
 \setCJKfamilyfont{JapaneseIPAPGothic}{IPAPGothic}
@@ -130,6 +141,7 @@
 \newcommand\JapaneseFontK{\CJKfamily{JapaneseFontK}\CJKnospace}
 \newcommand\JapaneseFontL{\CJKfamily{JapaneseFontL}\CJKnospace}
 \newcommand\JapaneseFontM{\CJKfamily{JapaneseFontM}\CJKnospace}
+\newcommand\JapaneseFontN{\CJKfamily{JapaneseFontN}\CJKnospace}
 
 \newcommand\JapaneseDejima{\CJKfamily{JapaneseDejima}\CJKnospace}
 \newcommand\JapaneseIPAPGothic{\CJKfamily{JapaneseIPAPGothic}\CJKnospace}
@@ -225,11 +237,13 @@
 % ===========================================================================
 % LINKS
 \providecolor{myblue}{rgb}{0,0.49995,1}
-\hypersetup{colorlinks,
-          citecolor=myblue,
-          filecolor=myblue,
-          linkcolor=myblue,
-          urlcolor=myblue}
+\hypersetup{
+  pdflang=en-US,
+  colorlinks,
+  citecolor=myblue,
+  filecolor=myblue,
+  linkcolor=myblue,
+  urlcolor=myblue}
 % ===========================================================================
 % FOR BOXES
 \usepackage{microtype}
@@ -241,9 +255,10 @@
 
 % ===========================================================================
 % REVISION DATE VERSION
-\include{VERSION}
-\include{DATE}
-\include{revision}
+\include{JTOPIC}% includes command \jtopic (hiragana, katakana, ...)
+\include{JVERSION}
+\include{JDATE}
+\include{JREVISION}
 
 % ===========================================================================
 % Japanese TOC jtoc
