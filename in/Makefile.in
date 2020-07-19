@@ -1,0 +1,127 @@
+# +---------------------------------------------------------------------------+
+# | in/Makefile.in                                                            |
+# |                                                                           |
+# | Include Makefile to create PDF via xelatex                                |
+# | - support Katakana                                                        |
+# | - support Hiragana                                                        |
+# | - support languages                                                       |
+# |                                                                           |
+# | Version: 0.1.0 (change inline MAKEFILE_VERSION)                           |
+# |                                                                           |
+# | Changes:                                                                  |
+# |                                                                           |
+# | 0.1.0 2020-07-19 Christian Külker <c@c8i.org>                             |
+# |     - initial release                                                     |
+# |                                                                           |
+# +---------------------------------------------------------------------------+
+#
+MAKEFILE_VERSION=0.1.0
+# NO CHANGES BEYOND THIS POINT
+L:=============================================================================
+LATEX:=xelatex
+MKIDX=makeindex -c
+TERMS=ListOfJapaneseTechnicalTerms.tex
+SRC:=$(wildcard japanese*.tex)
+
+ifndef MAKEFILE_VERSION
+$(error MAKEFILE_VERSION is NOT defined)
+endif
+ifndef JLANG_DEFAULT
+$(error JLANG_DEFAULT is NOT defined)
+endif
+ifndef JLANG_CHOICE
+$(error JLANG_CHOICE is NOT defined)
+endif
+ifndef JVERSION
+JVERSION:=$(shell cat JVERSION)
+endif
+ifndef JLANG
+JLANG:=$(JLANG_DEFAULT)
+endif
+ifndef JDATE
+JDATE:=$(shell date +'%B %Y')
+endif
+ifndef JREVISION
+JREVISION:=$(shell if [ ! -f JREVISION ];then echo -n 0>JREVISION;fi;bash -c 'R=`cat JREVISION`;let R++;echo $$R>JREVISION';cat JREVISION)
+endif
+ifndef JTOPIC
+$(error JTOPIC is NOT defined)
+endif
+
+.SUFFIXES: .tex .pdf
+.PHONY: usage clean realclean
+
+usage: JVERSION.tex JLANG.tex JDATE.tex
+	@echo $(L)
+	@echo "Makefile: $(SRC) => $(SRC:.tex=.pdf)"
+	@echo "JVERSION=$(JVERSION)"
+	@echo "JLANG=$(JLANG) ($(JLANG_CHOICE))"
+	@echo "JDATE=$(JDATE)"
+	@echo "JTOPIC=$(JTOPIC)"
+	@echo $(L)
+	@echo "make pdf       - create $(SRC:.tex=.pdf)"
+	@echo "make clean     - clean up LaTeX"
+	@echo "make realclean - remove $(SRC:.tex=.pdf)"
+	@echo $(L)
+
+JVERSION.tex:
+	@echo "\\\newcommand{\\\jversion}{${JVERSION}}" > JVERSION.tex
+JLANG.tex:
+	@echo "\\\newcommand{\\\jlang}{${JLANG}}" > JLANG.tex
+JDATE.tex:
+	@echo "\\\newcommand{\\\jdate}{${JDATE}}" > JDATE.tex
+JREVISION.tex:
+	@echo "\\\newcommand{\\\jrevision}{${JREVISION}}" > JREVISION.tex
+JTOPIC.tex:
+	@echo "\\\newcommand{\\\jtopic}{${JTOPIC}}" > JTOPIC.tex
+
+.tex.pdf:
+	cd .. && bin/extract-ifor && pwd && cp $(TERMS) share/chap && rm -f $(TERMS)
+	$(LATEX) $<
+	$(MKIDX) english.idx
+	$(MKIDX) german.idx
+	$(MKIDX) japanese.idx
+	$(LATEX) $<
+	$(LATEX) $<
+	cat $(SRC:.tex=.log)|grep Warning
+	
+
+# PDF 1.5 file size approx 1.6MB
+pdf: JVERSION.tex JLANG.tex JDATE.tex JREVISION.tex JTOPIC.tex $(SRC:.tex=.pdf)
+	make state-clean
+
+../pub/$(JSERIES)-$(JVOLUME)-$(JTITLE_PFX)$(SRC:.tex=)-$(JVERSION)-$(JLANG).pdf:
+	cp $(SRC:.tex=.pdf) $@
+
+release: ../pub/$(JSERIES)-$(JVOLUME)-$(JTITLE_PFX)$(SRC:.tex=)-$(JVERSION)-$(JLANG).pdf
+
+# PDF 1.4 file size approx 2MB
+$(SRC:.tex=-pdf-1.4.pdf): pdf
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET \
+	  -dSubsetFonts=true -dEmbedAllFonts=true -dMaxSubsetPct=100 \
+	  -dBATCH -sOutputFile=$@ \
+	  $(SRC:.tex=.pdf)
+
+state-clean:
+	rm -f JREVISION.tex
+	rm -f JDATE.tex
+	rm -f JLANG.tex
+	rm -f JVERSION.tex
+	rm -f JTOPIC.tex
+
+clean: state-clean
+	rm -f *.aux
+	rm -f *.idx
+	rm -f *.ilg
+	rm -f *.ind
+	rm -f *.jtoc
+	rm -f *.nav
+	rm -f *.log
+	rm -f *.out
+	rm -f *.svn
+	rm -f *.snm
+	rm -f *.toc
+	rm -f *.vrb
+
+realclean: clean
+	rm -f $(SRC:.tex=.pdf)

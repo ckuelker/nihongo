@@ -1,7 +1,7 @@
 ---
 title: INSTALL.md
 author: Christian Külker
-date:  2020-01-10
+date:  2020-07-19
 ---
 
 ![Github license](https://img.shields.io/github/license/ckuelker/nihongo.svg)
@@ -16,6 +16,26 @@ This document describes mainly the installation of the dependencies to create
 the PDF documents. The PDF documents by itself can be create via a `Makefile`
 in the source directory mentioned in the [README](README.md) after the
 dependencies are installed.
+
+## nihongo-0.1.2
+
+### Operating System
+
+Debian Buster, Unicode 10 and at least XaLaTex 2018.20190227-2 is needed.
+
+### Dependencies
+
+In addition to the instructions of nihongo-0.1.1 install the font Hanazono
+Mincho. This font is used for Henteigana.
+
+```shell
+aptitude install fonts-hanazono
+```
+
+### Known Issues
+
+Due to the lack of Unicode 10 support, not all glyphs from the Hentaigana
+table are printed.
 
 ## nihongo-0.1.1
 

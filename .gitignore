@@ -10,10 +10,15 @@ tmp
 tmp/
 
 # Special files for the project
-*DATE.tex
-*revision.tex
-*VERSION.tex
-*rev.dat
+*JDATE.tex
+*JDATE
+*JREVISION.tex
+*JREVISION
+*JVERSION.tex
+*JLANG.tex
+*JLANG
+*JTOPIC.tex
+*JTOPIC
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
