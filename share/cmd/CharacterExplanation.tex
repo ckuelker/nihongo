@@ -3,15 +3,19 @@
 % |                                                                           |
 % | Provides a small space to comment on letters.                             |
 % |                                                                           |
-% | Version: 0.1.1                                                            |
+% | Version: 0.1.2                                                            |
 % |                                                                           |
 % | Changes:                                                                  |
 % |                                                                           |
+% | 0.1.2 2020-07-20 Christian Külker <c@c8i.org>                             |
+% |     - Detokenize not needed                                               |
+% |     - Fix \ifthenelse                                                     |
+% |                                                                           |
 % | 0.1.1 2020-07-10 Christian Külker <c@c8i.org>                             |
-% |     - change to fit Hiragana and Katakana                                 |
+% |     - Change to fit Hiragana and Katakana                                 |
 % |                                                                           |
 % | 0.1.0 2013-09-10 Christian Külker <c@c8i.org>                             |
-% |     - initial release                                                     |
+% |     - Initial release                                                     |
 % |                                                                           |
 % +---------------------------------------------------------------------------+
 %
@@ -19,25 +23,15 @@
 %
 %   \CharacterExplanation{soexplanation}{TEXT}
 %
-
-\newcommand{\CharacterExplanation}[2]{
-
-\bigskip
-
 % detokenize:
 % https://tex.stackexchange.com/questions/195491/ifthenelse-equal-string-comparison-fails
-\begin{tabular}{cc}
-\ifthenelse{ \equal{\detokenize{\jtopic}}{\detokenize{katakana}}}{
-\raisebox{-.5\height}{\KLETTER{#1}} &
-}
-\ifthenelse{ \equal{\detokenize{\jtopic}}{\detokenize{hiragana}}}{
-\raisebox{-.5\height}{\HLETTER{#1}} &
-}
-\begin{minipage}{12.5cm}
-#2
-\end{minipage}\\
-\end{tabular}
 
-\bigskip
-
+\newcommand{\CharacterExplanation}[2]{
+    \bigskip
+    \begin{tabular}{cc}
+        \ifthenelse{\equal{katakana}{\jtopic}}{\raisebox{-.5\height}{\KLETTER{#1}}}{}%
+        \ifthenelse{\equal{hiragana}{\jtopic}}{\raisebox{-.5\height}{\HLETTER{#1}}}{}%
+        & \begin{minipage}{12.5cm}#2\end{minipage} \\
+    \end{tabular}
+    \bigskip
 }
