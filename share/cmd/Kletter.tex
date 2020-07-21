@@ -1,3 +1,22 @@
+% +---------------------------------------------------------------------------+
+% | Kletter.text                                                              |
+% |                                                                           |
+% | Version: 0.1.1                                                            |
+% |                                                                           |
+% | Changes:                                                                  |
+% |                                                                           |
+% | 0.1.1 2020-07-21 Christian Kuelker <c@c8i.org>                            |
+% |     - Remove bottom trim (prevents arrow down from being clipped and      |
+% |       make fields square, Katakana not centered though)                   |
+% |     - Increase scale from 0.95 to 0.98 to fit line width                  |
+% | 0.1.0 2014-08-24 Christian Kuelker <c@c8i.org>                            |
+% |     - Initial release                                                     |
+% |                                                                           |
+% +---------------------------------------------------------------------------+
+% l = left
+% b = bottom
+% r = right
+% t = top
 \newcommand{\Kletter}[1]{%       l  b  r  t
-\includegraphics[scale=0.95,trim=02 10 02 00,clip]{../share/katakana/#1.pdf}
+\includegraphics[scale=0.98,trim=02 0 02 0,clip]{../share/katakana/#1.pdf}%
 }
