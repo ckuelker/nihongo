@@ -1,4 +1,24 @@
-\newcommand{\Info}[2]{
+% +---------------------------------------------------------------------------+
+% | Info.tex                                                                  |
+% |                                                                           |
+% | Prints info box                                                           |
+% |                                                                           |
+% | Version: 0.1.1                                                            |
+% |                                                                           |
+% | Changes:                                                                  |
+% |                                                                           |
+% | 0.1.1 2020-07-23 Christian Kuelker <c@c8i.org>                            |
+% |     - Add nobreak option as 3rd parameter (prevent page break)            |
+% | 0.1.0 2014-08-24 Christian Kuelker <c@c8i.org>                            |
+% |     - Initial release                                                     |
+% |                                                                           |
+% +---------------------------------------------------------------------------+
+
+
+% needspace=6em:
+%   https://tex.stackexchange.com/questions/201553/forbid-page-break-after-the-title-in-mdframed
+%   http://kebo.pens.ac.id/CTAN/macros/latex/contrib/mdframed/mdframed-doc-en.pdf
+\newcommand{\Info}[3]{
 \bigskip
 \relax
 \begin{mdframed}[
@@ -14,9 +34,11 @@ backgroundcolor=blue!10,
 shadow=true,
 shadowsize=6,
 shadowcolor=black!20,
+needspace=12em,
 frametitle={#1},
 frametitlebackgroundcolor=green!40,
-frametitlerulewidth=10pt
+frametitlerulewidth=10pt,
+nobreak=#3
 ]
 
 #2
