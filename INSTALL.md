@@ -1,7 +1,7 @@
 ---
 title: INSTALL.md
 author: Christian Külker
-date:  2020-07-19
+date:  2020-07-25
 ---
 
 ![Github license](https://img.shields.io/github/license/ckuelker/nihongo.svg)
@@ -26,10 +26,15 @@ Debian Buster, Unicode 10 and at least XaLaTex 2018.20190227-2 is needed.
 ### Dependencies
 
 In addition to the instructions of nihongo-0.1.1 install the font Hanazono
-Mincho. This font is used for Henteigana.
+Mincho. This font is used for Henteigana. Also the font `YOzAb` is needed and
+provided in `fonts-yozvox-yozfont`. The font `AoyagiSosekiFont2` is needed,
+provided by `fonts-aoyagi-soseki`. The font `KanjiStrokeOrders` is provided by
+`fonts-kanjistrokeorders`. The font `KouzanBrushFontGyousyo` is provided by
+`fonts-kouzan-mouhitsu`.
 
 ```shell
-aptitude install fonts-hanazono
+aptitude install fonts-hanazono fonts-yozvox-yozfont fonts-aoyagi-soseki \
+fonts-kanjistrokeorders fonts-kouzan-mouhitsu
 ```
 
 ### Known Issues
