@@ -1,7 +1,7 @@
 ---
 title:  README.md
 author: Christian Külker
-date:   2020-01-10
+date:   2020-07-26
 ---
 
 ![Github license](https://img.shields.io/github/license/ckuelker/nihongo.svg)
@@ -25,6 +25,25 @@ Tolmezzo, 2014-08-24 Christian Külker
 * [Installation](INSTALL.md) - installation and dependencies
 
 # Releases
+
+## nihongo-0.1.2
+
+| Source   | Version | Date       | Note                                      |
+| -------- | ------- | ---------- | ----------------------------------------- |
+| katakana | 1.1     | 2020-07-26 | Typos; \jtopic; improve: Henteigana,      |
+|          |         |            | Index                                     |
+
+| Published Files (pub/)                               | Source    | Pages    |
+| ---------------------------------------------------- | --------- | -------- |
+| nihongo-2-the-japanese-script-katakana-1.1.pdf       | katakana  |      219 |
+| nihongo-2-the-japanese-script-katakana-1.0.pdf       | katakana  |      219 |
+| nihongo-2-the-japanese-script-katakana-0.9.pdf       | katakana  |      213 |
+
+Changes of the build system:
+
+- Improve \Info box
+- Add support for dispatching of Hiragana and Katakana: \jtopic
+- Supports Latex 2018 and probably 2020
 
 ## nihongo-0.1.1
 
