@@ -1,7 +1,9 @@
 ---
-title:  README.md
+title: README
 author: Christian Külker
-date:   2020-07-26
+version: 0.1.2
+date: 2020-07-26
+
 ---
 
 ![Github license](https://img.shields.io/github/license/ckuelker/nihongo.svg)
@@ -10,7 +12,6 @@ date:   2020-07-26
 ![Git repo size](https://img.shields.io/github/repo-size/ckuelker/nihongo.svg)
 ![Last commit](https://img.shields.io/github/last-commit/ckuelker/nihongo.svg)
 
-
 # Nihongo
 
 Nihongo 日本語【にほんご】stands for the Japanese language. This projects aim
@@ -18,6 +19,14 @@ is to develop some material to master the Japanese language. Nihongo will be
 the working title for the project.
 
 Tolmezzo, 2014-08-24 Christian Külker
+
+## History of Nihongo
+
+| Version | Date       | Notes                                                |
+| ------- | ---------- | ---------------------------------------------------- |
+| 0.1.2   | 2020-07-26 | katakana-1.1                                         |
+| 0.1.1   | 2020-01-10 | katakana-1.0                                         |
+| 0.1.0   | 2020-01-10 | Initial release                                      |
 
 # Documentation
 
