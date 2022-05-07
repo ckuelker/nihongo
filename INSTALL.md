@@ -1,7 +1,9 @@
 ---
-title: INSTALL.md
+title: Installation
 author: Christian Külker
-date:  2020-07-25
+version: 0.1.1
+date: 2022-05-07
+
 ---
 
 ![Github license](https://img.shields.io/github/license/ckuelker/nihongo.svg)
@@ -13,20 +15,38 @@ date:  2020-07-25
 # Installation
 
 This document describes mainly the installation of the dependencies to create
-the PDF documents. The PDF documents by itself can be create via a `Makefile`
+the PDF documents. The PDF documents by itself can be created via a `Makefile`
 in the source directory mentioned in the [README](README.md) after the
 dependencies are installed.
+
+## History Of This document
+
+| Version | Date       | Notes                                                |
+| ------- | ---------- | ---------------------------------------------------- |
+| 0.1.1   | 2022-05-07 | Typos, history, version                              |
+| 0.1.0   | 2020-07-25 | Initial release for nihongo 0.1.2                    |
+
+### INSTALL.md 0.1.1
+
+- fix typo TeX Live
+- Make references to Debian similar: Debian version code-name
+- Add history section
+- Mark special names
+- Add more OS test info for `nihongo-0.1.2`
+- Change front matter title
 
 ## nihongo-0.1.2
 
 ### Operating System
 
-Debian Buster, Unicode 10 and at least XaLaTex 2018.20190227-2 is needed.
+Debian 10 Buster, Unicode 10 and at least TeX Live 2018.20190227-2 is needed.
+It also has been tested wit Debian 10 Buster and TeX Live 2021.20210325 as well
+as Debian 11 Bullseye with TeX Live 2022-20220321.
 
 ### Dependencies
 
-In addition to the instructions of nihongo-0.1.1 install the font Hanazono
-Mincho. This font is used for Henteigana. Also the font `YOzAb` is needed and
+In addition to the instructions of i`nihongo-0.1.1` install the font `Hanazono`
+`Mincho`. This font is used for `Henteigana`. Also the font `YOzAb` is needed and
 provided in `fonts-yozvox-yozfont`. The font `AoyagiSosekiFont2` is needed,
 provided by `fonts-aoyagi-soseki`. The font `KanjiStrokeOrders` is provided by
 `fonts-kanjistrokeorders`. The font `KouzanBrushFontGyousyo` is provided by
@@ -39,7 +59,7 @@ fonts-kanjistrokeorders fonts-kouzan-mouhitsu
 
 ### Known Issues
 
-Due to the lack of Unicode 10 support, not all glyphs from the Hentaigana
+Due to the lack of Unicode 10 support, not all glyphs from the `Hentaigana`
 table are printed.
 
 ## nihongo-0.1.1
@@ -52,8 +72,8 @@ Debian Buster was used for testing.
 
 #### multind.sty
 
-While `multind.sty` is available in `texlive-latex-extra` under Wheezy it has
-been removed in recent LaTeX releases. The source has to be changed:
+While `multind.sty` is available in `texlive-latex-extra` under Debian 7 Wheezy
+it has been removed in recent LaTeX releases. The source has to be changed:
 
 The old command `\bf` has to be changed to `\textbf`.
 
@@ -73,7 +93,7 @@ sed -i -e 's%\\bf\s\+%\\textbf %g' multind.sty
 
 #### Fonts
 
-The font YoZ changed a lot since 2014. Therefore
+The font `YoZ` changed a lot since 2014. Therefore
 `share/preamble/standard-english.tex` was changed too.
 
     aptitude install fonts-dejima-mincho fonts-yozvox-yozfont fonts-vlgothic\
@@ -91,14 +111,14 @@ Make sure 'non-free' is enabled in `/etc/apt/sources.list` for the
 
 #### Operating System
 
-nihongo-0.1.0 uses `eps` and `pdf` as pictures. This do not work well with
+`nihongo-0.1.0` uses `eps` and `pdf` as pictures. This do not work well with
 newer versions of Debian. The last working version of Debian that is known to
-work is Debian Wheezy.
+work is Debian 7 Wheezy.
 
 #### LaTeX
 
-nihongo-0.1.0 was tested with a full installation of `texlive`. Maybe a subset
-will work too.
+`nihongo-0.1.0` was tested with a full installation of `texlive`. Maybe a
+subset will work too.
 
     aptitude install texlive-full
 
@@ -116,8 +136,8 @@ Make sure 'non-free' is enabled in `/etc/apt/sources.list` for the
 #### Perl
 
 The `bin/extract-ifor` script needs the Perl module `Lingua::JA::Sort::JIS`.
-Unfortunately there is no package for Wheezy. The module can be installed in
-many different ways. One method is to use `cpanminus`.
+Unfortunately there is no package for Debian 7 Wheezy. The module can be
+installed in many different ways. One method is to use `cpanminus`.
 
     aptitude install cpanminus
     cpanm Lingua/JA/Sort/JIS.pm
