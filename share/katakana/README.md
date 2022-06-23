@@ -1,12 +1,23 @@
-# nihongo/share/katakana
+---
+title: Directory nihongo/share/katakana
+author: Christian Külker
+date: 2022-06-23
+version: 0.1.3
+
+---
+
+# Directory nihongo/share/katakana Aim
 
 Japanese resources to share for building a Katakana book
 
 # Name Schema for PDF Graphic Files
 
-Most PDF graphic files in this directory are created via katakana.svg by
+Most PDF graphic files in this directory are created via `katakana.svg` by
 inkscape (version 0.48.5 r10040 - or similar (Debian Wheezy, Jessie). Some
-other files in nihongo/share/i too.
+other files in `nihongo/share/i` too. As the resolution of `katakana.svg`
+depends on the desktop and the inkscape application (as of now 2022-06-23)
+it is recommended to use Debian GNU/Linux 8.11 (jessie) to make changes to
+`katakana.svg`.
 
      ad.pdf     - [a]rrow [d]own
      ag.pdf     - katakana [a] [gray]
@@ -52,4 +63,12 @@ other files in nihongo/share/i too.
        - Export area is drawing
        - Limit export to the object ID [<INSERT ID HERE>]
 
+## History
+
+| Version | Date       | Notes                                                |
+| ------- | ---------- | ---------------------------------------------------- |
+| 0.1.3   | 2022-06-23 | History, improve info about dependencies             |
+| 0.1.2   | 2020-01-12 | Add hint for inkscape version                        |
+| 0.1.1   | 2014-08-24 | Improve info about file saving                       |
+| 0.1.0   | 2014-08-24 | Initial release                                      |
 
