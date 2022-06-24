@@ -4,15 +4,23 @@ use warnings;
 use Lingua::JA::Sort::JIS qw(jsort);
 my @ifor = qx(grep -rhI --include="*.tex" ifor{);
 my %d    = ();
+
 foreach my $e (@ifor) {
 
 # share/sec/Furigana.tex:\ifor{Furigana}{振り仮名}{ふりがな}{Furigana}
+# share/sec/Furigana.tex:\ifor{Furigana!old}{振り仮名}{ふりがな}{Furigana!alt}
+# share/sec/Furigana.tex:\ifor{F@Furigana}{振り仮名}{ふりがな}{F@Furigana}
+# share/sec/Furigana.tex:\ifor{F@Furigana!old}{振り仮名}{ふりがな}{F@Furigana!alt}
     $e =~ s{.*\\ifor}{}gmx;
     print $e;
-    $e =~ m/{(.+)}{(.+)}{(.+)}{(.+)}/gmx;
+    $e =~ m/\{(.+)}\{(.+)}\{(.+)}\{(.+)}/gmx;
     my ( $en, $ja, $hi, $de ) = ( $1, $2, $3, $4 );
+    $en =~ s{.*@}{}gmx; # Remove makeindex sort hint
+    $de =~ s{.*@}{}gmx; # Remove makeindex sort hint
+    $en =~ s{(.+)!(.+)}{$2 $1}gmx; # Revert makeindex subindex
+    $de =~ s{(.+)!(.+)}{$2 $1}gmx; # Revert makeindex subindex
     my $ref = $en;
-    $ref =~ s{('|")}{}gmx;
+    $ref =~ s{('|")}{}gmx;# This would be a makeindex format hint
     $ref =~ s{a}{a}gmx;
     $ref =~ s{i}{i}gmx;
     $ref =~ s{ū}{u}gmx;

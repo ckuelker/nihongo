@@ -82,7 +82,7 @@ tmp/
 *.idx
 *.ilg
 *.ind
-*.ist
+#*.ist # 2022-06-24 Add makeindex style files to git
 
 # minitoc
 *.maf

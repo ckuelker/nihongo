@@ -11,15 +11,20 @@
 \include{JLANG}% includes command \jlanguage (ngerman, english)
 \usepackage[main=\jlang,japanese]{babel}
 
-% INDEX - need to load before hyperref
+% INDEX - need to load before hyperref 2022-06-24
 %\usepackage{makeidx}
-\usepackage{multind}%            more the one index (style makeindex)
-\makeindex{japanese}
-\makeindex{english}
-\makeindex{german}
-\newcommand{\ien}[1]{\index{english}{#1}}
-\newcommand{\ija}[1]{\index{japanese}{#1}}
-\newcommand{\ide}[1]{\index{german}{#1}}
+%\usepackage{multind}%            more the one index (style makeindex)
+\usepackage{imakeidx}% replace multind, need to be place fore tkiz
+%\usepackage{showidx}
+%\makeindex{japanese}
+%\makeindex{english}
+%\makeindex{german}
+\makeindex[intoc=false,options=-s ../share/makeindex/english.ist,name=english,title=English: Terms,columns=2]
+\makeindex[intoc=false,options=-s ../share/makeindex/japanese.ist,name=japanese,title=Japanese: Index,columns=3]
+\makeindex[intoc=false,options=-s ../share/makeindex/german.ist,name=german,title=Deutsch: Fachbegriffe,columns=2]
+\newcommand{\ien}[1]{\index[english]{#1}}
+\newcommand{\ija}[1]{\index[japanese]{#1}}
+\newcommand{\ide}[1]{\index[german]{#1}}
 \newcommand{\ithree}[3]{\ien{#1}\ija{#2}\ide{#3}}
 \newcommand{\ifor}[4]{\ien{#1}\ija{#2}\ija{#3}\ide{#4}}
 % ===========================================================================
@@ -262,7 +267,7 @@
 
 % ===========================================================================
 % Japanese TOC jtoc
-% It will nt use the toclof counters. There is a bug that if one uses \part
+% It will not use the toclof counters. There is a bug that if one uses \part
 % as a reference there will always be a dot added the \thejchapter, like
 %   .1 　日本語の書き方
 % therefore the usual counters are used: \thechapter \thesection
@@ -305,6 +310,13 @@
 \renewcommand*\cftjsubsectionnumwidth{3em}
 \makeatother
 \setcounter{jtocdepth}{4}
+
+% Used for index heading 2022-06-24
+\usepackage{calc}
+%\definecolor{indexcolor}{HTML}{F16723}
+\definecolor{indexcolor}{HTML}{898989}
+
+
 
 
 

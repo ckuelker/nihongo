@@ -6,26 +6,26 @@
 # | - support Hiragana                                                        |
 # | - support languages                                                       |
 # |                                                                           |
-# | Version: 0.1.2 (change inline MAKEFILE_VERSION)                           |
+# | Version: 0.1.3 (change inline MAKEFILE_VERSION)                           |
 # |                                                                           |
 # | Changes:                                                                  |
 # |                                                                           |
+# | 0.1.3 2022-06-24 Christian Külker <c@c8i.org>                             |
+# |     - Remove exec of makeindex, now done by \usepakage{imakeidx}          |
 # | 0.1.2 2020-07-19 Christian Külker <c@c8i.org>                             |
 # |     - remove $(TERMS) related targets from realclean (should be devel)    |
-# |                                                                           |
 # | 0.1.1 2020-07-19 Christian Külker <c@c8i.org>                             |
 # |     - create $(TERMS) topic and language specific                         |
-# |                                                                           |
 # | 0.1.0 2020-07-19 Christian Külker <c@c8i.org>                             |
 # |     - initial release                                                     |
 # |                                                                           |
 # +---------------------------------------------------------------------------+
 #
-MAKEFILE_VERSION=0.1.2
+MAKEFILE_VERSION=0.1.3
 # NO CHANGES BEYOND THIS POINT
 L:=============================================================================
 LATEX:=xelatex
-MKIDX=makeindex -c
+# MKIDX=makeindex -c # now \package{imakeidx}
 TERMS=ListOfJapaneseTechnicalTerms.tex
 SRC:=$(wildcard japanese*.tex)
 
@@ -88,9 +88,9 @@ JTOPIC.tex:
 
 .tex.pdf:
 	$(LATEX) $<
-	$(MKIDX) english.idx
-	$(MKIDX) german.idx
-	$(MKIDX) japanese.idx
+	#$(MKIDX) english.idx  # now run by \package{imakeidx}
+	#$(MKIDX) german.idx   # now run by \packahe{imakeidx}
+	#$(MKIDX) japanese.idx # now run by \package{imakeidx}
 	$(LATEX) $<
 	$(LATEX) $<
 	cat $(SRC:.tex=.log)|grep Warning

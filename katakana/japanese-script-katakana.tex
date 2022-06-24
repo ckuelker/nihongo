@@ -1,4 +1,4 @@
-\documentclass[makeidx=yes,version=last,paper=a4,headings=small,titlepage,makeidx,fontsize=12pt]{scrbook} 
+\documentclass[makeidx=yes,version=last,paper=a4,headings=small,titlepage,makeidx,fontsize=12pt]{scrbook}
 
 % ===========================================================================
 % PREAMBLE
@@ -71,21 +71,55 @@ errors. Please report.}
 \input{../share/chap/RomajiTables}                 % B chap:RomajiTables
 \input{../share/chap/ListOfJapaneseTechnicalTerms_\jtopic_\jlang} % C chap:JapaneseTechnicalTerms
 
+% INDEX
+
 \phantomsection
 \addcontentsline{toc}{chapter}{Indices}\jindex{索引}
 %\chapter{Indices}
 \fontspec{FreeSans}
 \normalsize
-\phantomsection
-\printindex{english}{English: Terms}\jsubindex{英語専門用語索引}
-\label{chap:EnglishIndex}
-\phantomsection
-\printindex{japanese}{Japanese: Index}\jsubindex{日本語専門用語索引}
-\label{chap:JapaneseIndex}
-\phantomsection
-\printindex{german}{Deutsch: Fachbegriffe}\jsubindex{独逸語専門用語索引}
-\label{chap:GermanIndex}
 
+% OLD: multind
+%\phantomsection
+%\printindex{english}{English: Terms}\jsubindex{英語専門用語索引}
+%\label{chap:EnglishIndex}
+%\phantomsection
+%\printindex{japanese}{Japanese: Index}\jsubindex{日本語専門用語索引}
+%\label{chap:JapaneseIndex}
+%\phantomsection
+%\printindex{german}{Deutsch: Fachbegriffe}\jsubindex{独逸語専門用語索引}
+%\label{chap:GermanIndex}
+
+% NEW: imakeidx 2022-06-24
+\phantomsection
+\clearpage
+\begingroup
+\addcontentsline{toc}{section}{English: Terms}\jsubindex{英語専門用語索引}
+% \fbox* settings to fix the code in ../share/makeindex/english.ist
+\setlength{\fboxsep}{5pt}%
+\setlength{\fboxrule}{0pt}%
+\printindex[english]
+\label{chap:EnglishIndex}
+\endgroup
+
+\phantomsection
+\clearpage
+\begingroup
+\addcontentsline{toc}{section}{Japanese: Index}\jsubindex{日本語専門用語索引}
+\printindex[japanese]
+\label{chap:JapaneseIndex}
+\endgroup
+
+\phantomsection
+\clearpage
+\begingroup
+\addcontentsline{toc}{section}{Deutsch: Fachbegriffe}\jsubindex{独逸語専門用語索引}
+% \fbox* settings to fix the code in ../share/makeindex/german.ist
+\setlength{\fboxsep}{5pt}%
+\setlength{\fboxrule}{0pt}%
+\printindex[german]
+\label{chap:GermanIndex}
+\endgroup
 
 
 \backmatter
