@@ -1,0 +1,7 @@
+delim_0 "\\dotfill\ "
+delim_1 "\\dotfill\ "
+headings_flag 1
+heading_prefix "\\vspace*{0.6cm}\\nopagebreak\n\\tikz\\node at (0pt,0pt) [rounded corners=4pt,draw=indexcolor,fill=indexcolor!10,line width=1pt,inner sep=5pt]{\\parbox{\\linewidth-2\\fboxsep-2\\fboxrule-2pt}{\\centering\\large\\sffamily\\bfseries\\textcolor{black}{" heading_suffix "}}};\\vspace*{0.2cm}\\nopagebreak\n"
+preamble
+"\\markright{English}% 1. Page right\n\n\\begin{theindex}\n\\thispagestyle{fancy}\\markboth{D. Indices}{English: Terms}% Every other page\n"
+postamble "\n\n\\end{theindex}\n"
