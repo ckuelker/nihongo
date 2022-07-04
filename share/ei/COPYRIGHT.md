@@ -1,7 +1,7 @@
 # ei - external image directory
 
 The files in this directory are files from external sources. Therefore the
-copyright (if or if any) needs to be clarified. 
+copyright (if or if any) needs to be clarified.
 
 ## James_Curtis_Hepburn.jpg
 
