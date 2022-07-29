@@ -1,0 +1,115 @@
+% ===========================================================================
+\chapter{Japanese Writing System}\jchap{日本語の書き方}
+\ithree{Japanese Writing System}{日本語の書き方}{Japanisches Schrift System}
+\label{chap:JapaneseWritingSystem}
+
+
+\ien{gobbledygook}\ien{gobbledegook}\ide{Fachchinesisch}
+From the perspective of an European the Japanese script (how Japanese is
+written) looks strange and difficult at first sight and many people mistake
+Japanese for Chinese\footnote{In German language the word "Fachchinesisch"
+(Lit.: profession Chinese, Engl.: gobbledygook, Amer.: gobbledegook) for
+example is synonym of something that is not understandable. The perception to
+understand Japanese is almost the same.} writing. For Japanese the Japanese
+script is just ordinary. On the other side the writing system of an European
+language is also not easy to a Japanese. Most Japanese will not notice the
+whole difficulty because they are introduced to English at an early age and
+school English is just a subset of every day written English. The difficulties
+starts when Japanese are exposed to every day written English or any other
+European language with all it different graphical representations.
+
+Most Europeans believe that they are using only one writing script. At a closer
+look that is wrong.
+
+\bigskip Example of 4 different representation of the reading ''a'':
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\textbf{Character}&\textbf{Alphabet}&\textbf{Reading}&\textbf{Remark}\\\hline
+\textit{a}     &  Italic        & a & printed script, small letter ''a'' \\
+\texttt{a}     &  Typewriter    & a & printed script, small letter ''a'' \\
+A              &  Serif         & a & printed script, capital letter ''a'' \\
+$\mathfrak{A}$ & Fraktur\footnote{Some of this writing scripts where used
+actively in the beginning of last century, while is is more common to only
+read them now.}& a & Fraktur, capital letter ''a''  \\
+\end{tabular}
+\end{center}
+
+Some of this writing scripts where used active in the beginning of last
+century, while is is more common to only read them now.
+
+For an European adult\footnote{European children have to learn that
+"\textit{a}" is the same as "\texttt{a}". And even adults have difficulties to
+read "$\mathfrak{A}$" out of context as "A".}  the "kinship" of the above
+graphic elements is obvious. However it is a cultural achievement to associate
+them to each other and it is by no means obvious from a foreign (or learner's)
+perspective.
+
+In a similar way the equality of {「あ」} and {「ア」} is obvious for a
+Japanese, but not for an European. When got used to it, it will become not
+strange or difficult any more.
+
+As in European text also in Japanese text a number of different scripts can be
+found. Next to the known scripts in Europe\footnote{German for example:
+Fraktur, Latin, special characters like umlauts or eszett (the German
+symbol for a voiceless "s" after a long vowel (such as in "großer Mann") or a
+diphthong (such as in "weißer Hai"). ('ß')), Indian numbers} there are two
+Japanese alphabets
+%\footnote{ From a scientific point of view it can be argued
+%that the Roman a-z or A-Z is an \textit{alphabet} but the
+%Japanese \hyperref[sec:Hiragana]{Hiragana} and \hyperref[sec:Katakana]{Katakana}
+%are not. On the other side we could try to argue that a-z and A-Z are to
+%different \textit{alphabets}, because the graphical representation of a sound
+%is different (and alpha is Greek letter anyway). If we follow this
+%argumentation we might state that \hyperref[sec:Hiragana]{Hiragana} is small
+%writing while Katakana is capital writing. However both ways of argumentations
+%have its short comings. By using the word \textit{alphabet}
+%for \hyperref[sec:Hiragana]{Hiragana} as well as for "Typewriter" above two goals
+%are in the focus of mind. First, the word \textit{alphabet} is a generic term
+%for a common set of letters that is understood by everyone and second by using
+%an average term for European and Japanese language the similarities should been
+%stressed and not the (of course) existing differences. The friction by using
+%the word \textit{alphabet} for "Typewriter" for example is well understood and
+%intended. }
+ \hyperref[sec:Hiragana]{Hiragana} and
+\hyperref[sec:Katakana]{Katakana}, both are referenced as \textit{Kana} and
+the letters derived from Chinese characters called \hyperref[sec:Kanji]{Kanji}.
+
+Example:
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\textbf{Character}&\textbf{Alphabet}&\textbf{Reading}&\textbf{Remark}\\\hline
+あ& Hiragana & a & no meaning, just the letter  ``a'' in Hiragana \\
+ァ& Katakana & a & no meaning, just the letter ``a'' in Katakana \\
+阿& Kanji    & a & { angle, to please, part of roof, hill, Africa}\\
+\end{tabular}
+\end{center}
+
+Japanese can be written in two directions. First, old fashioned from up to down
+- vertically with columns from right to left. And second, modern (as in
+  English) from left to right - horizontally with rows from up to down. Within
+  this four alphabets are used: Roman-Indian letters (our letters),
+  \hyperref[sec:Kanji]{Kanji} (Chinese derived letters)
+  \hyperref[sec:Hiragana]{Hiragana} (Newer Japanese characters) and
+   \hyperref[sec:Katakana]{Katakana}  (also newer Japanese characters).  This
+  mixture of alphabets is named \textit{Kanji-Kana-Majiri-Bun}
+  (Kanji-Kana-Mixed-Text). The most common are \hyperref[sec:Kanji]{Kanji} and
+  \hyperref[sec:Hiragana]{Hiragana}. Each of the scripts are introduced in the
+  following sections.
+
+\section*{\textit{Kanji}}
+\input{../share/para/Kanji}
+
+\textbf{Katakana} will be introduced in detail in the next chapter
+\nameref{chap:TheWayToWriteKatakana}.
+
+\section*{\textit{Hiragana}}
+\input{../share/para/Hiragana}
+
+\section*{\textit{Katakana}}
+\input{../share/para/Katakana}
+
+\section*{\textit{Roman/ Latin/ Indian-Arabic Characters}}
+\input{../share/para/Romaji}
+
