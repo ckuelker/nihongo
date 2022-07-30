@@ -1,34 +1,35 @@
 % ---------------------------------------------------------------------------
 \section{Furigana}\jsec{振り仮名} \label{sec:Furigana}\label{sec:Rubi}
 \label{sec:Yomigana}
-\ifor{Furigana}{振り仮名}{ふりがな}{Furigana}
-\ifor{Kanji}{漢字}{かんじ}{Kanji}
-\ifor{Katakana}{片仮名}{かたかな}{Katakana}
-\ifor{Rōmaji}{ローマ字}{ろーまじ}{Rōmaji}
+\ifor{furigana}{振り仮名}{ふりがな}{Furigana}
+\ifor{kanji}{漢字}{かんじ}{Kanji}
+\ifor{katakana}{片仮名}{かたかな}{Katakana}
+\ifor{rōmaji}{ローマ字}{ろーまじ}{Rōmaji}
 
-The Japanese \textbf{Furigana} - written in Japanese {振り仮名} {【ふりがな】}
-- is an aid for reading \hyperref[sec:Kanji]{Kanji}. \textbf{Furigana} are
-\hyperref[sec:Kana]{Kana}, so basically \hyperref[sec:Hiragana]{Hiragana} or
-\hyperref[sec:Katakana]{Katakana}. \textbf{Furigana} are written next to the
-character (mostly \hyperref[sec:Kanji]{Kanji}) which reading can not be
-expected to be know mostly as annotative glosses. At first unknown or difficult
-\hyperref[sec:Kanji]{Kanji} are candidates for \textbf{Furigana} but also in
-books for Children some if not all \hyperref[sec:Kanji]{Kanji} have
-\textbf{Furigana}. But even in books for learning English for example
-\textbf{Furigana} can be found next to words written in
-\hyperref[sec:Romaji]{Rōmaji}.
+\newcommand{\lfurigana}{\ivoc{furigana}{振り仮名}{ふりがな}{Furigana}}
+
+The Japanese language has the pronunciation hint build in on demand. It is
+called \lfurigana{} and it is an aid for reading \hyperref[sec:Kanji]{kanji}.
+Mostly \textbf{furigana} are \hyperref[sec:Kana]{kana}, so basically
+\hyperref[sec:Hiragana]{hiragana} or \hyperref[sec:Katakana]{katakana}.
+Japanese \textbf{furigana} are written next to the character (mostly
+\hyperref[sec:Kanji]{kanji}) which reading can not be expected to be known,
+mostly as annotative glosses. At first unknown or difficult
+\hyperref[sec:Kanji]{kanji} are candidates for \textbf{furigana} but also in books
+for children some if not all \hyperref[sec:Kanji]{kanji} have \textbf{furigana}. But
+even in books, for learning English for example, \textbf{furigana} can be found next
+to words written in \hyperref[sec:Romaji]{rōmaji}.
 
 \ifor{Hiragana}{平仮名}{ひらがな}{Hiragana}
 \ifor{space character}{空白文字}{くうはく･もじ}{Leerzeichen}
 
-When text is written horizontally \textbf{Furigana} are written mostly above
-the referenced character. In vertically written text \textbf{Furigana} are
-written on the right site next to the character. \textbf{Good}
-\textbf{Furigana} tries to place the reading distinguishable to each character
-separately. So the first example (Kanji+Hiragana) is \textbf{not} good. While
-the second (Kanji+Hiragana) is a good usage of \textbf{Furigana}. As a matter
-of fact \textbf{Furigana} is one rare case of using the
-\hyperref[sec:SpaceCharacter]{space character}.
+When text is written horizontally \textbf{furigana} are written mostly above the
+referenced character. In vertically written text \textbf{furigana} are written on
+the right site next to the character. \textbf{Good} \textbf{furigana} tries to place
+the reading distinguishable to each character separately. So the first example
+(kanji+hiragana) is \textbf{not} good. While the second (kanji+hiragana) is a
+\textbf{good} usage of \textbf{furigana}. As a matter of fact \textbf{furigana} is one
+rare case of using the \hyperref[sec:SpaceCharacter]{space character}.
 
 \begin{center}
 \begin{tabular}{rl}
@@ -44,7 +45,7 @@ of fact \textbf{Furigana} is one rare case of using the
 \raisebox{10\height}{
  \framebox[20mm][r]{
  \rotatebox{-90}{
-  \begin{minipage}{2.0cm} 
+  \begin{minipage}{2.0cm}
 \setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=vertical]{IPAPMincho}
 \renewcommand{\rubysep}{-0.5ex}
   \CJKfamily{cjk-vert}
@@ -56,45 +57,44 @@ of fact \textbf{Furigana} is one rare case of using the
 &\begin{minipage}{14cm}
 Vertically written Tōkyō, as it also can be seen on many signs.\smallskip
 
-\ifor{rubi}{ルビ}{るび}{Rubi}
-\ifor{Yomigana}{読み仮名}{よみがな}{Yomigana}
+\newcommand{\lrubi}{\ivoc{rubi, ruby}{ルビ}{るび}{Rubi}}
+\newcommand{\lyomigana}{\ivoc{yomigana}{読み仮名}{よみがな}{Yomigana}}
 
-Other names for \textbf{Furigana} are Ruby/Rubi or Yomigana {読み仮名}
-{【よみがな】}.  Ruby (Japanese {ルビ} /rubi/) is also a annotation system that
-can be used in \LaTeX or HTML. Rubi are  also common in China, Taiwan and
-Korea. \end{minipage}
-\\
+Other names for \textbf{furigana} are \lrubi{} or \lyomigana{}. The name Ruby
+(Japanese {ルビ} /rubi/) is also known to be a annotation system that can be
+used in \LaTeX or HTML. Also in China, Taiwan and Korea \textbf{rubi} are common.
+\end{minipage} \\
 \end{tabular}
-\bigskip
+\medskip
 
 \begin{tabular}{ll}
-\begin{minipage}{14cm}
+\begin{minipage}{13cm}
 
-A common example for using \textbf{Furigana} for adults would be to rename
-(better re-read) single words to give them a specific connotation.  In science
-fictions some astronaut could use the Japanese word {ふるさと} /furusato/  with
-the meaning of "my hometown" to refer to the planet Earth ( =
-{地球}{【ちきゅう】}). Or to make it more fancy and international (may be also
-with connotation that Japan has no space in the future):
+A common example for using \textbf{furigana} for adults would be to rename
+(better re-read) single words to give them a specific connotation. In science
+fictions some astronaut could use the Japanese word {ふるさと} /furusato/ with
+the meaning of "my hometown" to refer to the planet Earth {( = {地球}
+{【ちきゅう】})}.
 
 \end{minipage}&
-\begin{minipage}{2cm}
+\hspace{2em}\begin{minipage}{3cm}
 \Huge \ruby{地球}{ふるさと}　
 \end{minipage}\\
+\end{tabular}\medskip
+
+\begin{tabular}{ll}
+\begin{minipage}{13cm}
+
+Or to make it more fancy and international example (maybe also with the
+connotation that Japan has no space in the future): Here {アース} refers to
+'earth', but {地球} is better understandable by the Japanese audience, if the
+Japanese \hyperref[sec:Kanji]{kanji} and the \textbf{furigana} is seen
+together.
+
+\end{minipage}&
+\hspace{2em}\begin{minipage}{3cm}
+\Huge\ruby{地球}{アース}
+\end{minipage}\\
 \end{tabular}
-
-\begin{tabular}{lp{2cm}}
-\begin{minipage}{14cm}
-Here {アース} refers to 'earth', but {地球} is better understandable by the
-Japanese audience.
-\end{minipage}
-&
-\mbox{\Huge\ruby{地球}{アース} }
-\\
-\end{tabular}
-
-
-
-
 
 
