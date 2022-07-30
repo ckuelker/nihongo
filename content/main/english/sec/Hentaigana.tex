@@ -34,21 +34,25 @@
 % [o] INDEX TARGET
 \ifor{Kana}{仮名}{かな}{Kana}
 
-\textit{Hentaigana} (変体仮名【へんたいがな】, pronounced |hentaiɡana|) are
-historical \hyperref[sec:Kana]{Kana} that are used seldom today. They were used
-until before 1900 and declared as obsolete\footnote{The word /hentai/ means
-just variant} in the 1900 language reform. Rather than an addition to
-\hyperref[sec:Kana]{Kana}, \textit{Hentaigana} representing alternative forms
-to existing \hyperref[sec:Kana]{Kana}. The usage were not formalized and every
-writer decides which set to use. It was even common to use two or more
-different \textit{Hentaigana} (and standard \hyperref[sec:Kana]{Kana}) with
-the same pronunciation in the same document by the same author.
+\newcommand{\lhentaigana}{\ivoc{hentaigana}{変体仮名}{へんたいがな}{Hentaigana}}
+\newcommand{\lkoseki}{\ivoc{koseki}{戸籍}{こせき}{Koseki}}
 
-Until 1947 \textit{Hentaigana} were used for names. In contemporary Japan the
-usage of \textit{Hentaigana} is reduced to traditional decorative elements on
-shop signs for example. A few marginal uses remain such as: the word /otemoto/
-is written in \textit{Hentaigana} on some chopsticks or the names in the
-Japanese family registry (戸籍 koseki).
+
+The word \lhentaigana{} is pronounced /hen・tai・gana/ and refers historically
+to \hyperref[sec:Kana]{kana} that are used seldom today. They were used until
+before 1900 and declared as obsolete\footnote{The word /hentai/ means just
+variant.} in the 1900 language reform. Rather than an addition to
+\hyperref[sec:Kana]{kana}, \textbf{hentaigana} representing alternative forms to
+existing \hyperref[sec:Kana]{kana}. The usage were not formalized and every
+writer decides which set to use. It was even common to use two or more
+different \textbf{hentaigana} (and standard \hyperref[sec:Kana]{kana}) with the same
+pronunciation in the same document by the same author.
+
+Until 1947 \textbf{hentaigana} were used for names. In contemporary Japan the usage
+of \textbf{hentaigana} is reduced to traditional decorative elements on shop signs
+for example. A few marginal uses remain such as: the word /otemoto/ is written
+in \textbf{hentaigana} on some chopsticks or the names in the Japanese family
+registry (\lkoseki{}).
 
 \bigskip
 
@@ -69,20 +73,27 @@ Japanese family registry (戸籍 koseki).
 \JapaneseDefault
 \end{center}
 
-Due to Japanese proposals from 2015\footnote{See
-\href{https://www.unicode.org/L2/L2015/15316-hentaigana-58_438.pdf}{『変体仮名のこれまでとこれから—情報交換のための標準化』
-(The past, present, and future of Hentaigana: Standardization for information
-processing) by TAKADA Tomokazu (高田智和) et al.} and
-\href{https://www.unicode.org/L2/L2015/15318-hentaigana.pdf}{About the inclusion
-of standardized codepoints for Hentaigana by YADA Tsutomu (矢田勉)} }.
-\textit{Hentaigana} became available in Unicode (version 10) in 2017. However
-the usage on computers in 2020 is still difficult. Until Japanese computer text
-input methods (like \texttt{Mozc}, \texttt{Anthy}, ...) support
-\textit{Hentaigana}, entering this characters on a computer is quite
+Due to Japanese proposals from 2015
+\footnote{See
+        \href{https://www.unicode.org/L2/L2015/15316-hentaigana-58_438.pdf}{『変体仮名のこれまでとこれから—情報交換のための標準化』}
+(The past, present, and future of \textbf{hentaigana}: Standardization for
+information processing) by TAKADA Tomokazu (高田智和) et al. and
+\href{https://www.unicode.org/L2/L2015/15318-hentaigana.pdf}{About the
+inclusion of standardized codepoints for Hentaigana by YADA Tsutomu (矢田勉)}
+}, in 2017 \textbf{hentaigana} became available in Unicode (version 10).
+However the usage on computers in 2020, 2021 and 2022 is still difficult. Until
+Japanese computer text input methods (like \texttt{Mozc}, \texttt{Anthy}, ...)
+support \textbf{hentaigana}, entering this characters on a computer is quite
 cumbersome. In \texttt{vim} for example: enter insert mode, press
-\texttt{<CTRL+V>+U} and then the hexadecimal UCS number. For instance the
-font\footnote{See
-\href{https://en.wikipedia.org/wiki/Help:Multilingual_support\#Hentaigana}{Wikipedia
-Help} for more fonts or the Wikipedia page on
+\texttt{<CTRL+V>+U} and then the hexadecimal UCS number. Of course to actually
+see the character a correct font has to be installed. For instance the
+font\footnote{See 
+\href{https://en.wikipedia.org/wiki/Help:Multilingual_support\#Hentaigana}{Wikipedia Help}
+for more fonts or the Wikipedia page on
 \href{https://en.wikipedia.org/wiki/Hentaigana}{Hentaigana} } \texttt{HanaMinA
-Regular} (Hanazono Mincho) can be used to display \textit{Hentaigana}.
+Regular} (Hanazono Mincho) can be used to display \textbf{hentaigana}. Be aware that
+different fonts with different degree of support are used in one desktop
+session. The font used to display this PDF can be different from the font to
+display the operating system desktop windows which again can be different from
+the font used in the terminal. No font is known to support all characters.
+
