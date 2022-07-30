@@ -1,64 +1,46 @@
 \chapter*{Introduction}\jchap{前書き}
+% FOREWORD:     Vorwort        (someone else: why you should read?)
+% INTRODUCTION: Einfuehrung    (author: what is in it, what can be expected?)
+% PREFACE:      Vorbemerkungen (author: why the book exists?)
 % [o] LABEL
 \label{chap:Introduction}
 % [o] INDEX DESTINATION (DEF) \ifor only
 % [o] INDEX TARGET
-\ithree{Introduction}{前書き}{Einleitung}
-\ifor{Hiragana}{平仮名}{ひらがな}{Hiragana}
+\ithree{introduction}{前書き}{Einleitung}
+\ifor{hiragana}{平仮名}{ひらがな}{Hiragana}
+\ifor{katakana}{片仮名}{かたかな}{Katakana}
 
-The book is the second volume of \textit{The Japanese Script} with the focus to
-teach \textit{Katakana}. As a matter of fact it is assumed that the reader
-already mastered volume one \textit{The Japanese Script - Hiragana} before
-continue learning \textit{Katakana}.
+\textbf{The Japanese Script - Hiragana} was decided to be volume ①  and
+\textbf{The Japanese Script - Katakana} was decided to be volume ②.
+\ifthenelse{\equal{hiragana}{\jtopic}}{%
+ This book is the \textbf{first} volume of \textbf{The Japanese Script} series with the
+focus to teach \textbf{hiragana}.
+}{}%
+\ifthenelse{\equal{katakana}{\jtopic}}{%
+ This book is the \textbf{second} volume of \textbf{The Japanese Script} series with the
+focus to teach \textbf{katakana}.
+}{}%
 
-\ithree{self learning}{独修}{Selbstudium}
-Being able to read and write Japanese is a core skill when learning Japanese.
-And \textit{Katakana} is one of the two very basic scripts of Japanese to be
-learned.  This book is written with the aim to help in that, based on self
-experience as a learner of \textit{Katakana} as well as from teaching
-experience and with feedback of many students. This is the first edition as a
-book for self leaning approach. So please report suggestions or problems.
+While there is no specific reason to start with \textbf{hiragana} when it comes
+to learn the first Japanese writing script, historically \textbf{hiragana} is
+the first choice. It might be the assumption that \textbf{hiragana} are more
+common in Japanese texts than \textbf{katakana} and also when Japanese Chinese
+characters (kanji) are transcribed (for example as station names)
+\textbf{hiragana} is used. However, since a beginner in learning Japanese also
+have almost no vocabulary knowledge, the usability is overestimated by Japanese
+native people. Actually, a foreigner from an English speaking background might
+consider to learn \textbf{katakana} first, because foreign words in Japanese
+are written in \textbf{katakana} and after mastering the \textbf{katakana} such
+learner would be able to read and write thousands of words with a little
+imagination, compared to almost none in case of \textbf{hiragana}.
 
-The \hyperref[chap:JapaneseWritingSystem]{first chapter}
-(\nameref{chap:JapaneseWritingSystem}) will introduce the Japanese writing
-system and different alphabets. If you are already familiar with it, you can
-safely skip this chapter. In any case all terms are explained in the
-\hyperref[chap:Terminology]{last chapter}.
+With whatever script to start with, it is recommended to finish this first
+script and then learn the second script. It is also recommended to finish
+\textbf{hiragana} and \textbf{katakana} before learning Japanese Chinese
+characters (kanji).
 
-The \hyperref[chap:TheWayToWriteKatakana]{second chapter}
-(\nameref{chap:TheWayToWriteKatakana}) starts with the introduction of writing
-and reading single \textit{Katakana} letters. The chapter ends with special
-\textit{Katakana} letters. It is advised to read this chapter before starting
-the training.
+Common chapters are repeated or are slightly modified in each volume, so that a
+learner can choose to start with volume ①  or ②  and obtain all the references
+in each volume. Skip the passages you already know.
 
-The \hyperref[chap:KatakanaTraining]{third chapter}
-(\nameref{chap:KatakanaTraining}) goes right into action by offering row based
-training sessions for each character as well as simple training for writing
-some Japanese \textit{Katakana} words.
-
-The \hyperref[chap:Terminology]{last chapter} (\nameref{chap:Terminology})
-provides an alphabetically ordered glossary about the most important key words.
-It is recommended to read one article at a time to deepen the understanding of
-the Japanese language in general and the way of writing Japanese in particular.
-The order do not matter. However it is not mandatory to read this chapter to
-learn\textit{ Katakana}.
-
-The appendix contain tables of all important \textit{Katakana} and
-\textit{Katakana} written in different fonts in the
-\nameref{chap:KatakanaTables} part. Even though this is not explicit mentioned
-in the following chapters it is important to have a look at these tables from
-time to time when learning \textit{Katakana} to understand the margin (how
-much can be diverted from the standard and the character is still recognized)
-of the character to learn. The second part included
-\hyperref[chap:RomajiTables]{two tables with Latin letters} to memorize the
-pronunciation. In the forth part a list of used
-\hyperref[chap:ListOfJapaneseTechnicalTerms]{main technical terms in Japanese}
-can be found with references to the text where they are explained.  The last
-part of the appendix offer three indices: in
-\hyperref[chap:EnglishIndex]{English} (Index) and
-\hyperref[chap:GermanIndex]{German} (Fachbegriffe) for the learner and in
-\hyperref[chap:JapaneseIndex]{Japanese} (索引) for the teachers.
-
-
-
-
+\input{../content/sec/\jlang/SelfLearning}
