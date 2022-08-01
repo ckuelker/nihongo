@@ -1,72 +1,252 @@
-#!/usr/bin/perl -w
-use strict;
-use warnings;
-use Lingua::JA::Sort::JIS qw(jsort);
-my @ifor = qx(grep -rhI --include="*.tex" ifor{);
-my %d    = ();
+#!/usr/bin/perl -CSDA
+# +---------------------------------------------------------------------------+
+# | technical-terms                                                           |
+# |                                                                           |
+# | Extract latex commands and build a list of technical terms.               |
+# |                                                                           |
+# | Version: 0.1.0 (change inline)                                            |
+# |                                                                           |
+# | Changes:                                                                  |
+# |                                                                           |
+# | 0.1.0 2022-07-31 Christian Külker <c@c8i.org>                             |
+# |     - Initial release                                                     |
+# |                                                                           |
+# +---------------------------------------------------------------------------+
+# Improvements (compared to extract-ifor):
+# - Homophones are now possible
+# - Changed from Lingua::JA::Sort::JIS to Unicode::Collate::Locale sorting
+# Possible future improvements:
+# - Hiragana gets cleaned up. Consider making a Hiragana orginal column (to
+#   preserve the word boundaries) and a Hiragana clean column for the sort
+#   index
 
-foreach my $e (@ifor) {
+use utf8;                          # Literals and identifiers can be in UTF-8
+use v5.12;                         # Or later to get "unicode_strings" feature
+use strict;                        # Quote strings, declare variables
+use warnings;                      # On by default
+use warnings qw(FATAL utf8);       # Make encoding glitches fatal
+use open qw(:std :utf8);           # Undeclared streams in UTF-8
+use charnames qw(:full :short);    # Unneeded in v5.16
+use utf8::all;                     # Does probably all of the above and more
+                                   # Turn on Unicode - all of it
+use FindBin qw($RealBin);
+use lib "$RealBin/../lib";
+use File::Basename;
+use Data::Dumper;
+use Getopt::Long;
+use Unicode::Collate::Locale;      # Since Perl 5.14 (5.13 devel)
 
-# share/sec/Furigana.tex:\ifor{Furigana}{振り仮名}{ふりがな}{Furigana}
-# share/sec/Furigana.tex:\ifor{Furigana!old}{振り仮名}{ふりがな}{Furigana!alt}
-# share/sec/Furigana.tex:\ifor{F@Furigana}{振り仮名}{ふりがな}{F@Furigana}
-# share/sec/Furigana.tex:\ifor{F@Furigana!old}{振り仮名}{ふりがな}{F@Furigana!alt}
-    $e =~ s{.*\\ifor}{}gmx;
-    print $e;
-    $e =~ m/\{(.+)}\{(.+)}\{(.+)}\{(.+)}/gmx;
-    my ( $en, $ja, $hi, $de ) = ( $1, $2, $3, $4 );
-    $en =~ s{.*@}{}gmx; # Remove makeindex sort hint
-    $de =~ s{.*@}{}gmx; # Remove makeindex sort hint
-    $en =~ s{(.+)!(.+)}{$2 $1}gmx; # Revert makeindex subindex
-    $de =~ s{(.+)!(.+)}{$2 $1}gmx; # Revert makeindex subindex
-    my $ref = $en;
-    $ref =~ s{('|")}{}gmx;# This would be a makeindex format hint
-    $ref =~ s{a}{a}gmx;
-    $ref =~ s{i}{i}gmx;
-    $ref =~ s{ū}{u}gmx;
-    $ref =~ s{e}{e}gmx;
-    $ref =~ s{ō}{o}gmx;
-    my @ref = split /\s+/, $ref;    # split into words
+our $VERSION = '0.1.0';
+print "$0 $VERSION\n";
+our $L = q{=} x 80;
 
-    foreach my $r (@ref) {
-        $r = ucfirst $r;            # word upper case first letter
+# ENV - command line
+our @opt = qw(
+  dir|d=s
+  file|f=s
+  help|h
+  language=s
+  verbose|v
+);
+
+my $opt = {
+    help     => 0,
+    hiragana => 0,
+    verbose  => 0,
+};
+
+# Options with undefined as default value
+$opt->{file}     = undef;
+$opt->{dir}      = undef;
+$opt->{language} = 'english';
+
+GetOptions( $opt, @opt ) or die("Error in command line arguments");
+
+usage('HELP')                       if $opt->{help};
+die usage("No option --file or -f") if not defined $opt->{file};
+die usage("No option --dir or -d")  if not defined $opt->{dir};
+
+print "file    [$opt->{file}]\n";
+print "dir     [$opt->{dir}]\n";
+my $ja_sorter = Unicode::Collate::Locale->new( locale => "ja" );
+my @search    = qx(grep -rhI --include="*.tex" -e ifor{ -e ivoc{  ..);
+my @t         = ();                                                   # Terms
+my %t         = ();                                                   # Terms
+my @h         = ();                                                   # Hiragana
+foreach my $line (@search) {
+    chomp $line;
+    print "line: [$line] ";
+
+    #                    $1           $2=e     $3=j    $4=h     $5=g
+    if ( $line =~ m/^[^%](ifor|ivoc)\{(.+)}\{(.+)}\{(.+)}\{(.+)[}]+?/gmx ) {
+        print "-> hit 1\n";
     }
-    $ref = join q{}, @ref;
-    $ref = ucfirst $ref;            # word upper case first letter
-    $d{$hi} = { en => $en, ja => $ja, hi => $hi, de => $de, ref => $ref, };
-    print "hi [$hi] en [$en] ja [$ja] de [$de]\n";
+    elsif (
+        $line =~ m/^[^%].*?(ifor|ivoc)\{(.+)}\{(.+)}\{(.+)}\{(.+)[\}]{2,2}/gmx )
+    {
+        print "-> hit 2\n";
+    }
+    else {
+        print "-> no hit\n";
+    }
+    my $e = $2;    # English
+    my $j = $3;    # Kanji-kana-majiri-bun
+    my $h = $4;    # Hiragana
+    my $g = $5;    # German
+    next if not defined $e;
+    next if not defined $j;
+    next if not defined $h;
+    next if not defined $g;
+    next if $e eq '#2';       # This is the command definition of \ifor or \ivoc
+    next if $j eq '#1';       # This is the command definition of \ifor or \ivoc
+    next if $h eq '#3';       # This is the command definition of \ifor or \ivoc
+    next if $g eq '#4';       # This is the command definition of \ifor or \ivoc
+    $e =~ s{.*@}{}gmx;               # Remove makeindex sort hint
+    $g =~ s{.*@}{}gmx;               # Remove makeindex sort hint
+    $e =~ s{(.+)!(.+)}{$2 $1}gmx;    # Revert makeindex subindex
+    $g =~ s{(.+)!(.+)}{$2 $1}gmx;    # Revert makeindex subindex
+    $h =~ s{\s+}{}gmx;               # Clean up space
+    $h =~ s{・}{}gmx;               # Clean up dividers: full width
+    $h =~ s{･}{}gmx;               # Clean up dividers: half width
+    my $r = $e;                      # LaTeX reference
+    $r =~ s{('|")}{}gmx;             # This would be a makeindex format hint
+    $r =~ s{a}{a}gmx;
+    $r =~ s{i}{i}gmx;
+    $r =~ s{ū}{u}gmx;
+    $r =~ s{e}{e}gmx;
+    $r =~ s{ō}{o}gmx;
+    $r =~ s{,.*}{}gmx;               # Reference to the first word only
+    my @r = split /\s+/, $r;         # Split into words
+
+    foreach my $w (@r) {
+        $w = ucfirst $w;             # Word upper case first letter
+    }
+    $r = join q{}, @r;
+    $r = ucfirst $r;                 # Word upper case first letter
+
+    print "      ->  $j ($h): $e - $g [$r]\n";
+    push @t, { j => $j, h => $h, e => $e, g => $g, r => $r };
+    $t{$j} = { j => $j, h => $h, e => $e, g => $g, r => $r };
+    push @h, $h;
 }
 
-my @not_sorted = sort keys %d;
-my @sorted     = jsort(@not_sorted);
-print "data\n";
-my $fn = "ListOfJapaneseTechnicalTerms.tex";
+# Not really needed, just for checking sorting
+my @hsort = $ja_sorter->sort(@h);
+foreach my $h (@hsort) {
+    print "hiragana: [$h]\n";
+}
+my @sort  = sort { $a->{h} cmp $b->{h} } @t;    # Old sort
+my @jsort = sort {
+    $ja_sorter->getSortKey( $a->{h} ) cmp $ja_sorter->getSortKey( $b->{h} )
+} @t;
+my $n    = 1;                                   # index all
+my $u    = 1;                                   # index uniq
+my %seen = ();
+my %o    = ();                                  # store all
+my %s    = ();                                  # store uniq
 
-open my $f, q{>}, $fn or die "Can not write $fn!";
-my $n = 1;
-print $f '% automatically generated by: extract-ifor' . "\n";
-print $f '\chapter{List of Japanese Technical Terms}' . "\n";
-print $f '\label{chap:ListOfJapaneseTechnicalTerms}' . "\n";
-print $f '\label{sec:JapaneseTechnicalTerms}' . "\n";
-print $f '\jchap{日本専門用語リスト}' . "\n";
-print $f '\ifor{Japanese technical terms}{日本専門用語}';
-print $f '{にほんせんもんようご}{japanische Fachbegriffe}' . "\n";
-print $f '\normalsize Ordered by Japanese pronunciation (Hiragana).' . "\n";
-print $f '\footnotesize\Padding' . "\n";
-print $f '\begin{longtable}[c]{p{.5cm}p{3.5cm}p{4cm}p{3.5cm}p{3.5cm}}' . "\n";
-print $f '\textbf{\#}&\textbf{Japanese}&\textbf{Hiragana}&\textbf{English}';
-print $f '&\textbf{German}\\\\ \hline' . "\n";
-
-foreach my $hi (@sorted) {
-    next if not defined $hi;
-    next if $hi eq q{};
-    my $ja  = $d{$hi}->{ja};
-    my $de  = $d{$hi}->{de};
-    my $en  = $d{$hi}->{en};
-    my $ref = $d{$hi}->{ref};
-    print $f "$n&$ja&$hi&\\hyperref[sec:$ref]{$en}&$de\\\\\n";
+foreach my $h (@jsort) {
+    print "sorted: $n [$h->{j}] ($h->{h}):  [$h->{e}] = [$h->{g}] ($h->{r})\n";
     $n++;
+    if ( defined $seen{ $h->{j} } and $seen{ $h->{j} } ) {
+        print "        -> seen [$h->{j}] -> [$u]\n";
+    }
+    else {
+        print "        -> not seen [$h->{j}] -> [$u]\n";
+        $seen{ $h->{j} } = 1;
+        $s{ sprintf( "%010d", $u ) } = {
+            u => sprintf( "%010d", $u ),
+            j => $h->{j},
+            h => $h->{h},
+            e => $h->{e},
+            g => $h->{g},
+            r => $h->{r}
+        };
+        $u++;
+    }
 }
-print $f '\end{longtable}' . "\n";
+foreach my $m ( sort keys %s ) {
+    print
+"uniq: [$s{$m}->{u}] [$s{$m}->{j}] [$s{$m}->{h}] [$s{$m}->{e}] [$s{$m}->{g}] [$s{$m}->{r}]\n";
+}
 
-close $f;
+# Write LaTeX file
+
+my $text = "Ordered by Japanese pronunciation (hiragana)";
+if ( exists $opt->{language} and $opt->{language} eq 'ngerman' ) {
+    $text = "Nach japanischer Lesung (Hiragana) sortiert";
+}
+
+my $fn = $opt->{file};
+if ( -f $fn ) {
+    die "ERROR: file [$fn] exists: $!\n";
+}
+else {
+    my $b = basename($0);
+    open my $fh, q{>}, $fn or die "Can not write $fn!";
+    print $fh <<"EOH";
+% automatically generated by: $b v$VERSION
+\\input{../content/chap/$opt->{language}/TechnicalTermsBegin}
+EOH
+    my $id = 1;
+    foreach my $i ( sort keys %s ) {
+        next if not defined $id;
+        my $e = $s{$i}->{e};
+        my $j = $s{$i}->{j};
+        my $h = $s{$i}->{h};
+        my $g = $s{$i}->{g};
+        my $r = $s{$i}->{r};
+        print $fh "$id&$j&$h&\\hyperref[sec:$r]{$e}&$g\\\\\n";
+        $id++;
+    }
+    print $fh "\n\\input{../content/chap/$opt->{language}/TechnicalTermsEnd}\n";
+
+    close $fh;
+}
+
+exit 0;
+
+sub usage {
+    my $e = shift;
+    if ( $e eq 'HELP' ) {
+        print "$L\n$e\n$L\n" if defined $e;
+    }
+    else {
+        print "$L\nERROR: $e\n$L\n" if defined $e;
+    }
+    my $b = basename($0);
+    print <<"EOU";
+USAGE:
+    $b -h                                : This text
+    $b --help                            : This text
+    $b [OPTIONS] <-d=DIRECTORY -f=FILE>  : Scan and write terms
+
+     The program $b scans the directory specified with --dir or -d
+     for LaTeX files with the ending *.tex. It search the content of these
+     files for \\ifor or \\ivoc commands and create a list sorted after Japanese
+     hiragana. The list will be stored in the file specified by --file or -f.
+
+EXAMPLES:
+    Method 1:
+        $b -h                            : Print this text
+        $b --help                        : Print this text
+    Method 2:
+        $b -d DIRECTORY -f FILE          : Scan and write terms
+OPTIONS:
+     -d=DIRECTORY                | Mandatory: Same as --dir
+    --dir=DIRECTORY              | Mandatory: Specify the directory to scan
+     -h                          | Optional:  Same as --help
+    --help                       | Optional:  Print this information
+     -f=FILE                     | Mandatory: Same as --file
+    --file=FILE                  | Mandatory: Specify the LaTeX output file
+    --language=LANGUAGE          | Optional:  english|ngerman (default english)
+
+EOU
+    exit 1 if $e eq 'HELP';
+    exit 2 if defined $e;
+    exit 1;
+}
+
+1;
+__END__
+
