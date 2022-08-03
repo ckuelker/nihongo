@@ -1,14 +1,21 @@
-\chapter{Katakana Tables}\jchap{平仮名図} \label{chap:KatakanaTables}
-\ithree{Katakana!tables}{平仮名図}{Katakana!Tabellen}
+% \input can not handle \jscript{}
+\newcommand{\jTableKana}[2]{../share/table/#1#2}
+%\newcommand{\jTablKanaJapaneseDefault}[1]{../share/table/#1JapaneseDefault}
 
-\section{Katakana Reference}\jsec{片仮名のレファレンス}
-\input{../share/table/KatakanaReference}
+%/\chapter{Katakana Tables}\jchap{{片仮名図} \label{chap:KatakanaTables}
+%\chapter{\jscript{} Tables}\jchap{{\jsubtitlejapanese}図} \label{chap:{\jscript{}}Tables}
+\chapter{\jscript{} Tables}\jchap{\jsubtitlejapanese{}図}\label{\jscript{}Tables}
+\ithree{\jtopic{}!tables}{平仮名図}{\jscript{}!Tabellen}
 
-\section{Katakana Writing Reference}\jsec{片仮名の書くレファレンス}
-\input{../share/table/KatakanaWritingReference}
+\section{\jscript{} Reference}\jsec{片仮名のレファレンス}
+%\input{../share/table/\jscript{}Reference}
 
-%\section{Katakana Hand Writing Reference}\jsec{片仮名の手で書くレファレンス}
-%\input{../share/KatakanaHandWritingReference}
+\section{\jscript{} Writing Reference}\jsec{片仮名の書くレファレンス}
+%\input{\jppath{../share/table}{\jscript}{WritingReference}}
+\input{\jTableKana{\jscript}{WritingReference}}
+
+%\section{\jscript{} Hand Writing Reference}\jsec{片仮名の手で書くレファレンス}
+%\input{../share/\jscript{}HandWritingReference}
 
 \newpage
 
@@ -18,95 +25,95 @@
 \ithree{Gojūonzu training}{練習のため五十音図}{50@50 Laute Tafel!trainieren}
 \label{app:Leere50LauteTafel} Please fill out this table (as fast as possible)
 10 - 20 times a day in the active learning phase.
-\input{../share/table/KatakanaSpace}
+\input{\jTableKana{\jscript}{Space}}
 
 % ---------------------------------------------------------------------------
-\newpage\section{Katakana Gojūonzu}\jsec{片仮名五十音図}
-\ithree{Katakana!Gojūonzu}{片仮名五十音図}{50@50 Laute Tafel!Katakana}
-\input{../share/table/Katakana}
+\newpage\section{\jscript{} Gojūonzu}\jsec{片仮名五十音図}
+\ithree{\jtopic{}!Gojūonzu}{片仮名五十音図}{50@50 Laute Tafel!\jscript{}}
+\input{../share/table/\jscript}
 
 % ---------------------------------------------------------------------------
-%\newpage\section{Katakana (bold) Gojūonzu}
-%\input{../share/table/KatakanaBold.tex}
+%\newpage\section{\jscript{} (bold) Gojūonzu}
+%\input{../share/table/\jscript{}Bold.tex}
 
 % ---------------------------------------------------------------------------
-\newpage\JapaneseDejima\section{Katakana Font Dejima}\jsec{出島フォント片仮名}
-\ithree{Katakana!Font Dejima}{出島フォント片仮名}{Katakana!Font Dejima }
-\input{../share/table/Katakana}\JapaneseDefault
+\newpage\JapaneseDejima\section{\jscript{} Font Dejima}\jsec{出島フォント片仮名}
+\ithree{\jtopic{}!Font Dejima}{出島フォント片仮名}{\jscript{}!Font Dejima }
+\input{../share/table/\jscript}\JapaneseDefault
 
 % ---------------------------------------------------------------------------
-\newpage\JapaneseFontA\section{Katakana YOzAb}\jsec{「YOzAb」の片仮名}
-\ithree{Katakana!YOzAb}{「YOzAb」の片仮名}{Katakana!YOzAb}
-\input{../share/table/Katakana}\JapaneseDefault
+\newpage\JapaneseFontA\section{\jscript{} YOzAb}\jsec{「YOzAb」の片仮名}
+\ithree{\jtopic{}!YOzAb}{「YOzAb」の片仮名}{\jscript{}!YOzAb}
+\input{../share/table/\jscript}\JapaneseDefault
 
 % ---------------------------------------------------------------------------
-\newpage\JapaneseFontB\section{Katakana YOzC90b}\jsec{「YOzC90b」の片仮名}
-\ithree{Katakana!YOzC90b}{「YOzC90b」の片仮名}{Katakana!YOzC90b}
-\input{../share/table/Katakana}\JapaneseDefault
+\newpage\JapaneseFontB\section{\jscript{} YOzC90b}\jsec{「YOzC90b」の片仮名}
+\ithree{\jtopic{}!YOzC90b}{「YOzC90b」の片仮名}{\jscript{}!YOzC90b}
+\input{../share/table/\jscript}\JapaneseDefault
 
 % ---------------------------------------------------------------------------
-\newpage\JapaneseFontC\section{Katakana YOzE90b}\jsec{「YOzE90b」の片仮名}
-\ithree{Katakana!YOzE90b}{「YOzE90b」の片仮名}{Katakana!YOzE90b}
-\input{../share/table/Katakana}\JapaneseDefault
+\newpage\JapaneseFontC\section{\jscript{} YOzE90b}\jsec{「YOzE90b」の片仮名}
+\ithree{\jtopic{}!YOzE90b}{「YOzE90b」の片仮名}{\jscript{}!YOzE90b}
+\input{../share/table/\jscript}\JapaneseDefault
 
 % ---------------------------------------------------------------------------
-\newpage\JapaneseFontD\section{Katakana AoyagiSosekiFont2}\jsec{「AoyagiSosekiFont2」の片仮名}
-\ithree{Katakana!AoyagiSosekiFont2}{「AoyagiSosekiFont2」の片仮名}{Katakana!AoyagiSosekiFont2}
-\input{../share/table/Katakana}\JapaneseDefault
+\newpage\JapaneseFontD\section{\jscript{} AoyagiSosekiFont2}\jsec{「AoyagiSosekiFont2」の片仮名}
+\ithree{\jtopic{}!AoyagiSosekiFont2}{「AoyagiSosekiFont2」の片仮名}{\jscript{}!AoyagiSosekiFont2}
+\input{../share/table/\jscript}\JapaneseDefault
 
 % ---------------------------------------------------------------------------
-\newpage\JapaneseFontE\section{Katakana IPAGothic}\jsec{「IPAGothic」の片仮名}
-\ithree{Katakana!IPAGothic}{「IPAGothic」の片仮名}{Katakana!IPAGothic}
-\input{../share/table/Katakana}\JapaneseDefault
+\newpage\JapaneseFontE\section{\jscript{} IPAGothic}\jsec{「IPAGothic」の片仮名}
+\ithree{\jtopic{}!IPAGothic}{「IPAGothic」の片仮名}{\jscript{}!IPAGothic}
+\input{../share/table/\jscript}\JapaneseDefault
 
 % ---------------------------------------------------------------------------
-\newpage\JapaneseFontF\section{Katakana IPAMincho}\jsec{「IPAMincho」の片仮名}
-\ithree{Katakana!IPAMincho}{「IPAMincho」の片仮名}{Katakana!IPAMincho}
-\input{../share/table/Katakana}\JapaneseDefault
+\newpage\JapaneseFontF\section{\jscript{} IPAMincho}\jsec{「IPAMincho」の片仮名}
+\ithree{\jtopic{}!IPAMincho}{「IPAMincho」の片仮名}{\jscript{}!IPAMincho}
+\input{../share/table/\jscript}\JapaneseDefault
 
 % ---------------------------------------------------------------------------
-\newpage\JapaneseFontG\section{Katakana KanjiStrokeOrders}\jsec{「KanjiStrokeOrders」の片仮名}
-\ithree{Katakana!KanjiStrokeOrders}{「KanjiStrokeOrders」の片仮名}{Katakana!KanjiStrokeOrders}
-\input{../share/table/Katakana}\JapaneseDefault
+\newpage\JapaneseFontG\section{\jscript{} KanjiStrokeOrders}\jsec{「KanjiStrokeOrders」の片仮名}
+\ithree{\jtopic{}!KanjiStrokeOrders}{「KanjiStrokeOrders」の片仮名}{\jscript{}!KanjiStrokeOrders}
+\input{../share/table/\jscript}\JapaneseDefault
 
 % ---------------------------------------------------------------------------
-\newpage\JapaneseFontH\section{Katakana kiloji - B}\jsec{「kiloji - B」の片仮名}
-\ithree{Katakana!kiloji - B}{「kiloji - B」の片仮名}{Katakana!kiloji - B}
-\input{../share/table/Katakana}\JapaneseDefault
+\newpage\JapaneseFontH\section{\jscript{} kiloji - B}\jsec{「kiloji - B」の片仮名}
+\ithree{\jtopic{}!kiloji - B}{「kiloji - B」の片仮名}{\jscript{}!kiloji - B}
+\input{../share/table/\jscript}\JapaneseDefault
 
 % ---------------------------------------------------------------------------
-\newpage\JapaneseFontI\section{Katakana KouzanBrushFontGyousyo}\jsec{「KouzanBrushFontGyousyo」の片仮名}
-\ithree{Katakana!KouzanBrushFontGyousyo}{「KouzanBrushFontGyousyo」の片仮名}{Katakana!KouzanBrushFontGyousyo}
-\input{../share/table/Katakana}\JapaneseDefault
+\newpage\JapaneseFontI\section{\jscript{} KouzanBrushFontGyousyo}\jsec{「KouzanBrushFontGyousyo」の片仮名}
+\ithree{\jtopic{}!KouzanBrushFontGyousyo}{「KouzanBrushFontGyousyo」の片仮名}{\jscript{}!KouzanBrushFontGyousyo}
+\input{../share/table/\jscript}\JapaneseDefault
 
 % ---------------------------------------------------------------------------
-\newpage\JapaneseFontJ\section{Katakana MotoyaLMaru}\jsec{「MotoyaLMaru」の片仮名}
-\ithree{Katakana!MotoyaLMaru}{「MotoyaLMaru」の片仮名}{Katakana!MotoyaLMaru}
-\input{../share/table/Katakana}\JapaneseDefault
+\newpage\JapaneseFontJ\section{\jscript{} MotoyaLMaru}\jsec{「MotoyaLMaru」の片仮名}
+\ithree{\jtopic{}!MotoyaLMaru}{「MotoyaLMaru」の片仮名}{\jscript{}!MotoyaLMaru}
+\input{../share/table/\jscript}\JapaneseDefault
 
 % ---------------------------------------------------------------------------
-\newpage\JapaneseFontK\section{Katakana SetoFont}\jsec{「SetoFont」の片仮名}
-\ithree{Katakana!SetoFont}{「SetoFont」の片仮名}{Katakana!SetoFont}
-\input{../share/table/Katakana}\JapaneseDefault
+\newpage\JapaneseFontK\section{\jscript{} SetoFont}\jsec{「SetoFont」の片仮名}
+\ithree{\jtopic{}!SetoFont}{「SetoFont」の片仮名}{\jscript{}!SetoFont}
+\input{../share/table/\jscript}\JapaneseDefault
 
 % ---------------------------------------------------------------------------
-\newpage\JapaneseFontL\section{Katakana TakaoMincho}\jsec{「TakaoMincho」の片仮名}
-\ithree{Katakana!TakaoMincho}{「TakaoMincho」の片仮名}{Katakana!TakaoMincho}
-\input{../share/table/Katakana}\JapaneseDefault
+\newpage\JapaneseFontL\section{\jscript{} TakaoMincho}\jsec{「TakaoMincho」の片仮名}
+\ithree{\jtopic{}!TakaoMincho}{「TakaoMincho」の片仮名}{\jscript{}!TakaoMincho}
+\input{../share/table/\jscript}\JapaneseDefault
 
 % ---------------------------------------------------------------------------
-\newpage\JapaneseFontM\section{Katakana VL Gothic}\jsec{「VL Gothic」の片仮名}
-\ithree{Katakana!VL Gothic}{「VL Gothic」の片仮名}{Katakana!VL Gothic}
-\input{../share/table/Katakana}\JapaneseDefault
+\newpage\JapaneseFontM\section{\jscript{} VL Gothic}\jsec{「VL Gothic」の片仮名}
+\ithree{\jtopic{}!VL Gothic}{「VL Gothic」の片仮名}{\jscript{}!VL Gothic}
+\input{../share/table/\jscript}\JapaneseDefault
 
 % ---------------------------------------------------------------------------
 \newpage
-\JapaneseMikachanPB\section{Katakana MikachanPB}\jsec{「MikachanPB」の片仮名}
-\label{sec:KatakanaMikachanPB}
-\ithree{Katakana!MikachanPB}{「MikachanPB」の片仮名}{Katakana!MikachanPB}
-\input{../share/table/Katakana}\JapaneseDefault
+\JapaneseMikachanPB\section{\jscript{} MikachanPB}\jsec{「MikachanPB」の片仮名}
+\label{sec:\jscript{}MikachanPB}
+\ithree{\jtopic{}!MikachanPB}{「MikachanPB」の片仮名}{\jscript{}!MikachanPB}
+\input{../share/table/\jscript}\JapaneseDefault
 
 % ---------------------------------------------------------------------------
-\newpage\section{Katakana Total Table}\jsec{全部片仮名}
-\ithree{Katakana!total table}{全部片仮名}{Katakana!Tabelle komplett}
-\input{../share/table/KatakanaAll}
+\newpage\section{\jscript{} Total Table}\jsec{全部片仮名}
+\ithree{\jtopic{}!total table}{全部片仮名}{\jscript{}!Tabelle komplett}
+\input{\jTableKana{\jscript}{All}}
