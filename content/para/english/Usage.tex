@@ -5,54 +5,106 @@
 % [o] LABEL
 \label{para:Conventions}
 % [o] INDEX TARGET
-\ifor{Kanji}{漢字}{かんじ}{Kanji}
-\ifor{Hiragana}{平仮名}{ひらがな}{Hiragana}
-\ifor{Rōmaji}{ローマ字}{ろーまじ}{Rōmaji}
+\ifor{kanji}{漢字}{かんじ}{Kanji}
+\ifor{hiragana}{平仮名}{ひらがな}{Hiragana}
+\ifor{katakana}{片仮名}{かたかな}{Katakana}
+\ifor{rōmaji}{ローマ字}{ろーまじ}{Rōmaji}
 \ifor{Hepburn System}{ヘボン式}{へぼんしき}{Hepburn System}
 
-\medskip
+\bigskip
 
-\textbf{Conventions Used in this Document}
+\textbf{Conventions Used in this Book}
 
-\medskip
-
-(1) The reading of Japanese characters (\hyperref[sec:Kanji]{Kanji}) are
-\textbf{not} given in the section or chapter heading but as soon as possible.
-If the reading is given it will be given in \hyperref[sec:Hiragana]{Hiragana}
-script. To mark this reading it will start with a Japanese bracket {【} and end
-with a Japanese bracket {】}.
-
-\medskip
-\textit{Example:}
-
-\medskip
-\begin{center} \Large Kanji {漢字} {【かんじ】} \end{center}
-\medskip
-
-(2) If readings of Japanese are also given in \hyperref[sec:Romaji]{Rōmaji}
-according to the \hyperref[sec:Hepburn]{Hepburn system}, this is indicated by a
-slash '/' at the beginning of the reading and a slash at the end.
-
-\medskip
-\textit{Example:}
-
-\medskip
-\begin{center} First Katakana letter \Large {ア} {/a/} \end{center}
+% --- \jtl
+% Transliteration: ⟨...⟩
+% Math mode
+%\newcommand{\jtl}[1]{$\langle#1\rangle$}% Japanese Transliteration IPA
+% DejaVuSans mode
+\newcommand{\jtl}[1]{\fontspec{DejaVuSans}⟨#1⟩\fontspec{FreeSans}}% Japanese Transliteration IPA
+% --- \jphonemic
+\newcommand{\jphonemic}[1]{/#1/}% Japanese phonemic /.../
+% --- \jphonetic
+\newcommand{\jphonetic}[1]{[#1]}% Japanese phonetic [...]
 
 \medskip
 
-(3) External hyperlinks are marked with an blue arrow.
+\begin{itemize}
 
-\medskip
-\textit{Example:}
+    \item[\Link]
 
-\medskip
+        External hyperlinks are marked with a blue arrow.
 
-\begin{center}
+        \medskip \textit{Example:} \medskip
 
-Please look at the download page for this document, if there is a new version\\
-\Link
-\href{https://christian.kuelker.info/nihongo}{https://christian.kuelker.info/nihongo}
+        \begin{center}
 
-\end{center}
+            Please look at the download page for this document, if there is a
+            new version\\ \Link
+            \href{https://christian.kuelker.info/nihongo}{https://christian.kuelker.info/nihongo}
 
+        \end{center}
+
+    \item[{【}\ldots{】}]
+
+        The reading of Japanese characters (\hyperref[sec:Kanji]{kanji}) are
+        \textbf{not} given in the section or chapter heading but as soon as
+        possible.  If the reading is given it will be given in
+        \hyperref[sec:Hiragana]{hiragana} script. To mark this reading it will
+        start with a Japanese bracket {【} and end with a Japanese bracket
+        {】}.
+
+        \medskip \textit{Example:} \medskip
+
+        \begin{center} \Large Kanji {漢字} {【かんじ】} \end{center}
+
+        \medskip
+
+    \item[\jtl{\ldots}]
+
+         If readings (transliteration) of Japanese are also given in
+         \hyperref[sec:Romaji]{rōmaji} according to the
+         \hyperref[sec:Hepburn]{Hepburn system}, this is indicated by an
+         \textit{angle bracket} '\fontspec{DejaVuSans}⟨\fontspec{FreeSans}' at
+         the beginning of the reading (transliteration) and an \textit{angle
+         bracket} at the end '\fontspec{DejaVuSans}⟩\fontspec{FreeSans}'. This
+         follow the International Phonetic Alphabet (IPA) rules of \Link
+         \href{https://en.wikipedia.org/wiki/International_Phonetic_Alphabet#Brackets_and_transcription_delimiters}{brackets
+         and transcription delimiters}.
+
+        \medskip \textit{Example:} \medskip 
+
+        \begin{center} First hiragana letter \Large {あ} {\jtl{a}} \end{center}
+        \begin{center} First katakana letter \Large {ア} {\jtl{a}} \end{center}
+
+%    \item[\jphonemic{\ldots}]
+%
+%         If the (phonemic) pronunciation of Japanese is also given in the
+%         International Phonetic Alphabet (IPA), this is indicated by a
+%         \textit{slash} '/' at the beginning of the reading and a
+%         \textit{slash} at the end '/'. This indicates an abstract phonemic
+%         notation by expressing only features that are distinctive.
+%
+%    \item[\jphonetic{\ldots}]
+%
+%        If the (phonetic) prounciation of Japanese is given, it includes
+%        usually details beyond the phonemic pronunciation and is according to
+%        \Link
+%        \href{https://en.wikipedia.org/wiki/International_Phonetic_Alphabet#Brackets_and_transcription_delimiters}{IPA}
+%        indicated by \textit{square brackets}. 
+%
+%        \medskip \textit{Example:} \medskip
+%
+%        The \textit{kana} letter 「ん」 or 「ン」 is phonetically pronounced differently, depending on the
+%        letter context of the word.
+%
+%        \begin{tabular}{ll}
+%        \jphonetic{n} &before n, t, d, r, ts, z, ch and j\\
+%        \jphonetic{m} &before m, p and b\\
+%        \jphonetic{ŋ} &before k and g\\
+%        \jphonetic{ɴ} &at the end of utterances\\
+%        \jphonetic{ũ͍} &before vowels, palatal approximants (y), consonants h, f, s, sh and w\\
+%        \jphonetic{ĩ} &after the vowel i if another vowel, palatal approximant or consonant f, s, sh, h or w follows\\
+%        \end{tabular}
+%        {\tiny\Link\textit{Source: \url{https://en.wikipedia.org/wiki/N_(kana)}}}
+
+\end{itemize}
