@@ -1,3 +1,7 @@
+# Tools for Makefiles
+t4mf
+t4mf/*
+
 # VIM
 *.swp
 *~
