@@ -15,17 +15,6 @@
 
 \textbf{Conventions Used in this Book}
 
-% --- \jtl
-% Transliteration: ⟨...⟩
-% Math mode
-%\newcommand{\jtl}[1]{$\langle#1\rangle$}% Japanese Transliteration IPA
-% DejaVuSans mode
-\newcommand{\jtl}[1]{\fontspec{DejaVuSans}⟨#1⟩\fontspec{FreeSans}}% Japanese Transliteration IPA
-% --- \jphonemic
-\newcommand{\jphonemic}[1]{/#1/}% Japanese phonemic /.../
-% --- \jphonetic
-\newcommand{\jphonetic}[1]{[#1]}% Japanese phonetic [...]
-
 \medskip
 
 \begin{itemize}
@@ -34,77 +23,107 @@
 
         External hyperlinks are marked with a blue arrow.
 
-        \medskip \textit{Example:} \medskip
-
+        \Info{Example:}{
         \begin{center}
 
             Please look at the download page for this document, if there is a
             new version\\ \Link
-            \href{https://christian.kuelker.info/nihongo}{https://christian.kuelker.info/nihongo}
+            \href{https://christian.kuelker.info/nihongo/}{https://christian.kuelker.info/nihongo/}
 
         \end{center}
+        }{true}
 
     \item[{【}\ldots{】}]
 
         The reading of Japanese characters (\hyperref[sec:Kanji]{kanji}) are
         \textbf{not} given in the section or chapter heading but as soon as
-        possible.  If the reading is given it will be given in
+        possible. If the reading is given it will be given in
         \hyperref[sec:Hiragana]{hiragana} script. To mark this reading it will
         start with a Japanese bracket {【} and end with a Japanese bracket
         {】}.
 
-        \medskip \textit{Example:} \medskip
-
+        \Info{Example:}{
         \begin{center} \Large Kanji {漢字} {【かんじ】} \end{center}
+        }{true}
 
         \medskip
 
     \item[\jtl{\ldots}]
 
-         If readings (transliteration) of Japanese are also given in
+         If readings, \textbf{transliteration} of Japanese are also given in
          \hyperref[sec:Romaji]{rōmaji} according to the
          \hyperref[sec:Hepburn]{Hepburn system}, this is indicated by an
-         \textit{angle bracket} '\fontspec{DejaVuSans}⟨\fontspec{FreeSans}' at
-         the beginning of the reading (transliteration) and an \textit{angle
-         bracket} at the end '\fontspec{DejaVuSans}⟩\fontspec{FreeSans}'. This
-         follow the International Phonetic Alphabet (IPA) rules of \Link
-         \href{https://en.wikipedia.org/wiki/International_Phonetic_Alphabet#Brackets_and_transcription_delimiters}{brackets
-         and transcription delimiters}.
+         \textit{angle bracket} '\textlangle{}' at the beginning of the reading
+         (transliteration) and an \textit{angle bracket} at the end
+         '\textrangle{}'.
+%        This follow the International Phonetic Alphabet (IPA)
+%        rules of \Link
+%        \href{https://en.wikipedia.org/wiki/International_Phonetic_Alphabet#Brackets_and_transcription_delimiters}{brackets
+%        and transcription delimiters}.
 
-        \medskip \textit{Example:} \medskip 
-
+        \Info{Example:}{
         \begin{center} First hiragana letter \Large {あ} {\jtl{a}} \end{center}
         \begin{center} First katakana letter \Large {ア} {\jtl{a}} \end{center}
+        }{true}
 
-%    \item[\jphonemic{\ldots}]
+% Remark: The problem of using phonemic and phonetic transcription is that it
+%         uses the IPA alphabet and is not easy to understand
+%         While \jphonetic{ɕimbɯn} seems correct, \jphonemic{simbun} is
+%         questionable: correct si, m and n, but bu?
 %
-%         If the (phonemic) pronunciation of Japanese is also given in the
-%         International Phonetic Alphabet (IPA), this is indicated by a
-%         \textit{slash} '/' at the beginning of the reading and a
-%         \textit{slash} at the end '/'. This indicates an abstract phonemic
-%         notation by expressing only features that are distinctive.
+%   \item[\jphonemic{\ldots}]
 %
-%    \item[\jphonetic{\ldots}]
+%        If the \textbf{phonemic} pronunciation of Japanese is also given in
+%        the International Phonetic Alphabet (IPA), this is indicated by a
+%        \textit{slash} '/' at the beginning of the reading and a
+%        \textit{slash} at the end '/'. This indicates an abstract phonemic
+%        notation by expressing only features that are distinctive.
 %
-%        If the (phonetic) prounciation of Japanese is given, it includes
-%        usually details beyond the phonemic pronunciation and is according to
-%        \Link
-%        \href{https://en.wikipedia.org/wiki/International_Phonetic_Alphabet#Brackets_and_transcription_delimiters}{IPA}
-%        indicated by \textit{square brackets}. 
+%        In simple terms, the phonemic notation has more details regarding
+%        sound in comparison to the transliteration.
 %
-%        \medskip \textit{Example:} \medskip
+%        Example:
 %
-%        The \textit{kana} letter 「ん」 or 「ン」 is phonetically pronounced differently, depending on the
-%        letter context of the word.
+%        \begin{center}
+%          \begin{tabular}{llllll}
+%            \textbf{Kanji}&\textbf{Hiragana}       &\textbf{Transliteration}&\textbf{Phonemic}    &\textbf{Phonetic}    &\textbf{English}\\
+%            {新聞}        &ん: \jhiragana{しんぶん}&n: \jtl{shinbun}        &m: \jphonemic{simbun}&m: \jphonetic{ɕimbɯn}&News paper\\
+%            {進軍}        &ん: \jhiragana{しんぐん}&n: \jtl{shingun}        &n: \jphonemic{singun}&ŋ: \jphonetic{ɕiŋɣɯn}&March, advance\\
+%          \end{tabular}
+%        \end{center}
 %
-%        \begin{tabular}{ll}
-%        \jphonetic{n} &before n, t, d, r, ts, z, ch and j\\
-%        \jphonetic{m} &before m, p and b\\
-%        \jphonetic{ŋ} &before k and g\\
-%        \jphonetic{ɴ} &at the end of utterances\\
-%        \jphonetic{ũ͍} &before vowels, palatal approximants (y), consonants h, f, s, sh and w\\
-%        \jphonetic{ĩ} &after the vowel i if another vowel, palatal approximant or consonant f, s, sh, h or w follows\\
-%        \end{tabular}
-%        {\tiny\Link\textit{Source: \url{https://en.wikipedia.org/wiki/N_(kana)}}}
+%   \item[\jphonetic{\ldots}]
+%
+%       If the (phonetic) prounciation of Japanese is given, it includes
+%       usually details beyond the phonemic pronunciation and is according to
+%       \Link
+%       \href{https://en.wikipedia.org/wiki/International_Phonetic_Alphabet#Brackets_and_transcription_delimiters}{IPA}
+%       indicated by \textit{square brackets}.
+%
+%       \medskip \textit{Example:} \medskip
+%
+%       The \textit{kana} letter 「ん」 or 「ン」 is phonetically pronounced differently, depending on the
+%       letter context of the word.
+%
+%       \begin{tabular}{ll}
+%       \jphonetic{n} &before n, t, d, r, ts, z, ch and j\\
+%       \jphonetic{m} &before m, p and b\\
+%       \jphonetic{ŋ} &before k and g\\
+%       \jphonetic{ɴ} &at the end of utterances\\
+%       \jphonetic{ũ͍} &before vowels, palatal approximants (y), consonants h, f, s, sh and w\\
+%       \jphonetic{ĩ} &after the vowel i if another vowel, palatal approximant or consonant f, s, sh, h or w follows\\
+%       \end{tabular}
+%       {\tiny\Link\textit{Source: \url{https://en.wikipedia.org/wiki/N_(kana)}}}
+
+    \item[「\ldots」]
+
+            The graphemes \textbf{「} and \textbf{」} are Japanese quotation
+            marks. They will be used to quote someting written in Japanese.
+            This can be kanji, hiragana or katakana.
+
+
+            \Info{Example:}{
+            The Japanese hiragana 「あ」is written "a" in the Hepburn system.
+            }{true}
 
 \end{itemize}
