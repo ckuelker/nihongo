@@ -1,22 +1,42 @@
 % VaAmbiguity
-\subsection{|va|  Ambiguity} \label{subsec:VaAmbiguity}
+\subsection{\jtl{va}  Ambiguity} \label{subsec:VaAmbiguity}
 
-The Rōmaji |va| can be written in many different ways and that is true for some
-other characters of the {「ワ」} row too. The lack of standardization and
-consistency make it hard to guess how one should write a certain word with this
-sound.
+The \jtl{va} ambiguity is mostly not a letter difficulty, it is a sound
+representation problem. The Rōmaji \jtl{va} can be written in many different ways
+and that is true for some other characters of the \jtl{wa} row too. The lack of
+standardization and consistency make it hard to guess how one should write a
+certain word with this sound.
 
 \bigskip
 
-\begin{figure}[H]
+\begin{table}[H]
 \begin{center}
-\Huge
-\begin{tabular}{|c|c|c|}\hline
+\begin{tabular}{p{4cm}p{5cm}p{5cm}p{1cm}}
 %\KLETTER{so}&\KLETTER{n}&\KLETTER{ri}\\\hline
-ヴァ&ヷ&バ\\\hline
+\ifthenelse{\equal{hiragana}{\jtopic}}{%
+\textit{Hiragana}     &ゔぁ            &わ゙                &ば           \\\hline%
+\textit{Romaji}       &\texttt{va}     &\texttt{va}       &\texttt{ba}  \\%\hline
+\textit{Input}        &\texttt{va}     &                  &\texttt{ba}  \\%\hline
+}{}
+\ifthenelse{\equal{katakana}{\jtopic}}{%
+\textit{Karakana}     &\textbf{ヴァ}   &ヷ                &バ           \\%
+\textit{Romaji}       &\texttt{va}     &\texttt{va}       &\texttt{ba}  \\%\hline
+\textit{Input}        &\texttt{va,ba}  &                  &\texttt{ba}  \\%\hline
+}{}
+\textit{Pronunciation}&usually \jtl{va}     &usually \jtl{va}     &\jtl{ba}\\%\hline
+                      &some people \jtl{ba} &older people \jtl{ba}&             \\%\hline
+                      &older people \jtl{ba}&                 &             \\%\hline
 \end{tabular}
 \end{center}
-\caption{|va|  Ambiguity}
-\label{fig:VaAmbiguity}
-\end{figure}
+\caption{\jtl{va} Ambiguity}
+\label{tab:VaAmbiguity}
+\end{table}
+
+\footnotesize
+\begin{verbatim}
+Unicode:
+ヷ U+30F7, &#12535 KATAKANA LETTER VA; Composition: ワ [U+30EF] + ◌゙ [U+3099]
+ヴ U+30F4, &#12532 KATAKANA LETTER VU; Composition: ウ [U+30A6] + ◌゙ [U+3099]
+ァ U+30A1, &#12449 KATAKANA LETTER SMALL;
+\end{verbatim}
 
