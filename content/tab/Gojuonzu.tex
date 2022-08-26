@@ -1,3 +1,55 @@
+% +---------------------------------------------------------------------------+
+% | content/tab/Gojuonzu.tex                                                  |
+% |                                                                           |
+% | 50 sound table in hiragana or katakana                                    |
+% |                                                                           |
+% | Version: 0.1.0                                                            |
+% |                                                                           |
+% | Changes:                                                                  |
+% |                                                                           |
+% | 0.1.0 2020-07-10 Christian Külker <c@c8i.org>                             |
+% |     - Initial release                                                     |
+% |                                                                           |
+% +---------------------------------------------------------------------------+
+\ifthenelse{\equal{hiragana}{\jtopic}}{%
+% あいうえお
+% かきくけこ
+% さしすせそ
+% たちつてと
+% なにぬねの
+% はひふへほ
+% まみむめも
+% やゆよ
+% らりるれろ
+% わを
+% ん
+\ien{hiragana gojūonzu}
+\ien{hiragana}
+\ien{gojūon}
+\ija{平仮名五十音図}
+\ifor{gojūonzu}{五十音図}{ごじゅうおんず}{50 Laute Tafel}
+\bigskip
+\begin{center}
+%\Huge
+\Padding
+%\begin{tabular}{m{1.0cm}||m{1.0cm}|m{1.0cm}|m{1.0cm}|m{1.0cm}|m{1.0cm}|}
+\begin{tabular}{r||c|c|c|c|c|}
+          & \textbf{a}& \textbf{i}& \textbf{u}& \textbf{e}& \textbf{o}\\ \hline \hline
+\textbf{-}&あ&い&う&え&お\\\hline
+\textbf{k}&か&き&く&け&こ\\\hline
+\textbf{s}&さ&し&す&せ&そ\\\hline
+\textbf{t}&た&ち&つ&て&と\\\hline
+\textbf{n}&な&に&ぬ&ね&ノ\\\hline
+\textbf{h}&は&ひ&ふ&へ&ほ\\\hline
+\textbf{m}&ま&み&む&め&も\\\hline
+\textbf{y}&や&  &ゆ&  &よ\\\hline
+\textbf{r}&ら&り&る&れ&ろ\\\hline
+\textbf{w}&わ&  &  &  &を\\\hline
+\textbf{*}&ん&  &  &  &  \\\hline
+\end{tabular}
+\end{center}
+}{}
+\ifthenelse{\equal{katakana}{\jtopic}}{%
 % アイウエオ
 % カキクケコ
 % サシスセソ
@@ -34,4 +86,4 @@
 \textbf{*}&ン&  &  &  &  \\\hline
 \end{tabular}
 \end{center}
-
+}{}
