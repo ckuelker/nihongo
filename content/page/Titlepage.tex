@@ -1,12 +1,38 @@
-% ===========================================================================
-% TITLE
-% ===========================================================================
-\author{\AuthorName}
-\title{ \NumberTwo\\
-    The Japanese Script \\ \texttt{日本語の書き方}\\
-    \bigskip \large Katakana \\ \texttt{片仮名}
-}
-\date{ \TitlePicture \footnotesize \jdate, v-\jversion }
-\dedication{to Francesco Belletti}
-\uppertitleback{ \input{../share/copyright/copyright2022}}
-\lowertitleback{ \input{../share/lower-title-back/katakana}}
+% +---------------------------------------------------------------------------+
+% | page/Titlepage.tex                                                        |
+% |                                                                           |
+% | Version: 0.1.0                                                            |
+% |                                                                           |
+% | Status: In use                                                            |
+% |                                                                           |
+% | I18n: all                                                                 |
+% |                                                                           |
+% | Changes:                                                                  |
+% |                                                                           |
+% | 0.1.0 2022-08-31 Christian Kuelker <c@c8i.org>                            |
+% |     - Change to page scope                                                |
+% |     - Remove including pages: copyright2022, lower-title-back/katakana    |
+% |     - Change from i18n english to all (using book configuration)          |
+% |     - Change from single book (katakana) to book configuration            |
+% |                                                                           |
+% +---------------------------------------------------------------------------+
+\begingroup
+\vspace*{100pt}
+
+\bfseries\sffamily
+\begin{flushright}
+        \fontsize{22pt}{22pt}\selectfont\bfseries\sffamily
+        {\jauthor\\}
+        \vspace*{30pt}
+        \fontsize{38pt}{38pt}\selectfont\bfseries\sffamily
+        {\jseries{} \jvolume}
+        \vspace*{12pt}
+
+        \fontsize{46pt}{46pt}\selectfont\bfseries\sffamily
+        {\jtitleoriginal\\\jtitlejapanese\\\bigskip\Huge\jsubtitleoriginal\\\jsubtitlejapanese\\\bigskip\Large\jlanguageoriginal/ \jlanguagejapanese \\}
+        \fontsize{28pt}{28pt}\selectfont\bfseries\sffamily
+        %{for Debian 11|for somthing|...}
+\end{flushright}
+\endgroup
+\clearpage
+\newpage
