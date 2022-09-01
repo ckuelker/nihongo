@@ -1,0 +1,36 @@
+# nihongo-2-the-japanese-script-katakana-1.2-english.pdf
+# === [ Makefile ] ============================================================
+# Language choice for Hiragana [for Makefile]
+JLC:=english
+# Locale for date
+JLOC:=en_US.UTF-8
+# === [ LaTeX ] ===============================================================
+# JTOPIC:=hiragana [set by Makefile]
+# JSCRIPT:=Hiragana [derived from JTOPIC]
+# JLANG:=english [language for LaTeX and Makefile] (english|ngerman)
+JTPL:=0.1.4
+JVERSION:=1.2
+JSERIES:=Nihongo
+JVOLUME:=2
+JNUMBER:=Two
+# Colophon
+JEDITION:=Forth edition
+JYEARS:=    32 31 30 29 28 27 26 25 24 23 22
+JPRINTINGS:=14 13 12 11 10 09 08 07 06 05 04
+JYEAR:=$(shell date +'%Y')
+JISBN:=0000-0000-000
+# Title page
+JMONTH:=$(shell export LANG=$(JLOC);export LC_ALL=$(JLOC);date +'%B')
+JDAY:=$(shell date +'%-d')
+JDATE:=$(JMONTH) $(JDAY), $(JYEAR)
+JAUTHOR:=Christian Külker
+# Japanese title
+JTITLEJAPANESE:=日本語の書き方
+JSUBTITLEJAPANESE:=片仮名
+JLANGUAGEJAPANESE:=英語
+# Title on original language
+JPRETITLEORIGINAL:=The
+JTITLEORIGINAL:=Japanese Script
+JSUBTITLEORIGINAL:=Katakana
+JLANGUAGEORIGINAL:=English
+JDEDICATION:=Francesco Belletti
