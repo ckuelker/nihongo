@@ -1,0 +1,4 @@
+english: JLANG.tex
+	@touch $@
+ngerman: JLANG.tex
+	@touch $@
