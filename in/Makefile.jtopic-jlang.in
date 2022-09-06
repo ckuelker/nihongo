@@ -1,0 +1,6 @@
+katakana-english.log:
+	touch $@
+hiragana-english.log:
+	touch $@
+hiragana-ngerman.log:
+	touch $@
