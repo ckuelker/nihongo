@@ -1,0 +1,4 @@
+katakana: JTOPIC.tex
+	@touch $@
+hiragana: JTOPIC.tex
+	@touch $@
