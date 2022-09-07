@@ -43,10 +43,10 @@
 include  ../in/Makefile.function.in
 # --- [ DEFAULT ] -------------------------------------------------------------
 ifndef JTOPIC
-JTOPIC:=hiragana
+JTOPIC:=katakana
 endif
 ifndef JSCRIPT
-JSCRIPT:=Hiragana
+JSCRIPT:=Katakana
 endif
 ifndef JLANG
 JLANG:=english
