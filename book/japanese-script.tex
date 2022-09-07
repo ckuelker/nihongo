@@ -1,75 +1,136 @@
+% +---------------------------------------------------------------------------+
+% | japanese-script.tex                                                       |
+% |                                                                           |
+% | This latex file can be used to create script based books.                 |
+% |                                                                           |
+% | - japanese-script-hiragana-english.pdf                                    |
+% | - japanese-script-hiragana-ngerman.pdf                                    |
+% | - japanese-script-katakana-english.pdf                                    |
+% |                                                                           |
+% | The release and its version is handled independently                      |
+% |                                                                           |
+% | Version: 0.1.0 (Version of this file, not books)                          |
+% |                                                                           |
+% | Changes:                                                                  |
+% |                                                                           |
+% | 0.1.0 2022-07-08 Christian Külker <c@c8i.org>                             |
+% |     - Initial release with version as japanese-script.tex                 |
+% |                                                                           |
+% +---------------------------------------------------------------------------+
+%
+% Global variables (from make)
+%
+%  make              LaTeX              Remark
+%  ----------------- ------------------ -------------------------------------
+%  JAUTHOR           \jauthor           cfg/JTOPIC/JLANG/Makefile.in
+%  JDATE             \jdate             in/Makefile.in
+%  JDEDICATION       \jdedication       cfg/JTOPIC/JLANG/Makefile.in
+%  JLANG             \jlang             english|ngerman
+%  JNUMBER           \jnumber           cfg/JTOPIC/JLANG/Makefile.in
+%  JREVISION         \jrevision         in/Makefile.in
+%  JSCRIPT           \jscript           Ucfirst derived from JTOPIC (in/Makefile.in)
+%  JTOPIC            \jtopic            hiragana|katakana
+%  JVERSION          \jversion          cfg/JTOPIC/JLANG/Makefile.in
+%  JVOLUME           \jvolume           cfg/JTOPIC/JLANG/Makefile.in
+%  JTITLEJAPANESE    \jtitlejapanese    cfg/JTOPIC/JLANG/Makefile.in
+%  JSUBTITLEJAPANESE \jsubtitlejapanese cfg/JTOPIC/JLANG/Makefile.in
+%  JLANGUAGEJAPANESE \jlanguagejapanese cfg/JTOPIC/JLANG/Makefile.in
+%  JTITLEORIGINAL    \jtitleoriginal    cfg/JTOPIC/JLANG/Makefile.in
+%  JSUBTITLEORIGINAL \jsubtitleoriginal cfg/JTOPIC/JLANG/Makefile.in
+%  JLANGUAGEORIGINAL \jlanguageoriginal cfg/JTOPIC/JLANG/Makefile.in
+%
 \documentclass[makeidx=yes,version=last,paper=a4,headings=small,titlepage,makeidx,fontsize=12pt]{scrbook}
-
-% ===========================================================================
-% PREAMBLE
-% ===========================================================================
 \input{../share/preamble/standard-english}
 
-% SIMPLE COMMANDS
-\input{../share/cmd/AutorName}
-\input{../share/cmd/NumberTwo}
-\input{../share/cmd/TitlePicture}
+\newcommand{\jkatakanacount}{47}
+\newcommand{\jhiraganacount}{46}
+\newcommand{\jkanacount}{\ifthenelse{\equal{hiragana}{\jtopic}}{\jhiraganacount}{\jkatakanacount}}
+
+% NEW j + p (path) + [page|chap|sec|para] + [|t|l(language|tl)]
+\newcommand{\jppage}{../content/page}                  %      page
+\newcommand{\jppagel}{../content/\jlang/page}          %lang  page
+\newcommand{\jppagelt}{../content/\jlang/page/\jtopic} %lang  chapter topic
+\newcommand{\jpchap }{../content/chap}                 %      chapter
+\newcommand{\jpchapl}{../content/\jlang/chap}          %lang  chapter
+\newcommand{\jpchaplt}{../content/\jlang/chap/\jtopic} %lang  chapter topic
+\newcommand{\jpsec}{../content/sec}                    %      sections
+\newcommand{\jpsecl}{../content/\jlang/sec}            %lang  sections
+\newcommand{\jpseclt}{../content/\jlang/sec/\jtopic}   %lang  sections
+\newcommand{\jpsubsec}{../content/subsec}              %      subsection
+\newcommand{\jpsubsecl}{../content/\jlang/subsec}      %lang  subsection
+\newcommand{\jppara}{../content/para}                  %      paragraphs
+\newcommand{\jpparal}{../content/\jlang/para}          %lang  paragraphs
+\newcommand{\jptab}{../content/tab}                    %      tables
+\newcommand{\jptabl}{../content/\jlang/tab}            %lang  tables
+\newcommand{\jpnote}{../content/note}                  %      notes
+\newcommand{\jpnotel}{../content/\jlang/note}          %lang  notes
+
+% === [ COMMANDS ] ============================================================
+% --- [ SIMPLE COMMANDS ] -----------------------------------------------------
+\input{../share/cmd/Hletter}
+\input{../share/cmd/HLETTER}
 \input{../share/cmd/Kletter}
 \input{../share/cmd/KLETTER}
-\input{../share/cmd/Link}
-\input{../share/table/Padding}  % add space between content and lines
-
-% PARAGRAPH COMMANDS
-\input{../share/box/Warn} % red   - additional dangerous info reg. lang
+\input{../share/cmd/Link}     % Blue arrow for external link
+\input{../share/cmd/Padding}  % add space between content and lines
+\input{../share/cmd/Pitch}    % Red pitchline for Japanese intonation
+% --- [ PARAGRAPH COMMANDS ] --------------------------------------------------
+\input{../share/box/Warn} % red   - additional dangerous info reg. lang ONLY KATAKANA?
 \input{../share/box/Hint} % blue  - additional important info reg. lang
 \input{../share/box/Info} % green - additional important info
 \input{../share/box/Note} % gray  - additional info
+\input{../share/cmd/Hrow} % 6 parameters
 \input{../share/cmd/Krow} % 6 parameters
-\input{../share/cmd/Transcibe}
+\input{../share/cmd/Transcibe}            % Training: Transcribe
 \input{../share/env/TranscribeEnv}
-\input{../share/cmd/KatakanaSimpleTraining}
-\input{../share/cmd/CharacterExplanation}
+\input{../share/cmd/KanaSimpleTraining}
+\input{../share/cmd/CharacterExplanation} % ONLY KATAKANA?
+% --- [ PAGE COMMANDS ] -------------------------------------------------------
+\input{../share/\jtopic/training.tex}
+\input{../share/\jtopic/header.tex}
 
-% PAGE COMMANDS
-\input{../share/katakana/training.tex}
-\input{../share/katakana/header.tex}
-
-% TITLE
-\input{title}
-
-% ===========================================================================
-% DOCUMENT
-% ===========================================================================
 \begin{document}
 \fontspec{FreeSans}
-\pagestyle{plain}
-\frontmatter
-\maketitle
+% === [ TITLE ] ===============================================================
+\includepdf[pages={1}]{title.pdf}
+  %\plainfootnotes
+% === [ FRONT ] ===============================================================
+  \frontmatter
+    \pagestyle{empty}
+    %\pagestyle{plain}
+    \input{\jppage/Halftitle}    % publisher             i Schmuztitel
+    \input{\jppagelt/Frontispiece}% author or publisher  ii Frontispitz
+    \input{\jppage/Titlepage}    % publisher           iii Haupttitel
+    \input{\jppagel/Colophon}    % printer              iv Impressum
+    \tableofcontents*
+    \newpage
+    \listoffigures
+    \newpage
+    \listoftables
+    \newpage
+    \listofjchapter
+    \bigskip
+    \pagestyle{fancy}
+    %\input{\jpchapl/Foreword}% foreword Vorwort        (3p)      -empty
+    %\input{\jpchapl/Preface}%  preface  Vorbemerkungen (author, I)
 
-% CONTENTS
-\tableofcontents
+% === [ MAIN  ] ===============================================================
+  \mainmatter
+    %\pagestyle{mypagestyle}
+    %\VerbatimFootnotes
+    \input{\jpchapl/Introduction}         % 0 chap:Introduction
+    \input{\jpchapl/JapaneseWritingSystem}% 1 chap:The Japanese Writing System
+    \input{\jpchapl/TheWayToWrite}        % 2 chap:The Way to Write (Hiragana|Katakana)
+    \input{\jpchapl/Pronunciation}        % 3 chap:Pronunciation
+    \input{\jpchapl/Training}             % 4 chap:{Katakana | Hiragana} Training
+    \input{\jpchapl/Terminology}          % 5 chap:Terminology
 
-\listofjchapter
-
-\bigskip
-
-\pagestyle{fancy}
-
-\input{../share/para/Usage}
-
-\newpage
-
-\Warn{Warning!}{This work is a \textbf{draft}. It is not complete and contains
-errors. Please report.}
-
-\mainmatter
-
-\input{../share/chap/Introduction}          % 0 chap:Introduction
-\input{../share/chap/JapaneseWritingSystem_\jlang} % 1 chap:JapaneseWritingSystem
-\input{../share/chap/TheWayToWriteKatakana} % 2 chap:TheWayToWritekatakana
-\input{../share/chap/KatakanaTraining}      % 3 chap:KatakanaTraining
-\input{../share/chap/Terminology}           % 4 chap:Terminology
-
+% === [ APPENDIX ] ============================================================
 \appendix
 
-\input{../share/chap/KatakanaTables}               % A chap:KatakanaTables
-\input{../share/chap/RomajiTables}                 % B chap:RomajiTables
-\input{../share/chap/ListOfJapaneseTechnicalTerms_\jtopic_\jlang} % C chap:JapaneseTechnicalTerms
+\input{\jpchapl/TablesKana}                % A chap:KanaTables
+\input{\jpchapl/TablesRomaji}              % B chap:RomajiTables
+\input{ListOfJapaneseTechnicalTerms}       % C chap:JapaneseTechnicalTerms
 
 % INDEX
 
@@ -121,20 +182,10 @@ errors. Please report.}
 \label{chap:GermanIndex}
 \endgroup
 
+% === [ BACK  ] ===============================================================
 
 \backmatter
 
-\input{../share/license/AppendixFDL}
+\input{\jpchapl/GNUFDL}% German version gets English license
 
-
-% TODO chapter tables
-
-%\begin{tabular}{|c|c|c|c|c|c|}\hline
-% & a & i & u & e & o \\\hline
-%-&\Kletter{a}&\Kletter{i}&\Kletter{u}&\Kletter{e}&\Kletter{o}\\\hline
-%\end{tabular}
-
-% ===========================================================================
-% END
-% ===========================================================================
 \end{document}
