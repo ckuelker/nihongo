@@ -1,0 +1,74 @@
+%+----------------------------------------------------------------------------+
+%| Pitch.tex                                                                  |
+%|                                                                            |
+%| Draw a line inside the word to emphasize pitch.                            |
+%|                                                                            |
+%| Version: 0.1.0                                                             |
+%|                                                                            |
+%| Changes:                                                                   |
+%|                                                                            |
+%| 0.1.0 2022-09-07 Christian Külker <c@c8i.org>                              |
+%|     - Initial release                                                      |
+%|                                                                            |
+%+----------------------------------------------------------------------------+
+%
+% Implementation inspired from:
+%
+% https://tex.stackexchange.com/questions/55519/css-border-top-border-bottom-border-right-latex-equivalent
+
+\makeatletter
+
+\newcommand\jpitch[2][lbrt]{%
+  \begingroup
+  \leavevmode
+  \setbox\@tempboxa\hbox{%
+    \color@begingroup
+      \kern\fboxsep{#2}\kern\fboxsep
+    \color@endgroup
+  }%
+  \@tempdima\fboxrule
+  \advance\@tempdima\fboxsep
+  \advance\@tempdima\dp\@tempboxa
+  \hbox{%
+    \hskip-.5\fboxrule
+    \lower\@tempdima\hbox{%
+      \vbox{%
+        \in@{t}{#1}%
+        \ifin@
+            {\color{red}%
+            \hrule\@height\fboxrule
+            }%
+        \fi
+        \hbox{%
+          i\in@{l}{#1}%
+          \ifin@
+            {\color{red}%
+            \vrule\@width\fboxrule
+            }%
+          \fi
+          \vbox{%
+            \vskip\fboxsep
+            \box\@tempboxa
+            \vskip\fboxsep}%
+          \in@{r}{#1}%
+          \ifin@
+            {\color{red}%
+            \vrule\@width\fboxrule
+            }%
+          \fi
+        }%
+        \in@{b}{#1}%
+        \ifin@
+          {\color{red}%
+          \hrule\@height\fboxrule
+          }%
+        \fi
+      }%
+    }%
+    \hskip-.5\fboxrule
+  }%
+  \endgroup
+}
+
+\makeatother
+
