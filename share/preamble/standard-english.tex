@@ -11,6 +11,10 @@
 \include{JLANG}% includes command \jlanguage (ngerman, english)
 \usepackage[main=\jlang,japanese]{babel}
 
+% Use as:      \jhatsuon{がな}
+% Will print:  【がな】
+\newcommand{\jhatsuon}[1]{【#1】}
+
 % INDEX - need to load before hyperref 2022-06-24
 %\usepackage{makeidx}
 %\usepackage{multind}%            more the one index (style makeindex)
@@ -27,6 +31,7 @@
 \newcommand{\ide}[1]{\index[german]{#1}}
 \newcommand{\ithree}[3]{\ien{#1}\ija{#2}\ide{#3}}
 \newcommand{\ifor}[4]{\ien{#1}\ija{#2}\ija{#3}\ide{#4}}
+\newcommand{\ivoc}[4]{\ifor{#1}{#2}{#3}{#4}\textbf{#1} {#2} {\jhatsuon{#3}}}
 % ===========================================================================
 \usepackage{fontspec}%           provides font selecting commands
 \usepackage{xunicode}%           provides unicode character macros
@@ -262,21 +267,7 @@
 
 % ===========================================================================
 % REVISION DATE VERSION
-\include{JTOPIC}% includes command \jtopic (hiragana, katakana, ...)
-\include{JVERSION}
-\include{JAUTHOR}
-\include{JDATE}
-\include{JDEDICATION}
-%\include{JLANG}
-\include{JNUMBER}
-\include{JREVISION}
-\include{JSCRIPT}% includes command \jscript (Hiragana, Katakana, ...)
-\include{JTITLEJAPANESE}
-\include{JSUBTITLEJAPANESE}
-\include{JLANGUAGEJAPANESE}
-\include{JTITLEORIGINAL}
-\include{JSUBTITLEORIGINAL}
-\include{JLANGUAGEORIGINAL}
+\include{JSTATE}
 
 % ===========================================================================
 % Japanese TOC jtoc
@@ -295,15 +286,22 @@
 
 \newcommand{\listjtocname}{Japanese: Contents - 目次}
 \newlistof[part]{jchapter}{jtoc}{\listjtocname}
-%
+% --- jchap
 \newcommand{\jchap}[1]{%
+\ifthenelse{\equal{0}{\thechapter}}{%
+\addcontentsline{jtoc}{jchapter}{\protect\numberline{} #1}%
+}{
 \addcontentsline{jtoc}{jchapter}{\protect\numberline{\thechapter} #1}%
-}
+}}
 \newcommand{\jindex}[1]{\addcontentsline{jtoc}{jchapter}{#1}}
-%
+% --- jsection
 \newlistentry[chapter]{jsection}{jtoc}{1}
 \newcommand{\jsec}[1]{%
+\ifthenelse{\equal{0.0}{\thesection}}{%
+\addcontentsline{jtoc}{jsection}{\protect\numberline{}#1}
+}{
 \addcontentsline{jtoc}{jsection}{\protect\numberline{\thesection}#1}
+}
 }
 \newcommand{\jsubindex}[1]{\addcontentsline{jtoc}{jsection}{#1}}
 %
@@ -329,9 +327,48 @@
 %\definecolor{indexcolor}{HTML}{F16723}
 \definecolor{indexcolor}{HTML}{898989}
 
+\usepackage{wrapfig}
+\usepackage{float}% For H in \begin{figure}
+%\floatstyle{boxed}
+%\restylefloat{figure}
 
+% ckuelker 2022-08-03
+\usepackage{tablefootnote}
 
+\ifthenelse{\equal{hiragana}{\jtopic}}{%
+  \newcommand{\Jletter}[1]{\Hletter{#1}}
+  \newcommand{\JLETTER}[1]{\HLETTER{#1}}
+}{}
+\ifthenelse{\equal{katakana}{\jtopic}}{%
+  \newcommand{\Jletter}[1]{\Kletter{#1}}
+  \newcommand{\JLETTER}[1]{\KLETTER{#1}}
+}{}
 
+% ckuelker 2022-08-08
+\newcommand{\jvolumes}[1]{\raisebox{-.1\height}{\scalebox{1.2}{#1}}}
 
+% ckuelker 2022-08-09
 
+% --- \jtl
+% Transliteration: ⟨...⟩
+% Math mode
+%\newcommand{\jtl}[1]{$\langle#1\rangle$}% Japanese Transliteration IPA
+% DejaVuSans mode
+%\newcommand{\jtl}[1]{\fontspec{DejaVuSans}⟨#1⟩\fontspec{FreeSans}}% Japanese Transliteration IPA
+\usepackage{textcomp}
+\newcommand{\jtl}[1]{\textlangle{}#1\textrangle{}}% Japanese Transliteration IPA
+% --- \jphonemic
+\newcommand{\jphonemic}[1]{/#1/}% Japanese phonemic /.../
+% --- \jphonetic
+\newcommand{\jphonetic}[1]{[#1]}% Japanese phonetic [...]
 
+% Use as \jhiragana{}
+\newcommand{\jhiragana}{\textbf{hiragana}}
+\newcommand{\jHiragana}{\textbf{Hiragana}}
+\newcommand{\jkatakana}{\textbf{katakana}}
+\newcommand{\jKatakana}{\textbf{Katakana}}
+
+\newcommand{\jhiraganaonly}[1]{\ifthenelse{\equal{hiragana}{\jtopic}}{#1}{}}
+\newcommand{\jkatakanaonly}[1]{\ifthenelse{\equal{katakana}{\jtopic}}{#1}{}}
+
+\usetikzlibrary{matrix}
