@@ -1,0 +1,23 @@
+# --- [ FUNCTIONS ] -----------------------------------------------------------
+ucfirst=$(shell bash -c 'export VAR="$1";echo "$${VAR^}"')
+ucall=$(shell bash -c 'export VAR="$1";echo "$${VAR^^}"')
+lcfirst=$(shell bash -c 'export VAR="$1";echo "$${VAR,}"')
+lcall=$(shell bash -c 'export VAR="$1";echo "$${VAR,,}"')
+# --- [ GLOBAL VARIABLES MAKEFILE ] -------------------------------------------
+# JTOPIC: hiragana|katakana -> JSCRIPT
+ifndef JTOPIC
+JTOPIC:=$(filter hiragana,$(MAKECMDGOALS))
+endif
+ifndef JTOPIC
+JTOPIC:=$(filter katakana,$(MAKECMDGOALS))
+endif
+ifndef JSCRIPT
+JSCRIPT:=$(call ucfirst,$(JTOPIC))
+endif
+# JLANG: english|ngerman
+ifndef JLANG
+JLANG:=$(filter english,$(MAKECMDGOALS))
+endif
+ifndef JLANG
+JLANG:=$(filter ngerman,$(MAKECMDGOALS))
+endif
