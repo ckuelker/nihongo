@@ -6,10 +6,13 @@
 # | - support Hiragana                                                        |
 # | - support languages                                                       |
 # |                                                                           |
-# | Version: 0.1.5 (change inline MAKEFILE_VERSION)                           |
+# | Version: 0.1.6 (change inline MAKEFILE_VERSION)                           |
 # |                                                                           |
 # | Changes:                                                                  |
 # |                                                                           |
+# | 0.1.6 2022-09-07 Christian Külker <c@c8i.org>                             |
+# |     - Support Inkscape version x < 1.0.0 > y                              |
+# |     - Add dependency to t4mf                                              |
 # | 0.1.5 2022-07-11 Christian Külker <c@c8i.org>                             |
 # |     - Add release/publication goal                                        |
 # |     - Add titleclean goal                                                 |
@@ -94,6 +97,9 @@ TITLE_VAR+=JLANGUAGEORIGINAL JTITLEJAPANESE JSUBTITLEJAPANESE
 TITLE_VAR+=JLANGUAGEJAPANESE JVOLUME JVERSION JDATE JYEAR JMONTH JDAY
 TITLE_VAR+=JEDITION JPRINTINGS JYEARS JISBN JSERIES
 TITLE_SED:=$(foreach var,$(TITLE_VAR),s%$(var)%$($(var))%;)
+ISV:=${shell inkscape --version 2>&1|grep Inkscape|sed -e 's%Inkscape \(.*\) (.*%\1%'|sed -e 's%Inkscape \(.*\) r.*%\1%'}
+ISC:=$(shell ../t4mf/bin/t4mf-version-compare '$(ISV)' '1.0.0')
+INKSCAPE:=$(shell if [ "$(ISC)" = "OK" ]; then echo '--export-type=pdf --export-filename='; else echo '--export-pdf=';fi)
 #
 # --- [ CHECKS ] --------------------------------------------------------------
 ifndef MAKEFILE_VERSION
@@ -163,6 +169,7 @@ usage: $(STATE)
 	@echo "  DST          [$(DST)] (custom)"
 	@echo "  PUB          [$(PUB)] (custom)"
 	@echo "  JPRINT       [$(JPRINT)]"
+	@echo "  INKSCAPE     [$(ISV)] version, ($(INKSCAPE))"
 	@echo $(l)
 	@echo "make                            - This text (with default values)"
 	@echo "make usage                      - This text (with default values)"
@@ -246,7 +253,7 @@ $(TITLE_SVG): $(TITLE_DIR)/$(JTOPIC)/$(JLANG)
 	sed -i -e '$(TITLE_SED)' $@
 	touch $@
 $(TITLE_PDF): $(TITLE_SVG)
-	inkscape $<  --export-type=pdf --export-filename=$@
+	inkscape $<  $(INKSCAPE)$@
 # japanese-script-katakana.pdf|japanese-script-hiragana.pdf
 .tex.pdf:
 	$(LATEX) $<
