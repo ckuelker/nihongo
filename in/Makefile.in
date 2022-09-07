@@ -13,6 +13,7 @@
 # | 0.1.6 2022-09-07 Christian Külker <c@c8i.org>                             |
 # |     - Support Inkscape version x < 1.0.0 > y                              |
 # |     - Add dependency to t4mf                                              |
+# |     - Use input instead of include for LaTeX state commands               |
 # | 0.1.5 2022-07-11 Christian Külker <c@c8i.org>                             |
 # |     - Add release/publication goal                                        |
 # |     - Add titleclean goal                                                 |
@@ -196,7 +197,7 @@ usage: $(STATE)
 # Need to execute bash to not convert \normalsize to \n to CR
 $(STATE):
 	@bash -c 'echo "\newcommand{\$(call lcall,$*)}{$($*)}"> $@'
-	@if [ "$@" = "JLANG.tex" ];then echo "%SKIP">>$@;else echo '\include{$@}' >> JSTATE.tex;fi
+	@if [ "$@" = "JLANG.tex" ];then echo "%SKIP">>$@;else echo '\input{$@}' >> JSTATE.tex;fi
 
 # --- [ Clean ] ---------------------------------------------------------------
 stateclean:
