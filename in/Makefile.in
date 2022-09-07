@@ -6,10 +6,27 @@
 # | - support Hiragana                                                        |
 # | - support languages                                                       |
 # |                                                                           |
-# | Version: 0.1.4 (change inline MAKEFILE_VERSION)                           |
+# | Version: 0.1.5 (change inline MAKEFILE_VERSION)                           |
 # |                                                                           |
 # | Changes:                                                                  |
 # |                                                                           |
+# | 0.1.5 2022-07-11 Christian Külker <c@c8i.org>                             |
+# |     - Add release/publication goal                                        |
+# |     - Add titleclean goal                                                 |
+# |     - Improve cleaning temporary files                                    |
+# |     - Moved ListOfJapaneseTechnicalTerms.tex into build dir               |
+# |     - Improve error messages                                              |
+# |     - Improve state handling (add STATE and stateclean)                   |
+# |     - Add more "LaTeX" variables: JAUTHOR, JDEDICATION,...                |
+# |     - Improve counting of JREVISION                                       |
+# |     - Improve build more documents with 2 dimensions: jtopic + jlang      |
+# |       by parsing MAKECMDGOALS and add 2 dimensions to make goals          |
+# |     - Change usage goal by adding 2 dimensions: jtopic + jlang            |
+# |     - Add buildclean goal                                                 |
+# |     - Add tragetclean goal                                                |
+# |     - Change realclean target to delete all PDFs                          |
+# |     - Differentiate between build and development goals                   |
+# |     - Split configuration information between Makefiles                   |
 # | 0.1.4 2022-07-06 Christian Külker <c@c8i.org>                             |
 # |     - Add JTERMS in usage                                                 |
 # |     - Add xelatex version in usage                                        |
@@ -25,76 +42,212 @@
 # |                                                                           |
 # +---------------------------------------------------------------------------+
 #
-MAKEFILE_VERSION=0.1.3
+MAKEFILE_VERSION=0.1.5
+
 # NO CHANGES BEYOND THIS POINT
+#
+# --- [ LINES ] ---------------------------------------------------------------
 L:=============================================================================
 l:=----------------------------------------------------------------------------
+# --- [ DEFINITIONS ] ---------------------------------------------------------
+define n
+
+
+endef
+# --- [ FUNCTIONS ] -----------------------------------------------------------
+ERROR=$(n)$(L)$(n)ERROR:$(n)$(l)$(n)$1$(n)$(L)$(n)
+# --- [ VARIABLES ] -----------------------------------------------------------
+JTERMS=ListOfJapaneseTechnicalTerms.tex
+STATE:=JTOPIC.tex JSCRIPT.tex JLANG.tex JPRINT.tex JSERIES.tex
+STATE+=JVERSION.tex JVOLUME.tex JNUMBER.tex JAUTHOR.tex
+STATE+=JTITLEJAPANESE.tex JSUBTITLEJAPANESE.tex JLANGUAGEJAPANESE.tex
+STATE+=JTITLEORIGINAL.tex JSUBTITLEORIGINAL.tex JLANGUAGEORIGINAL.tex
+STATE+=JDEDICATION.tex JLC.tex JREVISION.tex JDATE.tex JYEAR.tex JMONTH.tex
+STATE+=JDAY.tex JEDITION.tex JPRINTINGS.tex JYEARS.tex JISBN.tex
 LATEX:=xelatex
 # MKIDX=makeindex -c # now \package{imakeidx}
-TERMS=ListOfJapaneseTechnicalTerms.tex
 XVERSION:=$(shell xelatex -version|egrep -e '^XeTeX')
 SRC:=$(wildcard japanese*.tex)
+USAGE:=$(filter usage,$(MAKECMDGOALS))
+# Title
+# make title_clean
+# make ../share/title/hiragana/english/
+# make ../share/title/hiragana/english/title-0.1.3.svg
+# make ../share/title/hiragana/english/title-0.1.3.pdf
+# creates title page PDF from template SVG
+#      ../share/title/tpl/title-0.1.3.svg
+#          -> ../share/title/hiragana/english/title-0.1.3.svg
+#      ../share/title/hiragana/english/title-0.1.3.svg
+#          -> ../share/title/hiragana/english/title-0.1.3.pdf
+ifdef JTPL
+TITLE_VER:=$(JTPL)
+else
+TITLE_VER:=0.1.4
+endif
+TITLE_DIR:=../share/title
+TITLE_SVG:=title.svg
+TITLE_PDF:=title.pdf
+TITLE_TPL_DIR:=$(TITLE_DIR)/tpl
+TITLE_TPL_SVG:=$(TITLE_TPL_DIR)/title-$(TITLE_VER).svg
+TITLE_VAR:=JPRETITLEORIGINAL JTITLEORIGINAL JSUBTITLEORIGINAL
+TITLE_VAR+=JLANGUAGEORIGINAL JTITLEJAPANESE JSUBTITLEJAPANESE
+TITLE_VAR+=JLANGUAGEJAPANESE JVOLUME JVERSION JDATE JYEAR JMONTH JDAY
+TITLE_VAR+=JEDITION JPRINTINGS JYEARS JISBN JSERIES
+TITLE_SED:=$(foreach var,$(TITLE_VAR),s%$(var)%$($(var))%;)
+#
+# --- [ CHECKS ] --------------------------------------------------------------
 ifndef MAKEFILE_VERSION
-$(error MAKEFILE_VERSION is NOT defined)
-endif
-ifndef JLANG_DEFAULT
-$(error JLANG_DEFAULT is NOT defined)
-endif
-ifndef JLANG_CHOICE
-$(error JLANG_CHOICE is NOT defined)
+$(error $(call ERROR,MAKEFILE_VERSION is NOT defined))
 endif
 ifndef JVERSION
-JVERSION:=$(shell cat JVERSION)
+$(error $(call ERROR,JVERSION is NOT defined))
 endif
 ifndef JLANG
 JLANG:=$(JLANG_DEFAULT)
 endif
 ifndef JDATE
-JDATE:=$(shell date +'%B %Y')
+JDATE:=$(JMONTH) $(JYEAR)
 endif
-ifndef JREVISION
-JREVISION:=$(shell if [ ! -f JREVISION ];then echo -n 0>JREVISION;fi;bash -c 'R=`cat JREVISION`;let R++;echo $$R>JREVISION';cat JREVISION)
+# Count up JREVISION for each make goal
+ifndef JREVISION    # if JREVISION is not defined
+ifndef USAGE        # if not called as 'make usage'
+ifdef MAKECMDGOALS  # if not called as 'make'
+JREVISION:=$(shell if [ ! -f .JREVISION.$(JTOPIC).$(JLANG) ];then \
+	echo -n 0>.JREVISION.$(JTOPIC).$(JLANG);fi;\
+	bash -c 'R=`cat .JREVISION.$(JTOPIC).$(JLANG)`;let R++;\
+	echo $$R>.JREVISION.$(JTOPIC).$(JLANG)';\
+	cat .JREVISION.$(JTOPIC).$(JLANG))
 endif
-ifndef JTOPIC
-$(error JTOPIC is NOT defined)
 endif
-JTERMS:=$(TERMS:.tex=_$(JTOPIC)_$(JLANG).tex)
+endif
+# --- [ DERIVED VARIABLES ] ---------------------------------------------------
+BLD:=$(SRC:.tex=.pdf)
+DST:=$(SRC:.tex=-$(JTOPIC)-$(JLANG).pdf)
+PUB:=nihongo-$(JVOLUME)-the-japanese-script-$(JTOPIC)-$(JLANG)-$(JVERSION).pdf
+# --- [ DERIVED CHECKS ] ------------------------------------------------------
+ifndef DST
+$(error $(call ERROR,DST is not defined))
+endif
+ifndef PUB
+$(error $(call ERROR,PUB is not defined))
+endif
+ifndef JPRINT
+JPRINT:=false
+endif
 
 .SUFFIXES: .tex .pdf
-.PHONY: usage clean realclean
+.PHONY: usage stateclean clean titleclean buildclean realclean pdf termsclean release
 
-usage: JVERSION.tex JLANG.tex JDATE.tex
+#usage: $(STATE) JDATE.tex
+usage: $(STATE)
 	@echo $(L)
-	@echo "Makefile: $(SRC) => $(SRC:.tex=.pdf)"
+	@echo "USAGE:"
 	@echo $(l)
-	@echo "MF VERSION   [$(MAKEFILE_VERSION)]"
-	@echo "XVERSION     [$(XVERSION)]"
-	@echo "JVERSION     [$(JVERSION)]"
-	@echo "JLANG_CHOICE [$(JLANG_CHOICE)]"
-	@echo "JLANG        [$(JLANG)]"
-	@echo "JDATE        [$(JDATE)]"
-	@echo "JTOPIC       [$(JTOPIC)]"
-	@echo "JTERMS       [$(JTERMS)]"
+	@echo "  JTOPIC       [$(JTOPIC)] (choice from: hiragana|katakana)"
+	@echo "  JLANG        [$(JLANG)]  possible for $(JTOPIC): $(JLC)"
 	@echo $(l)
-	@echo "make pdf       - create $(SRC:.tex=.pdf)"
-	@echo "make clean     - clean up LaTeX"
-	@echo "make realclean - remove $(SRC:.tex=.pdf)"
+	@echo "  Japanese [$(JTITLEJAPANESE) $(JSUBTITLEJAPANESE) $(JTITLEORIGINAL)]"
+	@echo "  Original [$(JPRETITLEORIGINAL) $(JTITLEORIGINAL) $(JSUBTITLEORIGINAL) $(JLANGUAGEORIGINAL)]"
+	@echo $(l)
+	@echo "  JSCRIPT      [$(JSCRIPT)] (derived from JTOPIC)"
+	@echo "  JVERSION     [$(JVERSION)]"
+	@echo "  JEDITION     [$(JEDITION)]"
+	@echo "  JDATE        [$(JDATE)]"
+	@echo "  JYEAR        [$(JYEAR)]"
+	@echo "  JMONTH       [$(JMONTH)]"
+	@echo "  JDAY         [$(JDAY)]"
+	@echo "  JTERMS       [$(JTERMS)]"
+	@echo "  JVOLUME      [$(JVOLUME)]"
+	@echo "  SRC          [$(SRC)]"
+	@echo "  BLD          [$(BLD)]"
+	@echo "  DST          [$(DST)] (custom)"
+	@echo "  PUB          [$(PUB)] (custom)"
+	@echo "  JPRINT       [$(JPRINT)]"
+	@echo $(l)
+	@echo "make                            - This text (with default values)"
+	@echo "make usage                      - This text (with default values)"
+	@echo "make JTOPIC JLANG usage         - This text (with custom values)"
+	@echo "make hiragana english pdf       - create japanese-script-hiragana-english.pdf"
+	@echo "make hiragana ngerman pdf       - create japanese-script-hiragana-ngerman.pdf"
+	@echo "make katakana english pdf       - create japanese-script-katakana-english.pdf "
+	@echo "make clean                      - clean up LaTeX"
+	@echo "make buildclean                 - remove $(BLD)"
+	@echo "make JTOPIC JLANG targetclean   - remove japanese-script-JTOPIC-JLANG.pdf"
+	@echo "                                  current: $(DST)"
+	@echo "make realclean                  - remove all PDF in current directory (*.pdf)"
+#	@echo "make TOPIC LANG TARGET"
+#	@echo "  TOPIC: hiragana|katakana"
+#	@echo "  LANG:   english|ngerman"
+#	@echo "  TARGET: clean realclean pdf usage"
+	@echo $(l)
+	@echo "make JTOPIC JLANG release - copy japanese-script-JTOPIC-JLANG.pdf to"
+	@echo "                            ../pub/nihongo-JVOLUME-the-japanese-script-JTOPIC-JLANG-JVERSION.pdf"
 	@echo $(L)
+	@make JREVISION=0 stateclean > usage.log 2>&1
 
-JVERSION.tex:
-	@echo "\\\newcommand{\\\jversion}{${JVERSION}}" > JVERSION.tex
-JLANG.tex:
-	@echo "\\\newcommand{\\\jlang}{${JLANG}}" > JLANG.tex
-JDATE.tex:
-	@echo "\\\newcommand{\\\jdate}{${JDATE}}" > JDATE.tex
-JREVISION.tex:
-	@echo "\\\newcommand{\\\jrevision}{${JREVISION}}" > JREVISION.tex
-JTOPIC.tex:
-	@echo "\\\newcommand{\\\jtopic}{${JTOPIC}}" > JTOPIC.tex
+# --- [ State ] ---------------------------------------------------------------
+# Need to execute bash to not convert \normalsize to \n to CR
+$(STATE):
+	@bash -c 'echo "\newcommand{\$(call lcall,$*)}{$($*)}"> $@'
+	@if [ "$@" = "JLANG.tex" ];then echo "%SKIP">>$@;else echo '\include{$@}' >> JSTATE.tex;fi
 
-../share/chap/$(JTERMS):
-	cd ..&&bin/extract-ifor&&pwd&&cp $(TERMS) share/chap/$(JTERMS)&&rm -f $(TERMS)
+# --- [ Clean ] ---------------------------------------------------------------
+stateclean:
+	rm -f JSTATE.tex
+	rm -f $(STATE)
+	if [ -f ngerman ];then rm ngerman;fi
+	if [ -f english ];then rm english;fi
+	if [ -f hiragana ];then rm hiragana;fi
+	if [ -f katakana ];then rm katakana;fi
+clean: stateclean
+	rm -f *.aux
+	rm -f *.idx
+	rm -f *.ilg
+	rm -f *.ind
+	rm -f *.jtoc
+	rm -f *.nav
+	rm -f *.log
+	rm -f *.lof
+	rm -f *.lot
+	rm -f *.out
+	rm -f *.svn
+	rm -f *.snm
+	rm -f *.toc
+	rm -f *.vrb
+titleclean:
+	if [ -f $(TITLE_SVG) ];then rm $(TITLE_SVG);fi
+	if [ -f $(TITLE_PDF) ];then rm $(TITLE_PDF);fi
+	if [ -d $(TITLE_DIR)/$(JTOPIC)/$(JLANG) ];then rmdir $(TITLE_DIR)/$(JTOPIC)/$(JLANG);fi
+	if [ -d $(TITLE_DIR)/$(JTOPIC) ];then rmdir $(TITLE_DIR)/$(JTOPIC);fi
+termsclean:
+	rm -f $(JTERMS)
+buildclean: clean titleclean termsclean
+	rm -f $(BLD)
+targetclean: buildclean
+	rm -f $(DST)
+realclean: buildclean
+	rm -f *.pdf
 
+# --- [ Development ] ---------------------------------------------------------
+$(JTERMS):
+	../bin/technical-terms --language=$(JLANG) -f=$(JTERMS) -d ../content
+# PDF 1.4 file size approx 2MB
+$(DST:.pdf=-pdf-1.4.pdf): pdf
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET \
+	  -dSubsetFonts=true -dEmbedAllFonts=true -dMaxSubsetPct=100 \
+	  -dBATCH -sOutputFile=$@ \
+	  $(DST)
+
+# --- [ Build ] ---------------------------------------------------------------
+$(TITLE_DIR)/$(JTOPIC)/$(JLANG):
+	mkdir -p $@
+$(TITLE_SVG): $(TITLE_DIR)/$(JTOPIC)/$(JLANG)
+	cat $(TITLE_TPL_SVG)|sed -e 's%JAUTHOR%$(JAUTHOR)%'> $@
+	sed -i -e '$(TITLE_SED)' $@
+	touch $@
+$(TITLE_PDF): $(TITLE_SVG)
+	inkscape $<  --export-type=pdf --export-filename=$@
+# japanese-script-katakana.pdf|japanese-script-hiragana.pdf
 .tex.pdf:
 	$(LATEX) $<
 	#$(MKIDX) english.idx  # now run by \package{imakeidx}
@@ -103,49 +256,16 @@ JTOPIC.tex:
 	$(LATEX) $<
 	$(LATEX) $<
 	cat $(SRC:.tex=.log)|grep Warning
-
+# japanese-script-katakana-english.pdf japanese-script-katakana-ngerman.pdf
+$(DST): $(TITLE_PDF) $(BLD)
+	cp $< $@
 # PDF 1.5 file size approx 1.6MB
-pdf: JVERSION.tex JLANG.tex JDATE.tex JREVISION.tex JTOPIC.tex ../share/chap/$(JTERMS) $(SRC:.tex=.pdf)
-	make state-clean
+pdf: $(JTOPIC)-$(JLANG).log $(STATE) $(JTERMS) $(DST)
+	make stateclean
 
-../pub/$(JSERIES)-$(JVOLUME)-$(JTITLE_PFX)$(SRC:.tex=)-$(JVERSION)-$(JLANG).pdf:
-	cp $(SRC:.tex=.pdf) $@
-
-release: ../pub/$(JSERIES)-$(JVOLUME)-$(JTITLE_PFX)$(SRC:.tex=)-$(JVERSION)-$(JLANG).pdf
-
-# PDF 1.4 file size approx 2MB
-$(SRC:.tex=-pdf-1.4.pdf): pdf
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET \
-	  -dSubsetFonts=true -dEmbedAllFonts=true -dMaxSubsetPct=100 \
-	  -dBATCH -sOutputFile=$@ \
-	  $(SRC:.tex=.pdf)
-
-state-clean:
-	rm -f JREVISION.tex
-	rm -f JDATE.tex
-	rm -f JLANG.tex
-	rm -f JVERSION.tex
-	rm -f JTOPIC.tex
-
-clean: state-clean
-	rm -f *.aux
-	rm -f *.idx
-	rm -f *.ilg
-	rm -f *.ind
-	rm -f *.jtoc
-	rm -f *.nav
-	rm -f *.log
-	rm -f *.out
-	rm -f *.svn
-	rm -f *.snm
-	rm -f *.toc
-	rm -f *.vrb
-	rm -f ListOfJapaneseTechnicalTerms.tex
-
-termsclean:
-	rm -f $(TERMS)
-	rm -f ../share/chap/$(JTERMS)
-
-realclean: clean
-	rm -f $(SRC:.tex=.pdf)
-
+# --- [ Publish/ Release ] ----------------------------------------------------
+../pub/$(PUB): $(DST)
+	cp $< $@
+../pub:
+	mkdir $@
+release: ../pub/$(PUB) | ../pub
