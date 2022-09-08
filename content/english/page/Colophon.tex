@@ -1,0 +1,87 @@
+% +---------------------------------------------------------------------------+
+% | Colophone.tex                                                             |
+% |                                                                           |
+% | Copyright Page                                                            |
+% |                                                                           |
+% | Version: 0.1.0                                                            |
+% |                                                                           |
+% | Changes:                                                                  |
+% |                                                                           |
+% |     0.1.0 2022-07-29 Christian Kuelker <christian.kuelker@cipworx.org>    |
+% |     - Initital release                                                    |
+% |                                                                           |
+% +---------------------------------------------------------------------------+
+% \fontsize{32pt}{32pt}\selectfont
+% \vspace*{32pt}
+\begingroup
+\footnotesize
+\textbf{\jtitleoriginal \jsubtitleoriginal} by \jauthor\\
+\ifthenelse{\equal{hiragana}{\jtopic}}{%
+\textcopyright{} Copyright 2000–2006, 2014, 2020, 2022 by \href{mailto:christian.kuelker@cipworx.org}{\jauthor}.
+}{
+\textcopyright{} Copyright 2000–2006, 2013, 2020, 2022 by \href{mailto:christian.kuelker@cipworx.org}{\jauthor}.
+}
+All rights reserved.\\
+% English: “…” ‘…’
+% German: „…“   ‚…‘   »…«     ›…‹
+
+Permission is granted to copy, distribute and/or modify this document under the
+terms of “the GNU Free Documentation License (GNU-FDL), version 1.2 or any
+later version published by the Free Software Foundation; with \textbf{no}
+invariant sections”.
+
+A copy of the license is included in the section entitled “GNU Free
+Documentation License”.
+
+\ifthenelse{\equal{true}{\jprint}}{%
+\vspace*{24pt}
+Printed in the World
+
+\vspace*{24pt}
+The paper used in this publication may meet the minimum requirements
+of the American National Standard for Information
+Sciences --- Permanence of Paper for Printed Library Materials,
+ANSI Z39.48--1984.
+}{}
+
+\vspace*{64pt}
+
+% CJK main font:  IPAPMincho
+% CJK main sans:
+% CJK main mono:
+
+\begin{tabular}{ l l l l}
+\textbf{Editor:}        & vim    &  \textbf{Layout:}  & \LaTeX  \\ % with \textsc{pdf}\TeX\\
+\textbf{\LaTeX{} Class:} & scrbook &\textbf{\LaTeX{} engine:}& \XeLaTeX\\
+\textbf{Old graphic editor:} & xfig &\textbf{New graphic editor:}& inkscape\\
+
+%\textbf{\LaTeX{} Class} & scrbook &\textbf{Serif Font:}& TBA\\
+%               &        &\textbf{Sans Serif Font:}    & TBA\\
+%               &        &\textbf{Monopsaced Font:}    & TBA\\
+%               &        &\textbf{Symbol Font:}        & TBA\\
+\end{tabular}
+
+\ifthenelse{\equal{true}{\jprint}}{%
+\vspace*{64pt}
+\textbf{Printig history:}
+
+\begin{center}
+\jprintings\hspace{2em}\jyears
+\end{center}
+\begin{center}
+\begin{tabular}{ll}
+\ifthenelse{\equal{hiragana}{\jtopic}}{%
+%First edition:                          &  1 June 2000       \\ % 0.1
+%Second impression, with corrections:    &  2 September 2000  \\ % 0.2
+}{%
+}
+\jedition:                           & \jdate \\
+\end{tabular}
+\end{center}
+
+\vspace*{64pt}
+\texttt{ISBN: \jisbn}
+}
+\endgroup
+
+\newpage
