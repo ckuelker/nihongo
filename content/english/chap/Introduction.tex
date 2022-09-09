@@ -1,4 +1,5 @@
 \chapter*{Introduction}\jchap{前書き}
+\addcontentsline{toc}{chapter}{Introduction}
 % FOREWORD:     Vorwort        (someone else: why you should read?)
 % INTRODUCTION: Einfuehrung    (author: what is in it, what can be expected?)
 % PREFACE:      Vorbemerkungen (author: why the book exists?)
@@ -10,37 +11,47 @@
 \ifor{hiragana}{平仮名}{ひらがな}{Hiragana}
 \ifor{katakana}{片仮名}{かたかな}{Katakana}
 
-\textbf{The Japanese Script - Hiragana} was decided to be volume ①  and
-\textbf{The Japanese Script - Katakana} was decided to be volume ②.
-\ifthenelse{\equal{hiragana}{\jtopic}}{%
- This book is the \textbf{first} volume of \textbf{The Japanese Script} series with the
-focus to teach \textbf{hiragana}.
-}{}%
-\ifthenelse{\equal{katakana}{\jtopic}}{%
- This book is the \textbf{second} volume of \textbf{The Japanese Script} series with the
-focus to teach \textbf{katakana}.
-}{}%
 
-While there is no specific reason to start with \textbf{hiragana} when it comes
-to learn the first Japanese writing script, historically \textbf{hiragana} is
-the first choice. It might be the assumption that \textbf{hiragana} are more
-common in Japanese texts than \textbf{katakana} and also when Japanese Chinese
-characters (kanji) are transcribed (for example as station names)
-\textbf{hiragana} is used. However, since a beginner in learning Japanese also
-have almost no vocabulary knowledge, the usability is overestimated by Japanese
-native people. Actually, a foreigner from an English speaking background might
-consider to learn \textbf{katakana} first, because foreign words in Japanese
-are written in \textbf{katakana} and after mastering the \textbf{katakana} such
+\textbf{The Japanese Language - Nihongo} series has two volumes with the aim to
+teach the two Japanese syllable scripts: Volume \jvolumes{①} \textbf{hiragana}
+and volume \jvolumes{②} \textbf{katakana}.%
+%
+\jhiraganaonly{
+
+This book is the \textbf{first} volume \jvolumes{①} of \textit{The Japanese
+Language - Nihongo series} that can be used to learn the Japanese script called
+\textbf{hiragana}.
+
+}
+%
+\jkatakanaonly{
+
+This book is the \textbf{second} volume \jvolumes{②} of \textit{The Japanese
+Language - Nihongo} series that can be used to learn the Japanese script called
+\textbf{katakana}.
+
+}
+
+While there is no specific reason to start with hiragana when it comes to learn
+the first Japanese writing script, historically hiragana is the first choice.
+It might be the assumption that hiragana are more common in Japanese texts than
+katakana and also when Japanese Chinese characters (kanji) are transcribed (for
+example as station names) hiragana is used. However, since a beginner in
+learning Japanese also have almost no vocabulary knowledge, the usability is
+overestimated by native Japanese people. Actually, a foreigner from an English
+speaking background might consider to learn katakana first, because foreign
+words in Japanese are written in katakana and after mastering katakana such
 learner would be able to read and write thousands of words with a little
-imagination, compared to almost none in case of \textbf{hiragana}.
+imagination, compared to almost none in case of hiragana.
 
-With whatever script to start with, it is recommended to finish this first
+With whatever script to start with, it is recommended to finish the first
 script and then learn the second script. It is also recommended to finish
-\textbf{hiragana} and \textbf{katakana} before learning Japanese Chinese
-characters (kanji).
+hiragana and katakana before learning Japanese Chinese characters (kanji).
 
 Common chapters are repeated or are slightly modified in each volume, so that a
-learner can choose to start with volume ①  or ②  and obtain all the references
-in each volume. Skip the passages you already know.
+learner can choose to start with volume {\jvolumes{①}} or {\jvolumes{②}} and
+obtain all the references in each volume. Skip the passages you already know.
 
-\input{../content/sec/\jlang/SelfLearning}
+\input{\jpsecl/SelfLearning}
+
+\input{\jpsecl/Usage}
