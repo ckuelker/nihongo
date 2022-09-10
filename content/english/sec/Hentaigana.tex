@@ -29,49 +29,78 @@
 \section{Hentaigana}\jsec{同音異語}
 % [o] LABEL
 \label{sec:Hentaigana}
+\label{sec:FamilyRegister}
 % [o] INDEX DESTINATION (DEF)
-\ifor{Hentaigana}{変体仮名}{へんたいがな}{Hentaigana}
+\ifor{hentaigana}{変体仮名}{へんたいがな}{Hentaigana}
 % [o] INDEX TARGET
-\ifor{Kana}{仮名}{かな}{Kana}
+\ifor{kana}{仮名}{かな}{Kana}
 
 \newcommand{\lhentaigana}{\ivoc{hentaigana}{変体仮名}{へんたいがな}{Hentaigana}}
-\newcommand{\lkoseki}{\ivoc{koseki}{戸籍}{こせき}{Koseki}}
+\newcommand{\lkoseki}{\ivoc{family register}{戸籍}{こせき}{Familien Register}}
 
-
-The word \lhentaigana{} is pronounced /hen・tai・gana/ and refers historically
+The word \lhentaigana{} is pronounced \jtl{hen・tai・gana} and refers historically
 to \hyperref[sec:Kana]{kana} that are used seldom today. They were used until
-before 1900 and declared as obsolete\footnote{The word /hentai/ means just
+before 1900 and declared as obsolete\footnote{The word \jtl{hentai} means just
 variant.} in the 1900 language reform. Rather than an addition to
-\hyperref[sec:Kana]{kana}, \textbf{hentaigana} representing alternative forms to
-existing \hyperref[sec:Kana]{kana}. The usage were not formalized and every
-writer decides which set to use. It was even common to use two or more
-different \textbf{hentaigana} (and standard \hyperref[sec:Kana]{kana}) with the same
-pronunciation in the same document by the same author.
+\hyperref[sec:Kana]{kana}, hentaigana representing alternative forms
+to existing \hyperref[sec:Kana]{kana}. The usage before 1900 were not formalized and every
+writer decided which set to use. It was even common to use two or more
+different hentaigana (and standard \hyperref[sec:Kana]{kana}) with the
+same pronunciation in the same document by the same author.
 
-Until 1947 \textbf{hentaigana} were used for names. In contemporary Japan the usage
-of \textbf{hentaigana} is reduced to traditional decorative elements on shop signs
-for example. A few marginal uses remain such as: the word /otemoto/ is written
-in \textbf{hentaigana} on some chopsticks or the names in the Japanese family
-registry (\lkoseki{}).
+Until 1947 hentaigana were used for names. In contemporary Japan the usage of
+ hentaigana is reduced to traditional decorative elements on shop signs for 
+kisoba example. A few marginal uses remain such as: the word "chopsticks" 
+\jhatsuon{おてもと} \jtl{otemoto} usally written in hiragana {おてもと} or as
+{お手元} can be written in hentaigana on some chopsticks like {御手茂登}, where as
+{茂} and {登} are hentaigana. An other example are the names in the Japanese 
+family registry \lkoseki{}.
+
+% otemoto: http://trendzatugaku.com/life/post-7344/
+% otemoto: http://komonjo.rokumeibunko.com/nyumon/otemoto.html
+
+% Kisoba: 生ki so ha (ha+dakuten) 
+% ki = 生
+% so = 𛁛 https://de.wikipedia.org/wiki/Datei:TRON_9-8356.gif   (derived from 楚)
+% ha = 𛂦 https://de.wikipedia.org/wiki/Datei:Hiragana_HA_01.svg (derived from 者)
+% ihttps://en.wiktionary.org/wiki/%F0%9B%82%A6
+% This is not even visible in pluma: It can also be added dakuten or handakuten, becoming 𛂦゙ or 𛂦゚, to represent ba or pa respectively. 
+% https://japanese.stackexchange.com/questions/29868/is-there-any-way-to-input-hentaigana-into-text-documents
+% https://ja.wikipedia.org/wiki/%E3%81%AF_(%E8%80%85%E3%81%AE%E5%A4%89%E4%BD%93%E4%BB%AE%E5%90%8D)
+% https://www.sljfaq.org/afaq/hentaigana.html
+
+\begin{figure}[H]
+\begin{center}
+\Huge
+生𛁛𛂦゙ \jhatsuon{きそば} \jtl{kisoba} % Attention: invisible chars in this line
+\end{center}
+\caption{Kisoba written in hentaigana}
+\label{fig:KisobaWrittenInHentaigana}
+\end{figure}
 
 \bigskip
 
-\textbf{Examples of \textit{Hentaigana}:}
+\textbf{Examples of \textit{hentaigana}:}
 
+\begin{table}[H]
 \begin{center}
 \JapaneseFontN
 \begin{tabular}{lcccl}
 \textbf{UCS}&\textbf{Hentaigana}&\textbf{Pronunciation}&\textbf{Derived From}&\textbf{Note} \\\hline
-1B001& 𛀁 & |ye|& 江  & Simple \\
-1B002& 𛀂 & |a| & 安  & Similar \\
-...  &... &...  &...  & \\
-1B009& 𛀉   & |i|  & 移  & Complex \\
-...  &... &...  &...  & \\
-1B01A& 𛀚 &|ka| & 可  & Unexpected pronunciation \\
-...  &... &...  &...  & \\
+1B001       & 𛀁                  & \jtl{ye}              & 江                  & Simple \\
+1B002       & 𛀂                  & \jtl{a}               & 安                  & Similar to あ\\
+...         & ...              & ...                   & ...                 & \\
+1B009       & 𛀉                  & \jtl{i}               & 移                  & Complex \\
+...         & ...              & ...                   & ...                 &  \\
+1B01A       & 𛀚                  & \jtl{ka}              & 可                  & Unexpected pronunciation \\
+...         & ...              & ...                   & ...                 & \\
 \end{tabular}
 \JapaneseDefault
 \end{center}
+\caption{Examples of hentaigana}
+\label{tab:ExamplesOfHentaigana}
+
+\end{table}
 
 Due to Japanese proposals from 2015
 \footnote{See
@@ -87,7 +116,7 @@ support \textbf{hentaigana}, entering this characters on a computer is quite
 cumbersome. In \texttt{vim} for example: enter insert mode, press
 \texttt{<CTRL+V>+U} and then the hexadecimal UCS number. Of course to actually
 see the character a correct font has to be installed. For instance the
-font\footnote{See 
+font\footnote{See
 \href{https://en.wikipedia.org/wiki/Help:Multilingual_support\#Hentaigana}{Wikipedia Help}
 for more fonts or the Wikipedia page on
 \href{https://en.wikipedia.org/wiki/Hentaigana}{Hentaigana} } \texttt{HanaMinA
