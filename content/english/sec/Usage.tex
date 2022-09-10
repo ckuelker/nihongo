@@ -1,21 +1,11 @@
+\section*{Conventions Used in this Book}\jsec{使用方法}\label{sec:ConventionsUsesInThisBook}
+\addcontentsline{toc}{section}{Conventions}
 
-% ---------------------------------------------------------------------------
-
-\phantomsection
-% [o] LABEL
-\label{para:Conventions}
-% [o] INDEX TARGET
 \ifor{kanji}{漢字}{かんじ}{Kanji}
 \ifor{hiragana}{平仮名}{ひらがな}{Hiragana}
 \ifor{katakana}{片仮名}{かたかな}{Katakana}
 \ifor{rōmaji}{ローマ字}{ろーまじ}{Rōmaji}
 \ifor{Hepburn System}{ヘボン式}{へぼんしき}{Hepburn System}
-
-\bigskip
-
-\textbf{Conventions Used in this Book}
-
-\medskip
 
 \begin{itemize}
 
@@ -39,8 +29,8 @@
         \textbf{not} given in the section or chapter heading but as soon as
         possible. If the reading is given it will be given in
         \hyperref[sec:Hiragana]{hiragana} script. To mark this reading it will
-        start with a Japanese bracket {【} and end with a Japanese bracket
-        {】}.
+        start with a Japanese bracket '{【}' and end with a Japanese bracket
+        '{】}'.
 
         \Info{Example:}{
         \begin{center} \Large Kanji {漢字} {【かんじ】} \end{center}
@@ -102,7 +92,7 @@
 %
 %       \medskip \textit{Example:} \medskip
 %
-%       The \textit{kana} letter 「ん」 or 「ン」 is phonetically pronounced differently, depending on the
+%       The \textit{kana} letter \jquotesingleja{ん} or \jquotesingleja{ン} is phonetically pronounced differently, depending on the
 %       letter context of the word.
 %
 %       \begin{tabular}{ll}
@@ -115,15 +105,34 @@
 %       \end{tabular}
 %       {\tiny\Link\textit{Source: \url{https://en.wikipedia.org/wiki/N_(kana)}}}
 
-    \item[「\ldots」]
+    \item[\jquotesingleja{\ldots}]
 
-            The graphemes \textbf{「} and \textbf{」} are Japanese quotation
-            marks. They will be used to quote someting written in Japanese.
-            This can be kanji, hiragana or katakana.
+            The graphemes '\textbf{「}' and '\textbf{」}' are Japanese
+            quotation marks. They will be used to quote something written in
+            Japanese.  This can be kanji, hiragana or katakana.
 
+            \Info{Example of Japanese quotation marks:}{
 
-            \Info{Example:}{
-            The Japanese hiragana 「あ」is written "a" in the Hepburn system.
+              The Japanese hiragana \jquotesingleja{あ}is written
+              \jquotesingle{a} in the Hepburn system.
+
             }{true}
+
+    \item[{\jpitch[br]{{ }}\jpitch[lt]{{ }}}]
+
+            A red line is used to indicate the Japanese pronunciation
+            intonation pitch. A line above a letter, character or grapheme
+            indicate a high intonation. A line below indicate a low intonation
+            and a line in-between indicate a shift in intonation.
+
+            \Info{Red intonation line example:}{
+
+              High and then low katakana {\jpitch[tr]{{ア}}\jpitch[lb]{メ}},
+              low and then high hiragana {\jpitch[br]{あ}\jpitch[lt]{め}} and
+              as a transcription high and low
+              {\jtl{\jpitch[tr]{a}\jpitch[lb]{me}}}.
+
+            }{true}
+
 
 \end{itemize}
