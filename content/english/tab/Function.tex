@@ -1,0 +1,69 @@
+% +---------------------------------------------------------------------------+
+% | content/english/tab/Function.tex                                          |
+% |                                                                           |
+% | Table of hiragana and katakana functions                                  |
+% |                                                                           |
+% | Version: 0.1.0                                                            |
+% |                                                                           |
+% | Changes:                                                                  |
+% |                                                                           |
+% | 0.1.0 2022-09-10 Christian Külker <c@c8i.org>                             |
+% |     - Initial release (moved from JapaneseWritingSystem.tex)              |
+% |                                                                           |
+% +---------------------------------------------------------------------------+
+\ifthenelse{\equal{hiragana}{\jtopic}}{%
+\begin{table}[h!]
+\centering
+\begin{tabular}{rp{15cm}}
+ 1. & Verb endings (furigana)\\
+ 2. & Adjective endings (furigana) \\
+ 3. & Words that have no kanji and are not written in katakana \\
+ 4. & Childrens books   \\
+ 5. & Educational material \\
+ 6. & Okurigana \\
+ 7. & Particles \\
+ 8. & \hyperref[sec:Manga]{Manga}\\
+ 9. & Words that have kanji, but the kanji is difficult to understand\\
+10. & Onomatopoetica\\
+11. & Transcription of kanji (for example in formulars, passports) \\
+12. & Advertising might replace kanji or katakana for estetic reasons \\
+13. & Sounds in the middle of a kanji word that are not covered by the kanji\\
+14. & Honoric prefixes\\
+15. & When one would like to be considered childish\\
+16. & Some personal names (especially female) to make them cute \\
+
+\end{tabular}
+\caption{List of hiragana roles and functions}
+\label{table:HiraganaFunction}
+\end{table}
+}{}
+
+\ifthenelse{\equal{katakana}{\jtopic}}{%
+\begin{table}[h!]
+\centering
+\begin{tabular}{rp{15cm}}
+ 1. & writing words of foreign origin\\
+ 2. & words that need to be emphasized\\
+ 3. & often indicate on-yomi in dictionaries\\
+ 4. & names of minerals \\
+ 5. & geological names \\
+ 6. & names of fauna (animals)\\
+ 7. & names of flora (plants)\\
+ 8. & partly onomatopoeias in \hyperref[sec:Manga]{manga}\\
+ 9. & sounds, like animal sounds or sounds made by humans\\
+10. & telegrams (before 1988)\\
+11. & banking system account names\\
+12. & In literature (eg. \hyperref[sec:Manga]{manga}) words being spoken in a
+(foreign) accent or "robotic" speech\\
+13. & sometimes used as Furigana\\
+14. & uncommon \hyperref[sec:Kanji]{Kanji}, eg. {皮膚科} {【ひふか】}
+"dermatologist" written as {皮フ科}\\
+15. & computer output (in 80s, before introduction of multi byte characters)\\
+16. &some personal names (especially female) (common in the past: eg.
+セツ (setsu))\\
+
+\end{tabular}
+\caption{List of katakana roles and functions}
+\label{table:KatakanaFunction}
+\end{table}
+}{}
