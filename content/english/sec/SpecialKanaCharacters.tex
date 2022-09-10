@@ -1,89 +1,139 @@
+% +---------------------------------------------------------------------------+
+% | SpecialKanaCharacters.tex                                                 |
+% |                                                                           |
+% | Collect special hiragana and katakana characters                          |
+% |                                                                           |
+% | Version: 0.1.0                                                            |
+% |                                                                           |
+% | Changes:                                                                  |
+% |                                                                           |
+% | 0.1.0 2022-08-02 Christian Külker <c@c8i.org>                             |
+% |     - Merge katakana and hiragana                                         |
+% |                                                                           |
+% +---------------------------------------------------------------------------+
+
+\ifthenelse{\equal{hiragana}{\jtopic}}{%
+\section{Special Hiragana Characters}\jsec{特別ひらがな}
+% LABEL
+\label{sec:SpecialHiraganaCharacters}
+\label{sec:SpecialKanaCharacters}
+% INDEX
+\ifor{special hiragana characters}{特別ひらがな}{とくべつひらがな}{Spezielle Hiragana Zeichen}
+}{}
+\ifthenelse{\equal{katakana}{\jtopic}}{%
 \section{Special Katakana Characters}\jsec{特別カタカナ}
-% [o] LABEL
+% LABEL
 \label{sec:SpecialKatakanaCharacters}
-% [o] INDEX
-\ifor{special Katakana characters}{特別カタカナ}{とくべつかたかな}{Spezielle Katakana Zeichen}
-\ifor{Katakana}{片仮名}{かたかな}{Katakana}
-\ifor{Gojūonzu}{五十音図}{ごじゅうおんず}{50@50 Laute Tafel}
+\label{sec:SpecialKanaCharacters}
+% INDEX
+\ifor{special katakana characters}{特別カタカナ}{とくべつかたかな}{Spezielle Katakana Zeichen}
+}{}
+% INDEX
+\ifor{hiragana}{平仮名}{ひらがな}{Hiragana}
+\ifor{gojūonzu}{五十音図}{ごじゅうおんず}{50@50 Laute Tafel}
 
-
-As mentioned before \hyperref[sec:Katakana]{Katakana} is almost like Hiragana.
-This is true for the \hyperref[sec:Gojuonzu]{Gojūonzu (50 sound table)  {五十音図}
-{【ごじゅうおんず】}} This section will show the special characters, some are
-different from the Hiragana set.
-
-Special in some sense are characters used for punctuation, like {「。」},
-{「！」} and {「？」}.  These are similar to the western counterparts but
-differ a little bit. While it is obvious for the small circle {「。」}, also
-{「！」} and {「？」} differ from the western equivalent in that sense that
-they are \textbf{centerd} and occupy more (white) space. This characters among
-other characters are used equally among Hiragana,
-\hyperref[sec:Katakana]{Katakana} and Kanji. Therefore this section will not
-further mention them.
+As mentioned before both \textbf{kana} syllables are almost the same, except
+the shape. This is especcially true for the \hyperref[sec:Gojuonzu]{gojūonzu
+(50 sound table)}. This section will show the special characters, some are
+different from the ordninary \jtopic{} set.
 
 %TODO check if point changes orientation and alignment in case of changing
-%writing direction. 
+%writing direction.
 
+\ifthenelse{\equal{hiragana}{\jtopic}}{%
+\subsection{Doubling Vowels in Hiragana}\jsubsec{ひらがなでの倍増母音}
+}{}
+\ifthenelse{\equal{katakana}{\jtopic}}{%
 \subsection{Doubling Vowels in Katakana}\jsubsec{カタカナでの倍増母音}
+}{}
 % [o] LABEL
-\label{subsec:DoublingVowelsInKatakana}
+\label{subsec:DoublingVowelsIn\jscript}
 \label{subsec:DoublingVowels}
-\label{sec:DoublingVowelsInKatakana}
+\label{sec:DoublingVowelsIn\jscript}
 \label{sec:DoublingVowels}
 % [o] INDEX
 \ifor{doubling vowels}{倍増母音}{ばいぞうぼいん}{Vokalverdopplung}
-\ifor{repition mark}{繰り返し記号}{くりかえしきごう}{Wiederholungszeichen}
-\ifor{Katakana}{片仮名}{かたかな}{Katakana}
+\ifor{repetition mark}{繰り返し記号}{くりかえしきごう}{Wiederholungszeichen}
+\ifor{hiragana}{平仮名}{ひらがな}{Hiragana}
+\ifor{katakana}{片仮名}{かたかな}{Katakana}
 
+% ひらがなでの倍増母音 【ばいぞうぼいん】
 % カタカナでの倍増母音 【ばいぞうぼいん】
 
-Special \hyperref[sec:Katakana]{Katakana} characters do also exists. The most
-important character is Chōon {長音} {【ちょうおん】} the plain iteration
-character {「ー」}, written as a stroke. It is one of the very few which
-changes orientation according the writing orientation. When writing
-\hyperref[sec:Katakana]{Katakana} from left to right the iteration character is
-horizontal, while writing \hyperref[sec:Katakana]{Katakana} from up to down it
-is vertical. The function of this character is to double the previous mora.
-This is also different from Hiragana. (For doubling als other
-\hyperref[sec:Katakana]{Katakana} caracter, refere to section
-\nameref{sec:Iteration} on page \pageref{sec:Iteration}.)
+
+\ifthenelse{\equal{hiragana}{\jtopic}}{%
+
+The usual way to double a vowl in \textbf{hiragana} is to write that hiragana
+again. In the hiragana \jquotesingleja{お} character can be doubled with either
+\jquotesingleja{お} or \jquotesingleja{お} . So \jtl{ō} becomes either
+\jquotesingleja{おお} or \jquotesingleja{おう}. There is no rule to it. This
+has to be rememberd. However in most cases \jquotesingleja{お} is doubled as
+\jquotesingleja{おお}.
+
+}{}
+\ifthenelse{\equal{katakana}{\jtopic}}{%
+
+Special \hyperref[sec:Katakana]{katakana} characters do also exists. The most
+important character is \ivoc{chōon}{長音}{ちょうおん}{Chōon} the plain
+iteration character \jquotesingleja{ー}, written as a stroke. It is one of the
+very few which changes orientation according the writing orientation. When
+writing katakana from left to right the iteration character is horizontal,
+while writing katakana from up to down it is vertical. The function of this
+character is to double the previous mora.  This is also different from
+\hyperref[sec:Hiragana]{hiragana}. (For doubling als other katakana caracter,
+refere to section \nameref{sec:Iteration} on page \pageref{sec:Iteration}.)
 
 \bigskip
 
 \CharacterExplanation{k-iteration-s}{In standard gothic fonts the
-\hyperref[sec:Katakana]{Katakana} iteration character is just a straight line
+\hyperref[sec:Katakana]{katakana} iteration character is just a straight line
 and it is not possible to understand in which direction it has to written. }
 
 \bigskip
 
 \CharacterExplanation{k-iteration-sm}{However if it is written with a different
 font or with a brush it is clearly visible that in horizontal writing it is
-written from left to right.} 
+written from left to right.}
 
+}{}
 \bigskip
-
 
 %\definecolor{orange}{rgb}{1,0.5,0}
 %\definecolor{mygreen}{rgb}{.2,1,.2}
+
+\setCJKfamilyfont{cjk-horiz-m}[Script=CJK,RawFeature=horizontal]{IPAMincho}
+\setCJKfamilyfont{cjk-horiz-g}[Script=CJK,RawFeature=horizontal]{IPAPGothic}
+%\setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=vertical]{Kozuka Gothic Pro M}
+\setCJKfamilyfont{cjk-vert-m}[Script=CJK,RawFeature=vertical]{IPAMincho}
+\setCJKfamilyfont{cjk-vert-g}[Script=CJK,RawFeature=vertical]{IPAPGothic}
 
 \bigskip
 \textit{Example:}
 
 \bigskip
 
+\begin{figure}[H]
 \begin{center}
 \begin{tabular}{p{7cm}p{7cm}}
 Katakana:&Hiragana:\\
-\Huge カ\textbf{\color{magenta}ー}ド /kaado/ &\Huge か\textbf{\color{magenta}あ}ど /kaado/\\
+\CJKfamily{cjk-horiz-h}
+\Huge カ\textbf{\color{magenta}ー}ド \jtl{kaado} &
+\Huge か\textbf{\color{magenta}あ}ど \jtl{kaado}\\
+\CJKfamily{cjk-horiz-g}
+\Huge カ\textbf{\color{magenta}ー}ド \jtl{kaado} &
+                                                \\
 \end{tabular}
 \end{center}
+\caption{Kana vowl doubling example}
+\label{fig:KanaVowlDoublingExample}
+\end{figure}
 
 \bigskip
 
-This character is very often used and makes \hyperref[sec:Katakana]{Katakana}
-for this easier then Hiragana. The long vowel ambiguity do not exist.
+This character is very often used and makes \hyperref[sec:Hiragana]{hiragana}
+for this easier then hiragana. The long vowel ambiguity do not exist.
 
-As mentioned above the orientation of the \hyperref[sec:Katakana]{Katakana}
+As mentioned above the orientation of the \hyperref[sec:Katakana]{katakana}
 iteration character changes with the direction of writing. The above example
 with different writing orientation.
 
@@ -92,22 +142,27 @@ with different writing orientation.
 
 \medskip
 
+
+\begin{figure}[H]
 \begin{center}
 \begin{tabular}{p{3.5cm}p{3.5cm}p{3.5cm}m{3.5cm}}
 horizontally&
-\setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=horizontal]{IPAPGothic}
 \mbox{
 \begin{minipage}{3.2cm}
+\CJKfamily{cjk-horiz-h}
+\Huge カ\textbf{\color{magenta}ー}ド
+\CJKfamily{cjk-horiz-g}
 \Huge カ\textbf{\color{magenta}ー}ド
 \end{minipage}
 }
 & vertically &
-%\setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=vertical]{Kozuka Gothic Pro M}
-\setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=vertical]{IPAPGothic}
 \raisebox{-.5\height}{
 \mbox{
 \rotatebox{-90}{
-\begin{minipage}{3.2cm} \CJKfamily{cjk-vert}
+\begin{minipage}{3.2cm}
+\CJKfamily{cjk-vert-m}
+\Huge カ\textbf{\color{magenta}ー}ド
+\CJKfamily{cjk-vert-g}
 \Huge カ\textbf{\color{magenta}ー}ド
 \end{minipage}
 }
@@ -116,17 +171,59 @@ horizontally&
 \\
 \end{tabular}
 \end{center}
+\caption{Katakana horizontal and vertical vowl doubling example}
+\label{fig:KatakanaHirzontalVerticalVowlDoublingExample}
+\end{figure}
+
 \medskip
 
-
-
-\subsection{Seldom Used Katakana}\jsubsec{めったに使われない片仮名}\label{subsec:SeldomlyUsedKatakana}
-
 % めったに使われない片仮名 【めったにつかわれないかたかな】
+\ifthenelse{\equal{hiragana}{\jtopic}}{%
+    \subsection{Seldom Used Hiragana}\jsubsec{めったに使われない平仮名}\label{subsec:SeldomlyUsedHiragana}
 
-Even though |wo| {「ヲ」} is part of the standard letters, since all
-particle are written in Hiragana and in this case |wo| is written {「を」}, the
-learning of {「ヲ」} can be skipped. Unless it is important to read old texts,
-like telegrams.
+\ifor{voice!new writing}{声}{こえ}{Stimme!neue Schreibweise}
+\ifor{voice!old writing}{声}{こゑ}{Stimme!alte Schreibweise}
+
+All \textbf{hiragana} mentioned in the \hyperref[sec:Gojuonzu]{gojūonzu (50
+sound table)} are used. There is no obsolete character in the table unlike the
+\textbf{katakana} \jtl{wo} \jquotesingleja{ヲ}. However sometimes one can find
+a \textbf{gojūonzu} with the additional chrarcters: \jquotesingleja{ゐ} wi,
+pronounced as \jtl{i}, and \jquotesingleja{ゑ} we, pronounced \jtl{e}, in the
+\jtl{wa} row. This characters are old characters and normally not used. It is
+safe to skip learning this characters.  Words that used to have
+\jquotesingleja{ゐ} had it replaced with \jquotesingleja{い} \jtl{i} and words
+that used to have \jquotesingleja{ゑ} had it replaced with \jquotesingleja{え}
+\jtl{e}. Examples: old \jquotesingleja{ゐる} is now written
+\jquotesingleja{いる} \jtl{iru} ({居る} - to be somewhere), old
+\jquotesingleja{こゑ} is now written as \jquotesingleja{こえ} \jtl{koe} ({声} -
+voice).
+
+}{}
+% めったに使われない平仮名 【めったにつかわれないひらがな】
+\ifthenelse{\equal{katakana}{\jtopic}}{%
+    \subsection{Seldom Used Katakana}\jsubsec{めったに使われない片仮名}\label{subsec:SeldomlyUsedKatakana}
+
+Since all particles are written in \textbf{hiragana} the particle \textit{wo},
+pronounced as \jtl{o}, is written with the hiragana \jquotesingleja{を}. The
+equivalent \textbf{katakana} wo \jquotesingleja{ヲ}, also pronounced \jtl{o},
+is part of the \hyperref[sec:Gojuonzu]{gojūonzu}, however it is not used in
+modern texts and it is not a particle. It was used in old texts (like
+telegrams). Therefore the katakana \jquotesingleja{ヲ} can be skipped to learn.
+
+\label{sec:Wi}
+\label{sec:We}
+\ifor{we}{ヱ}{エ}{we}
+\ifor{wi}{ヰ}{イ}{wi}
+
+In some cases the \textbf{gojūonzu} contain additional chrarcters:
+\jquotesingleja{ヰ} wi, pronounced as \jtl{i}, and \jquotesingleja{ヱ} we,
+pronounced \jtl{e}, in the \jtl{wa} row. This characters are old characters and
+normally not used. It is safe to skip learning this characters. Words that used
+to have \jquotesingleja{ヰ} had it replaced with \jquotesingleja{イ} \jtl{i}
+and words that used to have \jquotesingleja{ヱ} had it replaced with
+\jquotesingleja{エ} \jtl{e}.
+
+}{}
+
 
 
