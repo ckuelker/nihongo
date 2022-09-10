@@ -99,7 +99,7 @@ TITLE_VAR+=JLANGUAGEJAPANESE JVOLUME JVERSION JDATE JYEAR JMONTH JDAY
 TITLE_VAR+=JEDITION JPRINTINGS JYEARS JISBN JSERIES
 TITLE_SED:=$(foreach var,$(TITLE_VAR),s%$(var)%$($(var))%;)
 ISV:=${shell inkscape --version 2>&1|grep Inkscape|sed -e 's%Inkscape \(.*\) (.*%\1%'|sed -e 's%Inkscape \(.*\) r.*%\1%'}
-ISC:=$(shell ../t4mf/bin/t4mf-version-compare '$(ISV)' '1.0.0')
+ISC:=$(shell ../t4mf/bin/t4mf-version-compare-ok '$(ISV)' '1.0.0')
 INKSCAPE:=$(shell if [ "$(ISC)" = "OK" ]; then echo '--export-type=pdf --export-filename='; else echo '--export-pdf=';fi)
 #
 # --- [ CHECKS ] --------------------------------------------------------------
