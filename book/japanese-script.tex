@@ -13,6 +13,8 @@
 % |                                                                           |
 % | Changes:                                                                  |
 % |                                                                           |
+% |     - Kana count commands to preamble                                     |
+% |     - Move path commands to preamble                                      |
 % |     - Improve comment                                                     |
 % | 0.1.0 2022-07-08 Christian Külker <c@c8i.org>                             |
 % |     - Initial release with version as japanese-script.tex                 |
@@ -43,29 +45,6 @@
 \documentclass[makeidx=yes,version=last,paper=a4,headings=small,titlepage,makeidx,fontsize=12pt]{scrbook}
 \input{../share/preamble/standard-english}
 
-\newcommand{\jkatakanacount}{47}
-\newcommand{\jhiraganacount}{46}
-\newcommand{\jkanacount}{\ifthenelse{\equal{hiragana}{\jtopic}}{\jhiraganacount}{\jkatakanacount}}
-
-% NEW j + p (path) + [page|chap|sec|para] + [|t|l(language|tl)]
-\newcommand{\jppage}{../content/page}                  %      page
-\newcommand{\jppagel}{../content/\jlang/page}          %lang  page
-\newcommand{\jppagelt}{../content/\jlang/page/\jtopic} %lang  chapter topic
-\newcommand{\jpchap }{../content/chap}                 %      chapter
-\newcommand{\jpchapl}{../content/\jlang/chap}          %lang  chapter
-\newcommand{\jpchaplt}{../content/\jlang/chap/\jtopic} %lang  chapter topic
-\newcommand{\jpsec}{../content/sec}                    %      sections
-\newcommand{\jpsecl}{../content/\jlang/sec}            %lang  sections
-\newcommand{\jpseclt}{../content/\jlang/sec/\jtopic}   %lang  sections topic
-\newcommand{\jpsubsec}{../content/subsec}              %      subsection
-\newcommand{\jpsubsecl}{../content/\jlang/subsec}      %lang  subsection
-\newcommand{\jppara}{../content/para}                  %      paragraphs
-\newcommand{\jpparal}{../content/\jlang/para}          %lang  paragraphs
-\newcommand{\jptab}{../content/tab}                    %      tables
-\newcommand{\jptabl}{../content/\jlang/tab}            %lang  tables
-\newcommand{\jpnote}{../content/note}                  %      notes
-\newcommand{\jpnotel}{../content/\jlang/note}          %lang  notes
-
 % === [ COMMANDS ] ============================================================
 % --- [ SIMPLE COMMANDS ] -----------------------------------------------------
 \input{../share/cmd/Hletter}
@@ -94,7 +73,7 @@
 \fontspec{FreeSans}
 % === [ TITLE ] ===============================================================
 \includepdf[pages={1}]{title.pdf}
-  %\plainfootnotes
+%\plainfootnotes
 % === [ FRONT ] ===============================================================
   \frontmatter
     \pagestyle{empty}

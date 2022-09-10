@@ -14,7 +14,6 @@
 % Use as:      \jhatsuon{がな}
 % Will print:  【がな】
 \newcommand{\jhatsuon}[1]{【#1】}
-
 % INDEX - need to load before hyperref 2022-06-24
 %\usepackage{makeidx}
 %\usepackage{multind}%            more the one index (style makeindex)
@@ -371,4 +370,43 @@
 \newcommand{\jhiraganaonly}[1]{\ifthenelse{\equal{hiragana}{\jtopic}}{#1}{}}
 \newcommand{\jkatakanaonly}[1]{\ifthenelse{\equal{katakana}{\jtopic}}{#1}{}}
 
+% 2022-09-09 
+
+\ifthenelse{\equal{hiragana}{\jtopic}}{%
+  \newcommand{\jkanaletteri}{い}
+  \newcommand{\jkanalettershi}{し}
+  \newcommand{\jkanavoc}{\ivoc{hiragana}{平仮名}{ひらがな}{Hiragana}}
+  \newcommand{\jtopicopposite}{katakana}
+}{}
+\ifthenelse{\equal{katakana}{\jtopic}}{%
+  \newcommand{\jkanaletteri}{イ}
+  \newcommand{\jkanalettershi}{シ}
+  \newcommand{\jkanavoc}{\ivoc{katakana}{片仮名}{かたかな}{Katakana}}
+  \newcommand{\jtopicopposite}{hiragana}
+}{}
+
 \usetikzlibrary{matrix}
+
+\newcommand{\jkatakanacount}{47}
+\newcommand{\jhiraganacount}{46}
+\newcommand{\jkanacount}{\ifthenelse{\equal{hiragana}{\jtopic}}{\jhiraganacount}{\jkatakanacount}}
+
+% NEW j + p (path) + [page|chap|sec|para] + [|t|l(language|tl)]
+\newcommand{\jppage}{../content/page}                  %      page
+\newcommand{\jppagel}{../content/\jlang/page}          %lang  page
+\newcommand{\jppagelt}{../content/\jlang/page/\jtopic} %lang  chapter topic
+\newcommand{\jpchap }{../content/chap}                 %      chapter
+\newcommand{\jpchapl}{../content/\jlang/chap}          %lang  chapter
+\newcommand{\jpchaplt}{../content/\jlang/chap/\jtopic} %lang  chapter topic
+\newcommand{\jpsec}{../content/sec}                    %      sections
+\newcommand{\jpsecl}{../content/\jlang/sec}            %lang  sections
+\newcommand{\jpseclt}{../content/\jlang/sec/\jtopic}   %lang  sections topic
+\newcommand{\jpsubsec}{../content/subsec}              %      subsection
+\newcommand{\jpsubsecl}{../content/\jlang/subsec}      %lang  subsection
+\newcommand{\jppara}{../content/para}                  %      paragraphs
+\newcommand{\jpparal}{../content/\jlang/para}          %lang  paragraphs
+\newcommand{\jptab}{../content/tab}                    %      tables
+\newcommand{\jptabl}{../content/\jlang/tab}            %lang  tables
+\newcommand{\jpnote}{../content/note}                  %      notes
+\newcommand{\jpnotel}{../content/\jlang/note}          %lang  notes
+
