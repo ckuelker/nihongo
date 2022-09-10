@@ -1,5 +1,5 @@
 % +---------------------------------------------------------------------------+
-% | KanaPronunciation.tex                                                     |
+% | english/chap/Pronunciation.tex                                            |
 % |                                                                           |
 % | Pronounciation of hiragana and katakana.                                  |
 % |                                                                           |
@@ -7,17 +7,86 @@
 % |                                                                           |
 % | Changes:                                                                  |
 % |                                                                           |
+% | 0.1.1 2022-09-10 Christian Külker <c@c8i.org>                             |
+% |     - Rename to english/chap/Pronunciation.tex                            |
 % | 0.1.0 2020-07-10 Christian Külker <c@c8i.org>                             |
-% |     - Initial release                                                     |
+% |     - Initial release (as english/sec/KanaPronunciation.tex)              |
 % |                                                                           |
 % +---------------------------------------------------------------------------+
-\section{Pronunciation and Intonation}\jsec{発音とイントネーション}
-% [o] LABEL
-\label{sec:PronunciationAndIntonation}
-\label{sec:Pronuciation}
-\label{sec:Intonation}
-% [o] INDEX
-\ifor{pronuciation}{発音}{はつおん}{Aussprache}
+\chapter{Pronunciation}
+\label{chap:Pronunciation}\label{sec:Pronunciation}
+
+This chapter explains how to pronounce written Japanese with the focus on
+\jkanavoc. After the layout of the pronunciation structure it gives
+a  detailed view of the intonation.
+
+The \textbf{pronunciation} of \jkanavoc is exactly the same as for
+\hyperref[sec:\jscript]{\jtopic} and most sounds are very close to the Latin
+\textbf{pronunciation} but in general are \textbf{pronounced} a little shorter
+without any stress. Only the \jtl{ra} sounds, like in \jtl{ra}, \jtl{ri},
+\jtl{ru}, \jtl{re} and \jtl{ro} have no similarity in European languages.
+
+\input{\jpparal/FlappedPronunciation}
+
+The following table displays the \textbf{pronunciation} in the
+\hyperref[sec:Gojuonzu]{gojūonzu}.
+
+\input{\jptab/GojuonzuRomaji}
+
+\section{Structure}
+
+% Sound structure:
+% - mora (haku,moora)
+% - syllable
+
+A \textbf{mora}, known Japanese as \ivoc{haku}{拍}{はく}{Haku} or
+\ivoc{モーラ}{モーラ}もおら{Mōra}, is similar to a
+\hyperref[sec:Syllable]{syllable} and can be found in all languages. The plural
+form of mora is \hyperref[sec:Mora]{morae}. A mora is a timing unit of fixed
+length that is equal or shorter than a syllable. The spoken Japanese language
+structure is based on morae, rather than syllables.
+
+In Japanese each normaly sized kana is usually one mora. Also so called
+constructed sounds that consists of a normally sized kana and a small kana
+are one mora. And there some special mora that can not be pronounced by
+it self, but sill occupy one time slot.
+
+ That means that unlike English, the timing of the
+pronounciation of Japanese is equal and exact.
+
+Also unlike most European languages the writing
+and the morae have fixed ralation.
+
+The two
+Japanese scripts \textbf{hiragana} and \textbf{katakana} are based on morae.
+Therefore, instaed of using the word letter the book will use the word mora,
+when it references a Japanese sound entity and its written representation.
+
+It is possible to write Japanese with our letters. We refer to our lettes as
+Latin letters, while in Japan our letters are named Roman letters. Japanese
+sentences look very similar to European languages when writing them with Latin
+letters. Reading Japanese sentences with Latin letters has one major problem
+in regard to the Japanese pronunciation. While English, German, French and
+other European languages are based on syllables and syllables have different
+length, Japanese morae have the same length.
+
+For example is the English \jtl{i} and \jtl{shi} of different length.
+Transcribed to Japanese \jtl{i} becomes \jquotesingleja{\jkanaletteri} and
+\jtl{shi} becomes \jquotesingleja{\jkanalettershi}. Both are just a single
+letter in the Japanese script \jtopic. An English speaker usually assumes
+\jtl{i} and \jtl{shi} have different length in pronunciation. In contrary it is
+natural to assume for Japanese speaker that \jquotesingleja{\jkanaletteri} and
+\jquotesingleja{\jkanalettershi} have the same lenghth.
+
+\section{Intonation}\jsec{イントネーション}
+
+It is tempting to call the section about intonation "Eating Candy in the Rain"
+or "Using Chopsticks on the Bridge"\footnote{The author spoke about chopsticks
+in Japanese with the correct intonation and got confusing results while
+crossing a bridge with a Japanese native in the Chiba prefecture in 1994.}. Two
+things wich should be avoided during a Japanese converstion.
+
+\ifor{pronunciation}{発音}{はつおん}{Aussprache}
 \ifor{intonation}{イントネーション}{いんとねーしょん}{Betonung}
 \ifor{katakana}{片仮名}{かたかな}{Katakana}
 \ifor{hiragana}{平仮名}{ひらがな}{Hiragana}
@@ -28,7 +97,7 @@ The \textbf{pronunciation} of \hyperref[sec:Hiragana]{hiragana} is the same as
 for \hyperref[sec:Katakana]{katakana}. Therefore every
 \hyperref[sec:Syllable]{syllable}, more precise every \hyperref[sec:Mora]{mora}
 corresponds to a \hyperref[sec:\jscript]{\jtopic} character and is constructed
-as 'consonant' + 'vowel' with the exception of |n|. This system of letter for
+as 'consonant' + 'vowel' with the exception of \jtl{n}. This system of letter for
 each \hyperref[sec:Mora]{mora} makes \textbf{pronunciation} absolutely clear
 with no ambiguities. However the simplicity of \hyperref[sec:\jscript]{\jtopic}
 does not mean that \textbf{pronunciation} in Japanese is simple for English
@@ -39,15 +108,88 @@ the proper intonation and duration of Japanese \textbf{pronunciation}.
 Almost each Japanese word can be chunked into \hyperref[sec:Mora]{morae} of
 high and low pitch witch is a crucial aspect of the spoken language. Compared
 to Chinese, Japanese luckily have only two pitches: hi and low. Sometimes this
-difference can be even important for the lexis. Homophones can have for example
-a difference in pitch which make them distinguishable.  The intonation of high
-and low pitches is a crucial aspect of the spoken language. One of the biggest
+difference can be even important for the lexis. Words with exactly the same
+kana writings but different kanji can have
+a difference in pitch which make them distinguishable. The intonation of high
+and low pitches is a crucial aspect of the spoken language.
+
+{
+\begin{table}[H]
+  \begin{center}
+    \setlength{\fboxsep}{.2ex}
+    \bgroup
+      \def\arraystretch{1.2}%  1 is the default
+      \begin{tabular}{llllll}
+        \textbf{English}&\textbf{Japanese}&
+        \multicolumn{1}{p{2cm}}{\textbf{Intonation rōmaji}}&
+        \multicolumn{1}{p{2cm}}{\textbf{Intonation hiragana}}&
+        \multicolumn{1}{p{2cm}}{\textbf{Intonation katakana}}&\textbf{Remark}\\
+        Rain    &雨      &\jtl{\jpitch[tr]{a}\jpitch[lb]{me}}&\jpitch[tr]{あ}\jpitch[lb]{め}&\jpitch[tr]{ア}\jpitch[lb]{メ}&\\
+        Sky     &天      &\jtl{\jpitch[tr]{a}\jpitch[lb]{me}}&\jpitch[tr]{あ}\jpitch[lb]{め}&\jpitch[tr]{ア}\jpitch[lb]{メ}&\\
+        Candy   &飴／あめ&\jtl{\jpitch[br]{a}\jpitch[lt]{me}}&\jpitch[br]{あ}\jpitch[lt]{め}&\jpitch[br]{ア}\jpitch[lt]{メ}&Usually kanji is not used\\
+        American&アメ&\jtl{ame}&あ{ }め&ア{ }メ&Slang\\
+      \end{tabular}
+    \egroup
+    \caption{Intonation of \jtl{ame}}
+    \label{tab:IntonationOfAme}
+  \end{center}
+\end{table}
+}
+
+The \hyperref[tab:IntonationOfAme]{above} example of \jtl{ame} looks simple. A
+given Japanese word of two morae can have one intonation or the other or in
+some cases none (either heigh or low). And it seems that one kanji can only
+have one intonation per pronunciation. However that is not true. A given kanji
+like \jquotesingleja{橋} \hyperref[tab:IntonationOfHashi]{for example} can have
+more than one intonation, depending on its meaning and context.
+
+{
+\begin{table}[H]
+  \begin{center}
+    \setlength{\fboxsep}{.2ex}
+    \bgroup
+      \def\arraystretch{1.2}%  1 is the default
+      \begin{tabular}{llllll}
+        \textbf{English}&\textbf{Japanese}&
+        \multicolumn{1}{p{2cm}}{\textbf{Intonation rōmaji}}&
+        \multicolumn{1}{p{2cm}}{\textbf{Intonation hiragana}}&
+        \multicolumn{1}{p{2cm}}{\textbf{Intonation katakana}}&\textbf{Remark}\\
+        Edge     &端    &\jtl{\jpitch[br]{ha}\jpitch[lt]{shi}}&\jpitch[br]{は}\jpitch[lt]{し}&\jpitch[br]{ハ}\jpitch[lt]{シ}&\\
+        Bridge   &橋    &\jtl{\jpitch[br]{ha}\jpitch[lt]{shi}}&\jpitch[br]{は}\jpitch[lt]{し}&\jpitch[br]{ハ}\jpitch[lt]{シ}&\\
+        Hashi    &橋    &\jtl{\jpitch[tr]{ha}\jpitch[lb]{shi}}&\jpitch[tr]{は}\jpitch[lb]{し}&\jpitch[tr]{ハ}\jpitch[lb]{シ}&Family name\\
+        Chopstick&箸    &\jtl{\jpitch[tr]{ha}\jpitch[lb]{shi}}&\jpitch[tr]{は}\jpitch[lb]{し}&\jpitch[tr]{ハ}\jpitch[lb]{シ}&Usually \jquotesingleja{お箸}\\
+        Stairs   &階；梯&\jtl{\jpitch[tr]{ha}\jpitch[lb]{shi}}&\jpitch[tr]{は}\jpitch[lb]{し}&\jpitch[tr]{ハ}\jpitch[lb]{シ}&\\
+        Beak     &嘴    &\jtl{\jpitch[tr]{ha}\jpitch[lb]{shi}}&\jpitch[tr]{は}\jpitch[lb]{し}&\jpitch[tr]{ハ}\jpitch[lb]{シ}&\\
+        Persia   &波斯  &\jtl{\jpitch[tr]{ha}\jpitch[lb]{shi}}&\jpitch[tr]{は}\jpitch[lb]{し}&\jpitch[tr]{ハ}\jpitch[lb]{シ}&Old Chinese name of Iran\\
+      \end{tabular}
+    \egroup
+    \caption{Intonation of \jtl{hashi}}
+    \label{tab:IntonationOfHashi}
+  \end{center}
+\end{table}
+}
+
+
+As Japanese is a context sensitive language make sure you do not talk about
+candy in the rain or about chopsticks while crossing a bridge.
+
+It is also true that the intonation varies among areas in Japan. The Tokyo area
+is considered standard when it comes to intonation. Other areas can have
+different intonations or the complete opposite intonation. When it comes to
+intonation training, it is advised to train intonation with a native speaker
+from Kanto region or a person who speaks the standard intonation. Nonetheless,
+if this is not possible, the next best thing to do is to learn only
+\textbf{one} other intonation and not a mixture of different intonations. If a
+consistency in the intonation origin can not obtained, it might be better to
+skip the training altogether.
+
+One of the biggest
 problems for obtaining a natural sounding \textbf{pronunciation} is the
 incorrect intonation. Many European or American learners speak without paying
 attention to the correct pitch. That makes the speech sound non-natural for
 Japanese. In some language course try to let the learner memorize the natural
 pitch of a word or even teach rules for memorization. While there is clearly a
-possibility for linguistic rules, they are hard to remember and master.  It is
+possibility for linguistic rules, they are hard to remember and master. It is
 still possible to learn the correct intonation by resorting to language
 learning techniques used by infants or small children: mimicking native
 Japanese speakers. Therefore it is highly advised to expose oneself to as many
@@ -69,17 +211,11 @@ artificial sources like anime or commercials.
 
 \bigskip
 
-The \textbf{pronunciation} of \hyperref[sec:Katakana]{katakana} is exactly the
-same as for \hyperref[sec:\jscript]{\jtopic} and most sounds are very close to
-the Latin \textbf{pronunciation} but in general are \textbf{pronounced} a
-little shorter without any stress. Only the \jtl{ra} sounds, like in \jtl{ra},
-\jtl{ri}, \jtl{ru}, \jtl{re} and \jtl{ro} have no similarity in European
-languages.
+\section{Pronunctiation}\jsec{発音}
 
-\input{\jpparal/FlappedPronunciation}
 
-The following table displays the \textbf{pronunciation} in the
-\hyperref[sec:Gojuonzu]{gojūonzu}.
 
-\input{\jptab/GojuonzuRomaji}
+
+
+
 
