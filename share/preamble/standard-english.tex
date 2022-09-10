@@ -370,7 +370,27 @@
 \newcommand{\jhiraganaonly}[1]{\ifthenelse{\equal{hiragana}{\jtopic}}{#1}{}}
 \newcommand{\jkatakanaonly}[1]{\ifthenelse{\equal{katakana}{\jtopic}}{#1}{}}
 
-% 2022-09-09 
+% 2022-09-10
+
+\newcommand{\jquotesingleja}[1]{{「#1」}}    %「あ」
+%\newcommand{\jquotesingleen}[1]{‘#1’}        % ‘…’ Font do not look good in SanSerif
+\newcommand{\jquotesingleen}[1]{'#1'}        % '…'
+%\newcommand{\jquotedoubleen}[1]{“#1”}        % “…” Font do not look good in SanSerif
+\newcommand{\jquotedoubleen}[1]{"#1"}        % "…"
+\newcommand{\jquotesinglede}[1]{‚#1‘}        % ‚…‘
+\newcommand{\jquotedoublede}[1]{„#1“}        % „…“
+\newcommand{\jquotefrenchsinglede}[1]{›#1‹}  % ›…‹
+\newcommand{\jquotefrenchdoublede}[1]{»#1«}  % »…«
+\newcommand{\jquotesingle}[1]{%
+    \ifthenelse{\equal{ngerman}{\jlang}}{%
+        \jquotesinglede{#1}
+    }{%
+        \jquotesingleen{#1}
+    }%
+}%
+\newcommand{\jquotedouble}[1]{\ifthenelse{\equal{ngerman}{\jlang}}{\jquotedoublede{#1}}{\jquotedoubleen{#1}}}
+
+% 2022-09-09
 
 \ifthenelse{\equal{hiragana}{\jtopic}}{%
   \newcommand{\jkanaletteri}{い}
