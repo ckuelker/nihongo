@@ -1,61 +1,110 @@
-    \begin{center}
-        \textbf{Back-Cover Text:}
-        \begin{tabular}{|l|}\hline
-            \begin{minipage}{140mm}\medskip\footnotesize
+% +---------------------------------------------------------------------------+
+% | frontispiece                                                              |
+% +---------------------------------------------------------------------------+
+\begingroup
+\vspace*{100pt}
 
-                The original version of this book was written by
-                \textbf{Christian Külker} and was copyrighted 2000-2006,
-                2013-2014 and 2020 under the GNU-FDL version 1.2 or any later
-                version published by the Free Software Foundation with only the
-                back cover text as invariant section. From 2020 on it is
-                published under GNU-FDL version 1.2 or any later version
-                published by the Free Software Foundation with \textbf{no}
-                invariant section.\medskip
+\begin{flushleft}
+\fontsize{12pt}{12pt}\selectfont\sffamily
+\textbf{Other Ressources}
+\vspace*{18pt}
 
-                Original PDF:
-                \href{https://github.com/ckuelker/nihongo/tree/master/pub/}{https://github.com/ckuelker/nihongo/tree/master/pub}
+\fontsize{12pt}{12pt}\selectfont\sffamily
+\begin{tabular}{ l l }
+\textbf{\sffamily Latest PDF:} &\texttt{\href{https://github.com/ckuelker/nihongo/tree/master/pub/}{https://github.com/ckuelker/nihongo/tree/master/pub}}\\
+\textbf{\sffamily Source code:} &\texttt{\href{https://github.com/ckuelker/nihongo/}{https://github.com/ckuelker/nihongo}}\\
+\textbf{\sffamily Web page:} &\texttt{\href{https://christian.kuelker.info/nihongo/}{https://christian.kuelker.info/nihongo}}\\
+\end{tabular}
 
-                Source Code:
-                \href{https://github.com/ckuelker/nihongo/}{https://github.com/ckuelker/nihongo}
+\vspace*{24pt}
+\fontsize{12pt}{12pt}\selectfont\sffamily
+\textbf{A Short History}\\
+\vspace*{18pt}
 
-                Web site:
-                \href{https://christian.kuelker.info/nihongo/}{https://christian.kuelker.info/nihongo}
+\newcommand{\jfontsizenine}{\fontsize{9pt}{9pt}\selectfont\sffamily}
 
-                \flushright  Christian Külker, Bielefeld, \jdate, \texttt{v-\jversion}
+{
+\fontsize{9pt}{9pt}\selectfont\sffamily
+The initial versions \texttt{v0.1-v0.8} of this book have been written between
+2000 and ⁠2006 by \textbf{Christian Külker} with the title
+\textbf{日本語を書こう！} (German: \textit{Lasst uns Japanisch schreiben!}) and
+have been released under the “GNU-FDL version 1.2 or any later version
+published by the Free Software Foundation with the invariant \textit{Back Cover
+Text} section”.  It was developed as reference and training book for the
+language course at the VHS Halle (Ravensberg) in Germany starting in the year
+2000.\medskip
 
-                \medskip
+In 2013 Christian Külker changed the title to \textbf{日本語の書き方：片仮名}
+in Japanese and \textbf{The Japanese Script: Katakana} in English and
+translated also the content to English as well. He modified the content towards
+a self study approach that was released as \texttt{v0.9} to the public under
+the same license as PDF under \url{http://christian.kuelker.info} as well as in
+source under \url{https://github.com/ckuelker/nihongo}\medskip
 
-            \end{minipage}\\ \hline
-        \end{tabular}
-    \end{center}
-    \bigskip
+The versions \texttt{v1.0-v1.2} updated the content and changed the build
+system as well as some graphics to compile under Debian 10 Buster. Some fonts
+have been changed.\medskip
 
+Beginning in 2022 the build system was migrated to Debian 11 Bullseye and
+merged with additional parts of the Hiragana book v1.2 from 2014
+\textbf{日本語の書き方：ひらがな} (German: Die japanische Schrift). The result
+translated to English was released in 2022 as \texttt{v1.2}. The release
+dropped the invariant section and replaced it with this section \textit{A Short
+History}. Consequently the license changed to “GNU-FDL version 1.2 or any later
+version published by the Free Software Foundation with \textbf{no} invariant
+section”. The URL changed to \url{https://christian.kuelker.info/nihongo/}
+
+}
+\medskip
+
+\begin{center}
 \footnotesize
+\begin{tabular}{lll}
+\textbf{Version}&\textbf{Year}&\textbf{Title}\\
+v1.2&2022&Nihongo 2 - Japanese Script 日本語の書き方 Katakana 片仮名\\
+v1.1&2020&Nihongo 2 - Japanese Script 日本語の書き方 Katakana 片仮名\\
+v1.0&2020&Nihongo 2 - Japanese Script 日本語の書き方 Katakana 片仮名\\
+v0.9&2013&Nihongo 2 - Japanese Script 日本語の書き方 Katakana 片仮名\\
+v0.1-v0.8&2000-2006&日本語を書こう！ Lasst uns Japanisch schreiben!\\
+\end{tabular}
+\end{center}
 
-\textbf{Changes:}
+\fontsize{12pt}{12pt}\selectfont\sffamily
+\textbf{Changes}
 
-\texttt{v1.2 2022}: Content was updated, errors corrected, typos and formats
-improved. URLs changed from http to https. Changed index from \texttt{multind}
-to \texttt{imakeindex}. Tested under Debian 11 Bullseye with Texlive-2022.
+{\jfontsizenine
+\begin{description}\jfontsizenine
+        \setlength{\itemsep}{0pt}%
+        \setlength{\parskip}{0pt}%
 
-\texttt{v1.1 2020}: The invariant section clause of the GNU-FDL was dropped.
-Typos, space, grammar and small layout changes have been made.
+        \item[\jfontsizenine\texttt{v1.2}]\jfontsizenine 2022: Add frontispiece, halftitle, title
+                and update title page. Adding content from the hiragana book.
 
-\texttt{v1.0 2020}: The source code was changed to compile under Debian 10
-Buster. Some fonts have been changed in the appendix.
+        \item[\jfontsizenine\texttt{v1.1}]\jfontsizenine 2020: The invariant section clause of the
+                GNU-FDL was dropped.  Typos, space, grammar and small layout
+                changes have been made.
 
-\texttt{v0.9 2014}: Initial publicly released version as Katakana only book.
-The title was changed to \textbf{日本語の書き方：片仮名} (English: \textit{The
-Japanese Script - Katakana}) and adopted to a self study approach.
+        \item[\jfontsizenine\texttt{v1.0}]\jfontsizenine 2020: The source code was changed to
+                compile under Debian 10 Buster. Some fonts have been changed in
+                the appendix.
 
-\texttt{v0.1 - v0.8}: Published internally as \textbf{日本語を書こう！}
-(German: \textit{Lasst uns Japanisch schreiben!}). It was developed as
-reference and training book for the language course at the VHS Halle
-(Ravensberg) in Germany starting year 2000. It was published 2003, 2004 and
-2006 under the GNU FDL.
+        \item[\jfontsizenine\texttt{v0.9}]\jfontsizenine 2013:  Initial
+                publicly released version as Katakana only book.  The title was
+                changed to \textbf{日本語の書き方：片仮名} (English:
+                \textit{The Japanese Script - Katakana}) and adopted to a self
+                study approach.
 
+        \item[\jfontsizenine\texttt{v0.1–v1.8}] 2000–2006: Published internally
+                as \textbf{日本語を書こう！} (German: \textit{Lasst uns
+                Japanisch schreiben!}). It was developed as reference and
+                training book for the language course at the VHS Halle
+                (Ravensberg) in Germany starting year 2000. It was published
+                2003, 2004 and 2006 under the GNU FDL.
 
-%    In case you have the original book, please write to
-%    \href{mailto:christian.kuelker@cipworx.org}{christian.kuelker@cipworx.org}
-%    for hints, suggestions, thanks, complains.
+\end{description}
+}
+\end{flushleft}
+\endgroup
+\clearpage
+\newpage
 
