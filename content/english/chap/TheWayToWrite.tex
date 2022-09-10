@@ -1,5 +1,17 @@
+% +---------------------------------------------------------------------------+
+% | english/chap/TheWayToWrite.tex                                            |
+% |                                                                           |
+% | Katakana or hiragana specific information                                 |
+% |                                                                           |
+% | Version: 0.1.0                                                            |
+% |                                                                           |
+% | Changes:                                                                  |
+% |                                                                           |
+% | 0.1.0 2022-09-10 Christian Külker <c@c8i.org>                             |
+% |     - Initial version (disable input KanaPronunciation)                   |
+% |                                                                           |
+% +---------------------------------------------------------------------------+
 
-% ===========================================================================
 \ifthenelse{\equal{hiragana}{\jtopic}}{%
 \chapter{The Way to Write Hiragana}\jchap{平仮名の書き方}
 % [o] LABEL
@@ -110,7 +122,7 @@ they are fixed for the time being.
 Therefore in commercials, \hyperref[sec:Manga]{manga} and literature describing
 foreign concepts \textbf{katakana} has a over proportional usage.
 
-\input{\jpsecl/KanaPronunciation}
+%\input{\jpsecl/KanaPronunciation}
 \input{\jpsecl/WritingLetters}
 %\input{../share/sec/WritingKatakanaSentences}
 \input{\jpsecl/SpecialKanaCharacters}
