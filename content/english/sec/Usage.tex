@@ -9,11 +9,11 @@
 
 \begin{itemize}
 
-    \item[\Link]
+    \item[\Large\Link]
 
         External hyperlinks are marked with a blue arrow.
 
-        \Info{Example:}{
+        \Info{\textbf{External} hyperlink:}{
         \begin{center}
 
             Please look at the download page for this document, if there is a
@@ -23,37 +23,52 @@
         \end{center}
         }{true}
 
-    \item[{【}\ldots{】}]
+    \item[\Large\jhatsuon{\ldots}]
 
         The reading of Japanese characters (\hyperref[sec:Kanji]{kanji}) are
         \textbf{not} given in the section or chapter heading but as soon as
         possible. If the reading is given it will be given in
-        \hyperref[sec:Hiragana]{hiragana} script. To mark this reading it will
+        \hyperref[sec:\jscript]{\jtopic} script. To mark this reading it will
         start with a Japanese bracket '{【}' and end with a Japanese bracket
         '{】}'.
 
-        \Info{Example:}{
-        \begin{center} \Large Kanji {漢字} {【かんじ】} \end{center}
+        \Info{\textbf{Japanese} reading:}{
+
+          \begin{center} 
+
+                  \Large Kanji {漢字} \jhiraganaonly{\jhatsuon{かんじ}}
+                  \jkatakanaonly{\jhatsuon{カンジ}}
+
+          \end{center}
         }{true}
 
         \medskip
 
-    \item[\jtl{\ldots}]
+    \item[\Large\jtl{\ldots}]
 
-         If readings, \textbf{transliteration} of Japanese are also given in
-         \hyperref[sec:Romaji]{rōmaji} according to the
-         \hyperref[sec:Hepburn]{Hepburn system}, this is indicated by an
-         \textit{angle bracket} '\textlangle{}' at the beginning of the reading
-         (transliteration) and an \textit{angle bracket} at the end
-         '\textrangle{}'.
+         A Reading (\textbf{transliteration}) of a \jtopic{} or a kanji is
+         given in the Latin alphabet, the so called
+         \hyperref[sec:Romaji]{rōmaji}. The rules of this transliteration are
+         according to the \hyperref[sec:Hepburn]{Hepburn system}. To indicate
+         this, the transliteration is fenced by a \textit{angle bracket}
+         '\textlangle{}' at the beginning of the reading and an \textit{angle
+         bracket} at the end '\textrangle{}' of the reading.
+
 %        This follow the International Phonetic Alphabet (IPA)
 %        rules of \Link
 %        \href{https://en.wikipedia.org/wiki/International_Phonetic_Alphabet#Brackets_and_transcription_delimiters}{brackets
 %        and transcription delimiters}.
 
-        \Info{Example:}{
-        \begin{center} First hiragana letter \Large {あ} {\jtl{a}} \end{center}
-        \begin{center} First katakana letter \Large {ア} {\jtl{a}} \end{center}
+         \Info{\textbf{Transcription}:}{
+
+        \begin{center}
+
+           The first \jtopic{} letter \Large \jhiraganaonly{{あ}}
+           \jkatakanaonly{{ア}} \normalsize is transcibed as \Large {\jtl{a}}
+           \normalsize in the Hepburn system.
+
+        \end{center}
+
         }{true}
 
 % Remark: The problem of using phonemic and phonetic transcription is that it
@@ -105,31 +120,32 @@
 %       \end{tabular}
 %       {\tiny\Link\textit{Source: \url{https://en.wikipedia.org/wiki/N_(kana)}}}
 
-    \item[\jquotesingleja{\ldots}]
+    \item[\Large\jquotesingleja{\ldots}]
 
             The graphemes '\textbf{「}' and '\textbf{」}' are Japanese
             quotation marks. They will be used to quote something written in
             Japanese.  This can be kanji, hiragana or katakana.
 
-            \Info{Example of Japanese quotation marks:}{
+            \Info{Japanese \textbf{quotation} marks:}{
 
-              The Japanese hiragana \jquotesingleja{あ}is written
-              \jquotesingle{a} in the Hepburn system.
+              The Japanese hiragana \Large \jquotesingleja{あ} \normalsize is
+              written \jquotesingle{a} in the Hepburn system and transcribed as
+              \jtl{a} to indicate that the Hepburn system was used.
 
             }{true}
 
-    \item[{\jpitch[br]{{ }}\jpitch[lt]{{ }}}]
+    \item[\Large{\jpitch[br]{{X}}\jpitch[lt]{{Y}}}]
 
-            A red line is used to indicate the Japanese pronunciation
+            A \textbf{red} line is used to indicate the Japanese pronunciation
             intonation pitch. A line above a letter, character or grapheme
             indicate a high intonation. A line below indicate a low intonation
             and a line in-between indicate a shift in intonation.
 
-            \Info{Red intonation line example:}{
+            \Info{Red \textbf{intonation} line example:}{
 
-              High and then low katakana {\jpitch[tr]{{ア}}\jpitch[lb]{メ}},
-              low and then high hiragana {\jpitch[br]{あ}\jpitch[lt]{め}} and
-              as a transcription high and low
+              High and then low in katakana {\jpitch[tr]{{ア}}\jpitch[lb]{メ}},
+              low and then high in hiragana {\jpitch[br]{あ}\jpitch[lt]{め}}
+              and as a transcription high and low
               {\jtl{\jpitch[tr]{a}\jpitch[lb]{me}}}.
 
             }{true}
