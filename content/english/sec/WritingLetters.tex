@@ -1,28 +1,52 @@
-% ---------------------------------------------------------------------------
-\section{Writing Katakana Letters}\jsec{片仮名を一つづつ書く}
-% [o] LABEL
-\label{sec:WritingKatakanaLetters}
-% [o] INDEX
-% DESTINATION (DEF)
-\ifor{Katakana}{片仮名}{かたかな}{Katakana} % TARGET
+% +---------------------------------------------------------------------------+
+% | WritingLetters.tex                                                        |
+% |                                                                           |
+% | Description.                                                              |
+% |                                                                           |
+% | Version: 0.1.0 (change inline)                                            |
+% |                                                                           |
+% | Changes:                                                                  |
+% |                                                                           |
+% | 0.1.0 2022-08-01 Christian Külker <c@c8i.org>                             |
+% |     - Initial release                                                     |
+% |                                                                           |
+% +---------------------------------------------------------------------------+
+\ifthenelse{\equal{hiragana}{\jtopic}}{%
+    % TODOD [ ] add Hiragana examples (look at the German version)
+    \section{Writing Hiragana Letters}\jsec{平仮名を一つづつ書く}
+    % LABEL
+    \label{sec:WritingLetters}
+     % TARGET
+    \ifor{katakana}{片仮名}{かたかな}{Katakana}
+    % INDEX
+    % DESTINATION (DEF)
+}{}
+\ifthenelse{\equal{katakana}{\jtopic}}{%
+    \section{Writing Katakana Letters}\jsec{片仮名を一つづつ書く}
+    % LABEL
+    \label{sec:WritingLetters}
+    % TARGET
+    \ifor{katakana}{片仮名}{かたかな}{Katakana}
+    % INDEX
+    % DESTINATION (DEF)
+}{}
 
-Writing \textit{Katakana words} start with writing single \textit{Katakana
-letters}. Knowing the writing and reading of \textit{Katakana letters} is
+Writing \textbf{\jtopic{} words} start with writing single \textbf{\jtopic{}
+letters}. Knowing the writing and reading of \textbf{\jtopic{} letters} is
 essential to pronounce foreign words in Japanese correctly. And that is even
 more important for learners who have good English knowledge, because it is very
 tempting to pronounce English words in Japanese with original English
 pronunciation, which is seldom understood\footnote{The reader might try to
-order a cheeseburger at a fast food restaurant insted of a /chiizubaagaa/
-(チーズバーガー).} by Japanese people who are used to their Japanese-English
-pronunciation.
+order a cheeseburger at a fast food restaurant insted of a
+\jtl{chiizubaagaa} (チーズバーガー).} by Japanese people who are used to
+their Japanese-English pronunciation.
 
-By learning \textit{Katakana} the understanding of morae and syllables will
+By learning \textbf{\jtopic{}} the understanding of morae and syllables will
 also help to improve the pronunciation and understanding of Japanese.
 
-\textit{Katakana} as most letters are a joint combination of strokes. For the
-writing of \textit{Katakana} some rules are important, which are presented here
-out of order.
-
+\textbf{\jtopic{}} as most letters are a joint combination of strokes. For the
+writing of \textbf{\jtopic{}} some rules are important, which are presented
+here out of order.
 
 \begin{description}
 
@@ -34,38 +58,40 @@ found.
 or order of strokes is the correct one.  Often from left upper corner to right
 lower corner. But exceptions do exist.
 
-\item[The characters (letters) are \textit{not} symmetric.]
+\item[The characters (letters) are \textbf{not} symmetric.]
 
 \item[All characters (letters) occupy a square.]
 
 \item[The aesthetic:] What make the character to a beautiful character? The
 answer is different for each character.
 
-Following some possibilities of rule generation for the character ``u''
- {「ウ」 }:
+% TODO: see German http://localhost:8005/en_US/Japanese/Books/Hiragana/japanische-schrift-hiragana-v1.2.pdf
 
-\bigskip \CharacterExplanation{u-guide2}{The most important feature is that the
-second and third line do not align. This is not an accident.}
+Following some possibilities of rule generation for the character
+\jquotesingle{u} \jquotesingleja{ウ}:
 
-\bigskip \CharacterExplanation{u-guide0}{Except many
-\hyperref[sec:Hiragana]{Hiragana} for some \textit{Katakana} the base line is
-aligned with horizon. As with this character. }
+%\bigskip \CharacterExplanation{u-guide2}{The most important feature is that the
+%second and third line do not align. This is not an accident.}
 
-
-\bigskip \CharacterExplanation{u-guide1}{Also the start (or turning) points of
-all other lines are aligned vertically. Which gives this \textit{Katakana} its
-unique square look.}
+%\bigskip \CharacterExplanation{u-guide0}{Except many
+%\hyperref[sec:\jscript{}]{\jtopic{}} for some \textbf{\jtopic{}} the base line is
+%aligned with horizon. As with this character. }
 
 
-\bigskip \CharacterExplanation{u-guide}{All together some lines need to be
-remembered to write the letter beautiful.}
+%\bigskip \CharacterExplanation{u-guide1}{Also the start (or turning) points of
+%all other lines are aligned vertically. Which gives this \textbf{\jtopic{}} its
+%unique square look.}
+
+
+%\bigskip \CharacterExplanation{u-guide}{All together some lines need to be
+%remembered to write the letter beautiful.}
 
 \bigskip
 
 \item[A different logic:] A little bit less the
-\hyperref[sec:Hiragana]{Hiragana}, but also in \textit{Katakana} there are some
-lines that do not align horizontally  or vertically. Or to say it differently
-some characters are not straight on purpose.
+        \hyperref[sec:\jscript{}]{\jtopic{}}, but also in \textbf{\jtopic{}}
+        there are some lines that do not align horizontally  or vertically. Or
+        to say it differently some characters are not straight on purpose.
 
 \end{description}
 
@@ -75,14 +101,14 @@ letter it is (easier) possible to learn faster and memorize it.
 
 %----------------------------------------------------------------------------
 \subsection{Stroke Order Matter!}\jsubsec{書き順事項}
-% [o[ LABEL
+% LABEL
 \label{sec:StrokeOrderMatter}
 % [o] INDEX
 
-Some European individualists might ask themselves \textit{"Why do I have to
-remember the order of strokes - I don't obay this in my language - and who
-defined this in the first place (if not me)?"} and this seems obvious in
-Europe. However some reason for order exist.
+Some European individualists might ask themselves \textit{\jquotedouble{Why do
+I have to remember the order of strokes - I don't obay this in my language -
+and who defined this in the first place (if not me)?}} and this seems obvious
+in Europe. However some reason for order exist.
 
 % 書き順事項 【かきじゅんじこう】
 
@@ -109,31 +135,33 @@ characters become a candidate for wrong interpretation.
 
 \newpage
 %----------------------------------------------------------------------------
-\subsection{Example /u/ }\jsubsec{{「ウ」の例} }
+\subsection{Example \jtl{u} }\jsubsec{{\jquotesingleja{ウ}の例} }
 % [o] LABEL
 \label{subsec:ExampleU}
 % [o] INDEX
 
-The \textit{Katakana} /u/ is written as {「ウ」} in Japanese. The character is
-composed out of the following three components:
+The \textbf{\jtopic{}} \jtl{u} is written as \jquotesingleja{ウ} in Japanese.
+The character is composed out of the following three components:
 
+% TODO
 \bigskip
-\CharacterExplanation{uds1}{This is stroke 1}
+%\CharacterExplanation{uds1}{This is stroke 1}
 \bigskip
-\CharacterExplanation{uds2}{This is stroke 2}
+%\CharacterExplanation{uds2}{This is stroke 2}
 \bigskip
-\CharacterExplanation{uds3}{This is stroke 3}
+%\CharacterExplanation{uds3}{This is stroke 3}
 
 Of course the strokes need to be at the right place. So better always think or
 draw a frame aound. Or even better write the strokes into a frame from the
 beginning!
 
+% TODO
 \bigskip
-\CharacterExplanation{udss1}{This is stroke 1 in a square frame}
+%\CharacterExplanation{udss1}{This is stroke 1 in a square frame}
 \bigskip
-\CharacterExplanation{udss2}{This is stroke 2 in a square frame}
+%\CharacterExplanation{udss2}{This is stroke 2 in a square frame}
 \bigskip
-\CharacterExplanation{udss3}{This is stroke 3 in a square frame}
+%\CharacterExplanation{udss3}{This is stroke 3 in a square frame}
 
 
 %\begin{center}
@@ -146,12 +174,13 @@ beginning!
 This components have to be written in the above mentioned enumeration order one
 after another. (The first example is without frame)
 
+% TODO
 \bigskip
-\CharacterExplanation{udg1}{This is stroke 1 in context}
+%\CharacterExplanation{udg1}{This is stroke 1 in context}
 \bigskip
-\CharacterExplanation{udg2}{This is stroke 2 in context}
+%\CharacterExplanation{udg2}{This is stroke 2 in context}
 \bigskip
-\CharacterExplanation{udg3}{This is stroke 3 in context}
+%\CharacterExplanation{udg3}{This is stroke 3 in context}
 
 %\begin{center}
 %\textbf{Stroke 1:} \includegraphics[trim= 00 15 00 00]{../share/katakana/udg1.pdf}
@@ -161,16 +190,17 @@ after another. (The first example is without frame)
 %\textbf{Stroke 3:} \includegraphics[trim= 00 15 00 00]{../share/katakana/udg3.pdf}
 %\end{center}
 
+% TODO
 \bigskip
-\CharacterExplanation{udgs1}{This is stroke 1 in context in a square frame}
+%\CharacterExplanation{udgs1}{This is stroke 1 in context in a square frame}
 \bigskip
-\CharacterExplanation{udgs2}{This is stroke 2 in context in a square frame}
+%\CharacterExplanation{udgs2}{This is stroke 2 in context in a square frame}
 \bigskip
-\CharacterExplanation{udgs3}{This is stroke 3 in context in a square frame}
+%\CharacterExplanation{udgs3}{This is stroke 3 in context in a square frame}
 
 \bigskip
 
-In the \textit{Katakana} training section in this document the order will be
+In the \textbf{\jtopic{}} training section in this document the order will be
 introduced as red numbers and arrows which give the approximate direction where
 to place the writing device.
 
@@ -179,10 +209,11 @@ to place the writing device.
 %\end{center}
 \bigskip
 
-\CharacterExplanation{us}{Write the first short stroke straight from up to
-down. Then - and this is difficult, place the second stroke in the correct
-distance from the first one. Luckily this is also a straight stroke from up to
-down. }
+% TODO
+%\CharacterExplanation{us}{Write the first short stroke straight from up to
+%down. Then - and this is difficult, place the second stroke in the correct
+%distance from the first one. Luckily this is also a straight stroke from up to
+%down. }
 
 \bigskip
 
@@ -193,12 +224,13 @@ beauty.
 
 \bigskip
 
-\CharacterExplanation{uss}{The first stroke in the frame is not difficult, as
-mentioned before it goes from straight up to down. However the frame helps because now
-we understood that it is centered. The second stroke becomes also easier in a
-frame because it is written at the edge of the character. After some time and
-experience this is better understood. The last stroke has to join the first and
-second stroke. That is still difficult with or without a frame.}
+% TODO
+%\CharacterExplanation{uss}{The first stroke in the frame is not difficult, as
+%mentioned before it goes from straight up to down. However the frame helps
+%because now we understood that it is centered. The second stroke becomes also
+%easier in a frame because it is written at the edge of the character. After
+%some time and experience this is better understood. The last stroke has to join
+%the first and second stroke. That is still difficult with or without a frame.}
 
 \bigskip
 
@@ -211,16 +243,16 @@ second stroke. That is still difficult with or without a frame.}
 % [o] INDEX
 \ifor{stroke types}{筆画の種類}{ひっかくのしゅるい}{Strich Typen}
 \ifor{stroke}{筆画}{ひっかく}{Strich}
-\ifor{Hiragana}{平仮名}{ひらがな}{Hiragana}
+\ifor{hiragana}{平仮名}{ひらがな}{Hiragana}
 \ifor{Kanji}{漢字}{かんじ}{Kanji}
 
-In European language there is no idea to have different \textit{stroke} types
+In European language there is no idea to have different \textbf{stroke} types
 unless one enter the field of calligraphy. In Japanese there are different kind
-of \textit{strokes}.  Most important for \hyperref[sec:Kanji]{Kanji}, second
-important for \hyperref[sec:Hiragana]{Hiragana} and least important for
-\textit{Katakana} since \textit{Katakana} is also used for a bold replacement.
-Due to this fact the five different type of Japanese \textit{strokes}
+of \textbf{strokes}.  Most important for \hyperref[sec:Kanji]{Kanji}, second
+important for \hyperref[sec:\jscript{}]{\jtopic{}} and least important for
+\textbf{katakana} since \textbf{katakana} is also used for a bold replacement.
+Due to this fact the five different type of Japanese \textbf{strokes}
 ({筆画の種類} {【ひっかくのしゅるい】}) will not repeated here. For now it is
-perfectly fine to make all \textit{strokes} equally thick.
+perfectly fine to make all \textbf{strokes} equally thick.
 
 
