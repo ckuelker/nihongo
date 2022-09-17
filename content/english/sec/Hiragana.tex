@@ -1,8 +1,29 @@
-% ---------------------------------------------------------------------------
-\section{Hiragana}\jsec{平仮名}
-% [o] LABEL
-\label{sec:Hiragana}
-% [o] INDEX
-\ifor{hiragana}{平仮名}{ひらがな}{Hiragana}
+% +---------------------------------------------------------------------------+
+% | content/english/sec/Hiragana.tex                                          |
+% |                                                                           |
+% | A section about hiragana providing background information.                |
+% |                                                                           |
+% | Version: 0.1.0                                                            |
+% |                                                                           |
+% | Changes:                                                                  |
+% |                                                                           |
+% | 0.1.0 2022-09-18 Christian Külker <c@c8i.org>                             |
+% |     - Initial versioned release (fixes in time, and others)               |
+% |                                                                           |
+% +---------------------------------------------------------------------------+
 
-\input{\jpparal/Hiragana}
+\section{Hiragana}\label{sec:Hiragana}\jsec{平仮名}
+
+\ifor{hiragana}{平仮名}{ひらがな}{Hiragana}
+\ifor{katakana}{片仮名}{かたかな}{Katakana}
+
+TODO
+
+\begin{figure}[H]
+\begin{center}
+% https://upload.wikimedia.org/wikipedia/commons/7/7a/Hiragana_origin.svg 
+\includesvg{../share/ei/Hiragana_origin}
+\caption{Hiragana Origin}
+\label{fig:HiraganaOrigin} % Label after caption: https://www.overleaf.com/learn/latex/Referencing_Figures
+\end{center}
+\end{figure}
