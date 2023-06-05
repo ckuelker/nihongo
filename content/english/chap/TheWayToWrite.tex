@@ -3,10 +3,12 @@
 % |                                                                           |
 % | Katakana or hiragana specific information                                 |
 % |                                                                           |
-% | Version: 0.1.0                                                            |
+% | Version: 0.1.1                                                            |
 % |                                                                           |
 % | Changes:                                                                  |
 % |                                                                           |
+% | 0.1.1 2023-06-05 Christian Külker <c@c8i.org>                             |
+% |     - Improve English writing                                             |
 % | 0.1.0 2022-09-10 Christian Külker <c@c8i.org>                             |
 % |     - Initial version (disable input KanaPronunciation)                   |
 % |                                                                           |
@@ -39,63 +41,62 @@
 \ifor{kanji}{漢字}{かんじ}{Kanji}
 
 This chapter explains how to read and write \jkanavoc. After introducing the
-sound structure, the traditional way to display and order \jtopic is
-presented. A short part lists functions of \jtopic, what \jtopic
-is used for. The following section introduces very briefly the pronounciation.
-As this book focus' on writing the major part of the sections teaches
-about how to write \jtopic and inform about special \jtopic as well as general
-punctuation. The last part is about seldomly used \jtopic.
-
+sound structure, the traditional way of displaying and ordering \jtopic is
+presented. A short section lists the functions of \jtopic, what \jtopic is used
+for. The following section briefly introduces the pronunciation. Since this
+book focuses on writing, the majority of the sections teach how to write
+\jtopic and inform about special \jtopic as well as general punctuation. The
+last part is about rarely used \jtopic.
 
 \jscript{} derived from \textbf{Chinese} characters, called
 \hyperref[sec:Kanji]{kanji}. All \jtopic{} together form a complete phonetic
-script with less than 50 letters (or morae). With this script all Japanese
-words can be written.
+script with less than 50 characters (or morae). This script can be used to
+write all Japanese words.
 
 \ifor{gojūonzu}{五十音図}{ごじゅうおんず}{50@50 Laute Tafel}
 
-The collection of \textbf{\jtopic} is usually displayed in the
+The \textbf{\jtopic} collection is usually displayed in the
 \hyperref[sec:Gojuonzu]{gojūonzu} (lit. table of fifty sounds), a grid of 10x5
-fields in which the characters are displayed. Even though nominally the
-\hyperref[sec:Gojuonzu]{gojūonzu} is containing 50 characters the grid is not
-completely occupied. Additionally there is also one character added to the end.
-So with five columns and one extra letter, the current number of
-\textbf{\jtopic} is 46. %
+fields in which the characters are displayed. Although the
+\hyperref[sec:Gojuonzu]{gojūonzu} nominally contains 50 characters, the grid is
+not completely filled. There is also an extra character at the end. So with
+five columns and one extra character, the current number of \textbf{\jtopic} is
+47. %
 \ifthenelse{\equal{hiragana}{\jtopic}}{
 The script has no character for doubling a vowel (which would not be displayed
-in the \hyperref[sec:Gojuonzu]{gojūonzu}) anyways. Unlike \textbf{katakaka}
-with 47, \textbf{hiragana} has 46 distinct characters, still below 50.
+in the \hyperref[sec:Gojuonzu]{gojūonzu} anyway). Unlike \textbf{katakaka} with
+47, \textbf{hiragana} has 46 different characters, still under 50.
 }{}%
 \ifthenelse{\equal{katakana}{\jtopic}}{
-If we would count also the character for doubling a vowel (which is sadly not
-displayed in the \hyperref[sec:Gojuonzu]{gojūonzu}). Unlike \textbf{hiragana}
-with 46, \textbf{katakana} has 47 distinct characters, still below 50.
+If we count the character for doubling a vowel (which is unfortunately not
+shown in the \hyperref[sec:Gojuonzu]{gojūonzu}). Unlike \textbf{hiragana} with
+46, \textbf{katakana} has 47 different characters, still under 50.
 }{}%
 
 \input{\jptab/Gojuonzu}
 
 This document is structured according to the \hyperref[sec:Gojuonzu]{gojūonzu},
-five \textbf{\jtopic} will be introduced in one section to be learned together.
+five \textbf{\jtopic} are introduced in one section to be learned together.
 
 \ifor{space character}{空白文字}{くうはく･もじ}{Leerzeichen}
 \ifor{homophone}{同音異語}{どうおん･いご}{Homophon}
 \ija{同音語}
 
-Even though \textbf{\jtopic} can be used by its own to express the complete
-content of the Japanese language it is seldom used as such. Using all Japanese
+Although \textbf{\jtopic} can be used by itself to express the complete content
+of the Japanese language, it is rarely used as such. The use of all Japanese
 scripts \textbf{hiragana}, \textbf{katakana} and \hyperref[sec:Kanji]{kanji}
-has the advantage to see word borders easily and render the
-\hyperref[sec:SpaceCharacter]{space character} obsolete. So a Japanese
-\textbf{\jtopic} sentence with \textbf{\jtopic} only and without a
-\hyperref[sec:SpaceCharacter]{space character} is hardly understandable,
-because it is impossible to distinguish words. However even if the
-\hyperref[sec:SpaceCharacter]{space character} would be introduced as in Roman
+has the advantage that word boundaries can be easily seen and the
+\hyperref[sec:SpaceCharacter]{space character} is unnecessary. So a Japanese
+\textbf{\jtopic} sentence with only \textbf{\jtopic} and no
+\hyperref[sec:SpaceCharacter]{space character} is hard to understand because it
+is impossible to distinguish words. However, even if
+\hyperref[sec:SpaceCharacter]{space character} were introduced as in Roman
 languages, Japanese has so many \hyperref[sec:Homophone]{homophones} that it
-would be still very difficult to impossible to understand sentences.
-Esspeccially \hyperref[sec:Kanji]{kanji} give context and meaning. Therefore
-the booundaries of script types (\hyperref[sec:Hiragana]{hiragana},
-\hyperref[sec:Katakana]{katakana} and \hyperref[sec:Kanji]{kanji}) are
-the most significant indicator for word boundaries.
+would still be very difficult to impossible to understand sentences.
+Especially \hyperref[sec:Kanji]{kanji} give context and meaning. Therefore, the
+boundaries of script types (\hyperref[sec:Hiragana]{hiragana},
+\hyperref[sec:Katakana]{katakana}, and \hyperref[sec:Kanji]{kanji}) are the
+most important indicators of word boundaries.
 
 \ifor{hiragana}{平仮名}{ひらがな}{Hiragana}
 \ifor{katakana}{片仮名}{かたかな}{Katakana}
@@ -106,10 +107,10 @@ the most significant indicator for word boundaries.
 \phantomsection
 \label{sec:role}
 
-In the Japanese written language each script has a role. The role of
-\textbf{\jtopic} changed over the time. The last big change was after the end
-of World War II and \textbf{\jtopic} got the roles it still has up to date and
-they are fixed for the time being.
+In the Japanese written language, each character has a role. The role of
+\textbf{\jtopic} has changed over time. The last big change was after the end
+of World War II and \textbf{\jtopic} got the roles it still has today and they
+are fixed for the time being.
 
 \bigskip
 
@@ -119,10 +120,11 @@ they are fixed for the time being.
 
 \ifor{manga}{漫画}{まんが}{Manga}
 
-Therefore in commercials, \hyperref[sec:Manga]{manga} and literature describing
-foreign concepts \textbf{katakana} has a over proportional usage.
+Therefore, in commercials, \hyperref[sec:Manga]{manga} and literature
+describing foreign concepts, \textbf{katakana} has a over proportionate use.
 
 %\input{\jpsecl/KanaPronunciation}
 \input{\jpsecl/WritingLetters}
 %\input{../share/sec/WritingKatakanaSentences}
 \input{\jpsecl/SpecialKanaCharacters}
+
