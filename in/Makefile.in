@@ -6,10 +6,12 @@
 # | - support Hiragana                                                        |
 # | - support languages                                                       |
 # |                                                                           |
-# | Version: 0.1.6 (change inline MAKEFILE_VERSION)                           |
+# | Version: 0.1.7 (change inline MAKEFILE_VERSION)                           |
 # |                                                                           |
 # | Changes:                                                                  |
 # |                                                                           |
+# | 0.1.7 2024-03-11 Christian Külker <c@c8i.org>                             |
+# |     - Enable --shell-escape (needed for svg package to create a PDF)      |
 # | 0.1.6 2022-09-07 Christian Külker <c@c8i.org>                             |
 # |     - Support Inkscape version x < 1.0.0 > y                              |
 # |     - Add dependency to t4mf                                              |
@@ -68,7 +70,8 @@ STATE+=JTITLEJAPANESE.tex JSUBTITLEJAPANESE.tex JLANGUAGEJAPANESE.tex
 STATE+=JTITLEORIGINAL.tex JSUBTITLEORIGINAL.tex JLANGUAGEORIGINAL.tex
 STATE+=JDEDICATION.tex JLC.tex JREVISION.tex JDATE.tex JYEAR.tex JMONTH.tex
 STATE+=JDAY.tex JEDITION.tex JPRINTINGS.tex JYEARS.tex JISBN.tex
-LATEX:=xelatex
+# 1.needed due to include *.svg via \usepackage[inkscapearea=page]{svg} ?
+LATEX:=xelatex --shell-escape
 # MKIDX=makeindex -c # now \package{imakeidx}
 XVERSION:=$(shell xelatex -version|egrep -e '^XeTeX')
 SRC:=$(wildcard japanese*.tex)
