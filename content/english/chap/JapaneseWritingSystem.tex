@@ -1,3 +1,17 @@
+% +---------------------------------------------------------------------------+
+% | content/english/chap/JapaneseWritingSystem.tex                            |
+% |                                                                           |
+% | Describe the Japanese writing system: Kanji, Kana (Katakana, Hiragana).   |
+% |                                                                           |
+% | Version: 0.1.0                                                            |
+% |                                                                           |
+% | Changes:                                                                  |
+% |                                                                           |
+% | 0.1.0 2022-09-10 Christian Külker <c@c8i.org>                             |
+% |     - First version release (change section, input path)                  |
+% |                                                                           |
+% +---------------------------------------------------------------------------+
+
 % ===========================================================================
 \chapter{Japanese Writing System}\jchap{日本語の書き方}
 \ithree{Japanese Writing System}{日本語の書き方}{Japanisches Schrift System}
@@ -101,22 +115,21 @@ mixture of alphabets is named \textbf{kanji-kana-majiri-bun}
 \hyperref[sec:Hiragana]{hiragana}. Each of the scripts are introduced in the
 following sections.
 
-\section*{\textit{Kanji}}
-\input{../content/para/\jlang/Kanji}
+\section{Kanji}
+\input{\jpparal/Kanji}
 
-
-\section*{\textit{Hiragana}}
-\input{../content/para/\jlang/Hiragana}
+\section{Hiragana}
+\input{\jpparal/Hiragana}
 
 \ifthenelse{\equal{hiragana}{\jtopic}}{\textbf{Hiragana} will be introduced in
 detail in the next chapter \nameref{chap:TheWayToWriteHiragana}}{}
 
-\section*{\textit{Katakana}}
-\input{../content/para/\jlang/Katakana}
+\section{Katakana}
+\input{\jpparal/Katakana}
 
 \ifthenelse{\equal{katakana}{\jtopic}}{\textbf{Katakana} will be introduced in
 detail in the next chapter \nameref{chap:TheWayToWriteKatakana}.}{}
 
-\section*{\textit{Roman/ Latin/ Indian-Arabic Characters}}
-\input{../content/para/\jlang/Romaji}
+\section{Roman/ Latin/ Indian-Arabic Characters}
+\input{\jpparal/Romaji}
 
