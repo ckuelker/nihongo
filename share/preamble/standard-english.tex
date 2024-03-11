@@ -285,8 +285,9 @@
 %     \jchap{STRING} - adds a toc entry for the chapter
 %     \jsec{STRING}  - adds a toc entry for the chapter
 %
+%\usepackage[titles]{tocloft}
 \usepackage{tocloft}
-\newlistof[part]{answer}{ans}{Table of Contents}
+%\newlistof[part]{answer}{ans}{Table of Contents}
 
 \newcommand{\listjtocname}{Japanese: Contents - 目次}
 \newlistof[part]{jchapter}{jtoc}{\listjtocname}
@@ -312,6 +313,13 @@
 \newlistentry[section]{jsubsection}{jtoc}{1}
 \newcommand{\jsubsec}[1]{%
 \addcontentsline{jtoc}{jsubsection}{\protect\numberline{\thesubsection}#1}
+}
+% --- jterm (add list at Terminology.tex)% TODO: remove space before list
+%          cntr          ext    title
+\newlistof{jterminology}{jterm}{}% creates \listofjterminology
+\newcommand{\jterm}[1]{%
+%                    ext    cntr          content
+    \addcontentsline{jterm}{jterminology}{\protect\numberline{} #1}%
 }
 
 \makeatletter
@@ -435,3 +443,5 @@
 \newcommand{\jpnote}{../content/note}                  %      notes
 \newcommand{\jpnotel}{../content/\jlang/note}          %lang  notes
 
+
+\usepackage[inkscapearea=page]{svg}
