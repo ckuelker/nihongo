@@ -19,3 +19,72 @@ Especially when they have no context.
 \end{figure}
 
 
+\begin{tikzpicture}
+    % Draw the Katakana character ウ
+    \node[scale=5] at (-0.5,0) {\textcolor{black}{ウ}};
+    \node[scale=5] at (2,0) {\textcolor{black}{→}};
+    %\node[scale=5, rotate=55 ] at (10,0) {\textcolor{black}{ウ}};
+    %\node[scale=5, rotate=145 ] at (5,0) {\textcolor{black}{ウ}};
+    \node[scale=5, rotate=205 ] at (4.5,0) {\textcolor{black}{ウ}};
+    \node[scale=5] at (7,0) {\textcolor{black}{→}};
+    \draw[thick, dashed, red] (3.5,-0.8) -- (5.5,-0.8);
+    % Overlay a sideways blue 'U'
+    %\node[scale=5, rotate=145, text=blue] at (0,0) {U};
+    \node[scale=5, text=orange] at (9.5,0) {U};
+\end{tikzpicture}
+
+ウ (U): This character looks like a 'U' turned sideways. Imagine it as a 'U'
+that's been tipped over. The small dash on the top can be seen as a little
+support to keep the 'U' from falling down.
+
+\begin{tikzpicture}
+    % Draw the Katakana character フ
+    \node[scale=5] at (-0.5,0) {\textcolor{black}{フ}};
+
+    % Overlay the flag pole
+    \draw[ultra thick, orange] (-1,0.8) -- (-1,-2); % flag pole
+\end{tikzpicture}
+
+フ (Fu): Think of this character as a flag blowing in the wind. The two lines
+are the edges of the flag, fluttering to the right. The little dash on the left
+is the flagpole. This image can help you remember the sound 'Fu' as it sort of
+mimics the sound of a flag flapping in the wind.
+
+% Idea 1 - a bit too complex
+%\begin{tikzpicture}
+%    % Draw the Katakana character ワ
+%    \node[scale=5] at (-0.5,0) {\textcolor{black}{ワ}};
+%    \node[scale=5] at (1.5,0) {\textcolor{black}{→}};
+%    \node[scale=5, rotate=270] at (3.5,0) {\textcolor{black}{ワ}};
+%    \node[scale=5] at (5.5,0) {\textcolor{black}{→}};
+%    \node[scale=5, rotate=270] at (7.5,0) {\textcolor{black}{ワ}};
+%    \node[scale=5, rotate=270, yscale=-1] at (9.5,0) {\textcolor{black}{ワ}};
+%    \node[scale=5] at (11.5,0) {\textcolor{black}{→}};
+%    % todo: x=x-0.5
+%    \node[scale=5, rotate=270] at (14,0) {\textcolor{black}{ワ}};
+%    \node[scale=5, rotate=270, yscale=-1] at (15.5,0) {\textcolor{black}{ワ}};
+%    \draw[ultra thick, blue] (13.2,0.3) to[bend right] (16.3,0.3); % smile
+%
+%    % Overlay the smiley face
+%    \draw[ultra thick, red] (-0.5,-0.5) to[bend left] (0.5,-0.5); % smile
+%    \draw[ultra thick, blue] (-0.5,-0.5) to[bend right] (0.5,-0.5); % smile
+%
+%    \draw[ultra thick, red] (0,0) -- (0,0.5); % nose
+%\end{tikzpicture}
+
+% Idea 2
+\hspace*{10mm}
+%\begin{minipage}{\textwidth}
+\begin{minipage}{\dimexpr\textwidth-10mm\relax}
+\begin{tikzpicture}
+    \node[scale=5] at (3.4,0) {\textcolor{black}{ワ}};
+    \draw[ultra thick, orange] (1.0,0.7) to[bend right=90] (4.0,0.7); % smile
+    \draw[ultra thick, orange] (1.0,0.7) arc (180:360:1.5); % half-circle arc
+    \draw[ultra thick, orange] (2.9,0) -- (2.9,0.5); % nose
+\end{tikzpicture}
+\end{minipage}
+
+ワ (Wa): This character can be seen as a simplified smiley face. The two
+strokes combine to make a sort of smile (with the longer stroke being the mouth
+and the shorter one, a nose). It's like a happy face saying "Wa!" in delight.
+
