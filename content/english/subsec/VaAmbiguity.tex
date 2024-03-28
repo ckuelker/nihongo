@@ -1,11 +1,13 @@
 % VaAmbiguity
 \subsection{\jtl{va}  Ambiguity} \label{subsec:VaAmbiguity}
 
-The \jtl{va} ambiguity is mostly not a letter difficulty, it is a sound
-representation problem. The Rōmaji \jtl{va} can be written in many different
-ways and that is true for some other characters of the \jtl{wa} row too. The
-lack of standardization and consistency make it hard to guess how one should
-write a certain word with this sound.
+The \jtl{va} sound ambiguity is mostly not a letter difficulty, it is a sound
+representation problem, as this sound does not naturally occur in traditional
+Japanese phonetics. Modern Japanese has adapted by using different methods to
+approximate this sound, especially for loanwords and foreign names. The Rōmaji
+\jtl{va} can be written in many different ways and that is true for some other
+characters of the \jtl{wa} row too. The lack of standardization and consistency
+make it hard to guess how one should write a certain word with this sound.
 
 \bigskip
 
@@ -14,23 +16,43 @@ write a certain word with this sound.
 \begin{tabular}{p{4cm}p{5cm}p{5cm}p{1cm}}
 %\KLETTER{so}&\KLETTER{n}&\KLETTER{ri}\\\hline
 \ifthenelse{\equal{hiragana}{\jtopic}}{%
-\textit{Hiragana}     &ゔぁ            &わ゙                &ば           \\\hline%
-\textit{Romaji}       &\texttt{va}     &\texttt{va}       &\texttt{ba}  \\%\hline
-\textit{Input}        &\texttt{va}     &                  &\texttt{ba}  \\%\hline
+\textit{Hiragana}     &ゔぁ                 &わ゙                       &ば           \\\hline%
+\textit{Romaji}       &\texttt{va}          &\texttt{va}              &\texttt{ba}  \\%\hline
+\textit{Input}        &\texttt{va}          &                         &\texttt{ba}  \\%\hline
 }{}
 \ifthenelse{\equal{katakana}{\jtopic}}{%
-\textit{Karakana}     &\textbf{ヴァ}   &ヷ                &バ           \\%
-\textit{Romaji}       &\texttt{va}     &\texttt{va}       &\texttt{ba}  \\%\hline
-\textit{Input}        &\texttt{va,ba}  &                  &\texttt{ba}  \\%\hline
+\textit{Karakana}     &\textbf{ヴァ}        &ヷ                        &バ           \\%
+\textit{Romaji}       &\texttt{va}          &\texttt{va}               &\texttt{ba}  \\%\hline
+\textit{Input}        &\texttt{va,ba}       &                          &\texttt{ba}  \\%\hline
 }{}
-\textit{Pronunciation}&usually \jtl{va}     &usually \jtl{va}     &\jtl{ba}\\%\hline
-                      &some people \jtl{ba} &older people \jtl{ba}&             \\%\hline
-                      &older people \jtl{ba}&                 &             \\%\hline
+\textit{Pronunciation}&usually \jtl{va}     &usually \jtl{va}          &\jtl{ba}     \\%\hline
+                      &some people \jtl{ba} &only older people \jtl{ba}&             \\%\hline
+                      &older people \jtl{ba}&                          &             \\%\hline
 \end{tabular}
 \end{center}
 \caption{\jtl{va} ambiguity}
 \label{tab:VaAmbiguity}
 \end{table}
+
+\begin{enumerate}
+
+    \item \textbf{ Using ヴァ (Vu + small a = U with dakuten + small a):}
+
+     ヴァイオリン (Vu + a + i + o + ri + n) - This represents the word
+     "violin." The ヴァ combination is used to create the \jtl{va} sound.
+
+    \item \textbf{Using ヷ (Wa with dakuten):}
+
+    This form is much less common and is primarily used in older texts or
+    stylistic writings. It's not typically used in standard modern Japanese.
+
+    \item \textbf{Using バ (Ba = ha with dakuten):}
+
+    バニラ (Ba + ni + ra) - This is used for the word "vanilla." In this case,
+    the "va" sound is approximated using the \jtl{ba} sound, which is closer
+    to the traditional Japanese phonetic system.
+
+\end{enumerate}
 
 \footnotesize
 \begin{verbatim}
@@ -39,4 +61,3 @@ Unicode:
 ヴ U+30F4, &#12532 KATAKANA LETTER VU; Composition: ウ [U+30A6] + ◌゙ [U+3099]
 ァ U+30A1, &#12449 KATAKANA LETTER SMALL;
 \end{verbatim}
-
