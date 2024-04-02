@@ -3,10 +3,12 @@
 % |                                                                           |
 % | Collect special hiragana and katakana characters                          |
 % |                                                                           |
-% | Version: 0.1.2                                                            |
+% | Version: 0.1.3                                                            |
 % |                                                                           |
 % | Changes:                                                                  |
 % |                                                                           |
+% | 0.1.3 2024-04-02 Christian Külker <c@c8i.org>                             |
+% |     - Improve clarity and grammar for katakana                            |
 % | 0.1.2 2024-04-02 Christian Külker <c@c8i.org>                             |
 % |     - Fix doubling hiragana (oo vs. ou)                                   |
 % | 0.1.1 2024-03-29 Christian Külker <c@c8i.org>                             |
@@ -36,10 +38,10 @@
 \ifor{hiragana}{平仮名}{ひらがな}{Hiragana}
 \ifor{gojūonzu}{五十音図}{ごじゅうおんず}{50@50 Laute Tafel}
 
-As mentioned before both \textbf{kana} syllables are almost the same, except
-the shape. This is especially true for the \hyperref[sec:Gojuonzu]{gojūonzu
-(50 sound table)}. This section will show the special characters, some are
-different from the ordinary \jtopic{} set.
+As mentioned previously, both \textbf{kana} syllables are almost identical,
+except for their shapes. This is particularly evident in the
+\hyperref[sec:Gojuonzu]{gojūonzu (50 sound table)}. This section will highlight
+the special characters, some of which differ from the standard \jtopic{} set.
 
 %TODO check if point changes orientation and alignment in case of changing
 %writing direction.
@@ -64,7 +66,6 @@ different from the ordinary \jtopic{} set.
 % ひらがなでの倍増母音 【ばいぞうぼいん】
 % カタカナでの倍増母音 【ばいぞうぼいん】
 
-
 \ifthenelse{\equal{hiragana}{\jtopic}}{%
 
 The usual way to double a vowel in \textbf{hiragana} is to write that hiragana
@@ -77,27 +78,28 @@ has to be rememberd. However in most cases \jquotesingleja{お} is doubled as
 }{}
 \ifthenelse{\equal{katakana}{\jtopic}}{%
 
-Special \hyperref[sec:Katakana]{katakana} characters do also exists. The most
-important character is \ivoc{chōon}{長音}{ちょうおん}{Chōon} the plain
-iteration character \jquotesingleja{ー}, written as a stroke. It is one of the
-very few which changes orientation according the writing orientation. When
-writing katakana from left to right the iteration character is horizontal,
-while writing katakana from up to down it is vertical. The function of this
-character is to double the previous mora.  This is also different from
-\hyperref[sec:Hiragana]{hiragana}. (For doubling also other katakana character,
-refer to section \nameref{sec:Iteration} on page \pageref{sec:Iteration}.)
+Special \hyperref[sec:Katakana]{katakana} characters also exist. The most
+important is \ivoc{chōon}{長音}{ちょうおん}{Chōon}, the plain iteration
+character \jquotesingleja{ー}, represented as a stroke. It is one of the few
+characters that change orientation according to the writing direction. When
+writing katakana horizontally (left to right), the iteration character is
+horizontal; when writing vertically (top to bottom), it is vertical. This
+character's function is to double the duration of the preceding mora, which is
+different from \hyperref[sec:Hiragana]{hiragana}. (For more on doubling using
+other katakana characters, refer to section \nameref{sec:Iteration} on page
+\pageref{sec:Iteration}.)
 
 \bigskip
 
-\CharacterExplanation{k-iteration-s}{In standard gothic fonts the
-\hyperref[sec:Katakana]{katakana} iteration character is just a straight line
-and it is not possible to understand in which direction it has to written. }
+\CharacterExplanation{k-iteration-s}{In standard gothic fonts, the
+\hyperref[sec:Katakana]{katakana} iteration character appears as a simple
+straight line, making it ambiguous in terms of writing direction.}
 
 \bigskip
 
-\CharacterExplanation{k-iteration-sm}{However if it is written with a different
-font or with a brush it is clearly visible that in horizontal writing it is
-written from left to right.}
+\CharacterExplanation{k-iteration-sm}{However, when written in different fonts
+or with a brush, it is apparent that the character should be written from left
+to right in horizontal writing.}
 
 }{}
 \bigskip
@@ -134,18 +136,18 @@ Katakana:&Hiragana:\\
 
 \bigskip
 
-This character is very often used and makes \hyperref[sec:Hiragana]{hiragana}
-for this easier then hiragana. The long vowel ambiguity do not exist.
+This character is frequently used and makes \hyperref[sec:Katakana]{katakana}
+easier to learn than hiragana. Unlike hiragana, it does not have long vowel
+ambiguity.
 
-As mentioned above the orientation of the \hyperref[sec:Katakana]{katakana}
-iteration character changes with the direction of writing. The above example
-with different writing orientation.
+As mentioned earlier, the orientation of the \hyperref[sec:Katakana]{katakana}
+iteration mark changes with the direction of writing. The preceding example
+demonstrates this with various writing orientations.
 
 \medskip
 \textit{Example:}
 
 \medskip
-
 
 \begin{figure}[H]
 \begin{center}
@@ -194,7 +196,7 @@ sound table)} are used. There is no obsolete character in the table unlike the
 a \textbf{gojūonzu} with the additional characters: \jquotesingleja{ゐ} wi,
 pronounced as \jtl{i}, and \jquotesingleja{ゑ} we, pronounced \jtl{e}, in the
 \jtl{wa} row. This characters are old characters and normally not used. It is
-safe to skip learning this characters.  Words that used to have
+safe to skip learning this characters. Words that used to have
 \jquotesingleja{ゐ} had it replaced with \jquotesingleja{い} \jtl{i} and words
 that used to have \jquotesingleja{ゑ} had it replaced with \jquotesingleja{え}
 \jtl{e}. Examples: old \jquotesingleja{ゐる} is now written
@@ -207,27 +209,28 @@ voice).
 \ifthenelse{\equal{katakana}{\jtopic}}{%
     \subsection{Seldom Used Katakana}\jsubsec{めったに使われない片仮名}\label{subsec:SeldomlyUsedKatakana}
 
-Since all particles are written in \textbf{hiragana} the particle \textit{wo},
-pronounced as \jtl{o}, is written with the hiragana \jquotesingleja{を}. The
-equivalent \textbf{katakana} wo \jquotesingleja{ヲ}, also pronounced \jtl{o},
-is part of the \hyperref[sec:Gojuonzu]{gojūonzu}, however it is not used in
-modern texts and it is not a particle. It was used in old texts (like
-telegrams). Therefore the katakana \jquotesingleja{ヲ} can be skipped to learn.
+Because all particles are written in \textbf{hiragana} the particle
+\textit{wo}, pronounced as \jtl{o}, is written with the hiragana
+\jquotesingleja{を}. The \textbf{katakana} counterpart \textit{wo},
+\jquotesingleja{ヲ}, also pronounced \jtl{o}, is included in the
+\hyperref[sec:Gojuonzu]{gojūonzu}. However it is not used in modern texts and
+it is not a particle in modern texts. It was used in old texts , such as
+telegrams, as particle. Consequently, learners can typically omit the katakana
+\jquotesingleja{ヲ} from their initial studies.
 
 \label{sec:Wi}
 \label{sec:We}
 \ifor{we}{ヱ}{エ}{we}
 \ifor{wi}{ヰ}{イ}{wi}
 
-In some cases the \textbf{gojūonzu} contain additional chrarcters:
+In some cases the \textbf{gojūonzu} contain archaic chrarcters:
 \jquotesingleja{ヰ} wi, pronounced as \jtl{i}, and \jquotesingleja{ヱ} we,
-pronounced \jtl{e}, in the \jtl{wa} row. This characters are old characters and
-normally not used. It is safe to skip learning this characters. Words that used
-to have \jquotesingleja{ヰ} had it replaced with \jquotesingleja{イ} \jtl{i}
-and words that used to have \jquotesingleja{ヱ} had it replaced with
-\jquotesingleja{エ} \jtl{e}.
+pronounced \jtl{e}, in the \jtl{wa} row. These characters are old characters
+and not used in contemporary Japanese. Therefore, it is generally unnecessary
+for learners to focus on these characters. Historically, words containing
+\jquotesingleja{ヰ} have had it replaced with \jquotesingleja{イ} (\jtl{i}),
+and those with \jquotesingleja{ヱ} have transitioned to \jquotesingleja{エ}
+(\jtl{e}).
 
 }{}
-
-
 
