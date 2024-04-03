@@ -6,10 +6,12 @@
 # | - support Hiragana                                                        |
 # | - support languages                                                       |
 # |                                                                           |
-# | Version: 0.1.7 (change inline MAKEFILE_VERSION)                           |
+# | Version: 0.1.8 (change inline MAKEFILE_VERSION)                           |
 # |                                                                           |
 # | Changes:                                                                  |
 # |                                                                           |
+# | 0.1.8 2024-04-03 Christian Külker <c@c8i.org>                             |
+# |     - Add rm -f *.jterm to clean target (list of Japanese terminology)    |
 # | 0.1.7 2024-03-11 Christian Külker <c@c8i.org>                             |
 # |     - Enable --shell-escape (needed for svg package to create a PDF)      |
 # | 0.1.6 2022-09-07 Christian Külker <c@c8i.org>                             |
@@ -225,6 +227,7 @@ clean: stateclean
 	rm -f *.snm
 	rm -f *.toc
 	rm -f *.vrb
+	rm -f *.jterm
 titleclean:
 	if [ -f $(TITLE_SVG) ];then rm $(TITLE_SVG);fi
 	if [ -f $(TITLE_PDF) ];then rm $(TITLE_PDF);fi
